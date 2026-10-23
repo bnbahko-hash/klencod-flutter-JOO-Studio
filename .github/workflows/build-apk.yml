@@ -1,4 +1,4 @@
-name: Build YOSSEF Studio Pro APK
+name: Build Flutter APK
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build Release APK (YOSSEF Edition)
+    name: Build YOSSEF Studio Pro APK
     runs-on: ubuntu-latest
 
     steps:
@@ -22,22 +22,25 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup Flutter SDK
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           cache: true
 
-      - name: Ensure Android v2 Embedding & Platform Files
+      - name: Regenerate Native Android Project Matching Installed Flutter SDK
         run: |
-          flutter create --platforms=android,web --org com.yossefhamed --project-name yossef_studio_pro .
+          rm -rf android
+          flutter create --platforms=android --org com.yossefhamed --project-name yossef_studio_pro .
+          echo "android.newDsl=false" >> android/gradle.properties
+          sed -i 's/android:label="[^"]*"/android:label="YOSSEF Studio Pro"/g' android/app/src/main/AndroidManifest.xml
           flutter pub get
 
-      - name: Build Release APK
-        run: flutter build apk --release --no-tree-shake-icons
+      - name: Build APK
+        run: flutter build apk --release --android-skip-build-dependency-validation --no-tree-shake-icons
 
-      - name: Upload YOSSEF Studio Pro APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: YOSSEF-Studio-Pro-Release-APK
+          name: YOSSEF-Studio-Pro-APK
           path: build/app/outputs/flutter-apk/app-release.apk

@@ -1,0 +1,43 @@
+name: Build YOSSEF Studio Pro APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Release APK (YOSSEF Edition)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Ensure Android v2 Embedding & Platform Files
+        run: |
+          flutter create --platforms=android,web --org com.yossefhamed --project-name yossef_studio_pro .
+          flutter pub get
+
+      - name: Build Release APK
+        run: flutter build apk --release --no-tree-shake-icons
+
+      - name: Upload YOSSEF Studio Pro APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: YOSSEF-Studio-Pro-Release-APK
+          path: build/app/outputs/flutter-apk/app-release.apk

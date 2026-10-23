@@ -1,0 +1,20 @@
+name: yossef_studio_pro
+description: "YOSSEF Studio Pro - Complete Cross-Platform AI Video & Audio Editor in Flutter. All rights reserved to YOSSEF (Developer: Yossef Hamed - WhatsApp: 01029892573)."
+publish_to: 'none'
+version: 2.8.0+2026
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

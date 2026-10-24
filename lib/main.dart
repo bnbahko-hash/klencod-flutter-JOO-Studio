@@ -1,14 +1,11 @@
 // ============================================================================
 // SPDX-License-Identifier: Proprietary-YOSSEF
 // Copyright (c) 2026 YOSSEF (يوسف حامد - Yossef Hamed). All Rights Reserved.
-// جميع الحقوق محفوظة لـ YOSSEF - المطور: يوسف حامد - للتواصل واتساب: 01029892573
+// جميع الحقوق محفوظة لـ YOSSEF - المطور: يوسف حامد - واتساب: 01029892573
 // ============================================================================
-// YOSSEF STUDIO PRO - Complete Cross-Platform Flutter Video & Audio Editor
-// Full Conversion of Concat Architecture to Flutter (Desktop, Android, iOS, Web)
-// Engine: YOSSEF Native GPU Compositor & Multi-Track Timeline Engine
-// Maximum Quality: Up to 8K UHD (7680x4320) @ 120/240 FPS, 10-bit HDR (HLG/PQ),
-//                  AV1 / HEVC (H.265) / H.264 Hardware Accelerated Pipeline.
-// BUILD v2.9.0-ULTRA-FIXED - Fully working, clean-compiling, all UI functional.
+// YOSSEF STUDIO PRO v3.0 ULTRA — Complete Cross-Platform Flutter Video/Audio Editor
+// Engine: YOSSEF Native GPU Compositor & Multi-Track Timeline Engine (v4.5)
+// Max Quality: 8K UHD @ 240 FPS · 10-bit HDR (HLG/PQ) · AV1/HEVC/H.264 HW Accel.
 // ============================================================================
 
 import 'dart:async';
@@ -22,26 +19,24 @@ void main() {
 }
 
 // ============================================================================
-// 1. BRANDING & DEVELOPER CONSTANTS
+// 1. BRANDING
 // ============================================================================
-
 class YossefBrand {
   static const String appName = 'YOSSEF Studio Pro';
   static const String shortName = 'YOSSEF';
-  static const String version = '2.9.0-ULTRA (YOSSEF Edition)';
+  static const String version = '3.0.0-ULTRA';
   static const String copyright = '© 2026 YOSSEF. جميع الحقوق محفوظة لـ YOSSEF';
   static const String developerNameAr = 'يوسف حامد';
   static const String developerNameEn = 'Yossef Hamed';
   static const String whatsappNumber = '01029892573';
   static const String whatsappInternational = '+201029892573';
   static const String whatsappUrl = 'https://wa.me/201029892573';
-  static const String engineName = 'YOSSEF Ultra GPU Engine v4.2 (10-bit HDR / 8K)';
+  static const String engineName = 'YOSSEF Ultra GPU Engine v4.5 (10-bit HDR / 8K / 240fps)';
 }
 
 // ============================================================================
-// 2. THEME & PALETTE ENGINE
+// 2. THEME
 // ============================================================================
-
 class YossefAccent {
   final String id;
   final String nameEn;
@@ -80,48 +75,36 @@ class YossefThemeData {
   });
 
   static const List<YossefAccent> darkAccents = [
-    YossefAccent(
-      id: 'lime', nameEn: 'Lime (YOSSEF Signature)', nameAr: 'ليموني (شعار YOSSEF)',
-      accent: Color(0xFFCBF53F), hover: Color(0xFFD9FF63), soft: Color(0x33CBF53F), onAccent: Color(0xFF15220A),
-    ),
-    YossefAccent(
-      id: 'sky', nameEn: 'Sky Blue', nameAr: 'أزرق سماوي',
-      accent: Color(0xFF5FB8FF), hover: Color(0xFF82C9FF), soft: Color(0x335FB8FF), onAccent: Color(0xFF061C33),
-    ),
-    YossefAccent(
-      id: 'violet', nameEn: 'Royal Violet', nameAr: 'بنفسجي ملكي',
-      accent: Color(0xFFB394FF), hover: Color(0xFFC6B0FF), soft: Color(0x33B394FF), onAccent: Color(0xFF1D0F3D),
-    ),
-    YossefAccent(
-      id: 'rose', nameEn: 'Crimson Rose', nameAr: 'وردي متوهج',
-      accent: Color(0xFFFF6FA3), hover: Color(0xFFFF8FB8), soft: Color(0x33FF6FA3), onAccent: Color(0xFF38091C),
-    ),
-    YossefAccent(
-      id: 'amber', nameEn: 'Golden Amber', nameAr: 'ذهبي كهرماني',
-      accent: Color(0xFFFFB340), hover: Color(0xFFFFC46A), soft: Color(0x33FFB340), onAccent: Color(0xFF2D1A00),
-    ),
-    YossefAccent(
-      id: 'mint', nameEn: 'Cyber Mint', nameAr: 'نعناعي رقمي',
-      accent: Color(0xFF3FDCC4), hover: Color(0xFF6AE7D4), soft: Color(0x333FDCC4), onAccent: Color(0xFF05261F),
-    ),
+    YossefAccent(id: 'lime', nameEn: 'Lime (Signature)', nameAr: 'ليموني (شعار YOSSEF)',
+        accent: Color(0xFFCBF53F), hover: Color(0xFFD9FF63), soft: Color(0x33CBF53F), onAccent: Color(0xFF15220A)),
+    YossefAccent(id: 'sky', nameEn: 'Sky Blue', nameAr: 'أزرق سماوي',
+        accent: Color(0xFF5FB8FF), hover: Color(0xFF82C9FF), soft: Color(0x335FB8FF), onAccent: Color(0xFF061C33)),
+    YossefAccent(id: 'violet', nameEn: 'Royal Violet', nameAr: 'بنفسجي ملكي',
+        accent: Color(0xFFB394FF), hover: Color(0xFFC6B0FF), soft: Color(0x33B394FF), onAccent: Color(0xFF1D0F3D)),
+    YossefAccent(id: 'rose', nameEn: 'Crimson Rose', nameAr: 'وردي متوهج',
+        accent: Color(0xFFFF6FA3), hover: Color(0xFFFF8FB8), soft: Color(0x33FF6FA3), onAccent: Color(0xFF38091C)),
+    YossefAccent(id: 'amber', nameEn: 'Golden Amber', nameAr: 'ذهبي كهرماني',
+        accent: Color(0xFFFFB340), hover: Color(0xFFFFC46A), soft: Color(0x33FFB340), onAccent: Color(0xFF2D1A00)),
+    YossefAccent(id: 'mint', nameEn: 'Cyber Mint', nameAr: 'نعناعي رقمي',
+        accent: Color(0xFF3FDCC4), hover: Color(0xFF6AE7D4), soft: Color(0x333FDCC4), onAccent: Color(0xFF05261F)),
   ];
 
   bool get accentIsCustom => accentChoice >= darkAccents.length;
 
   YossefAccent get activeTone {
     if (accentIsCustom) {
-      final hsl = HSLColor.fromColor(accentCustom);
       final lum = accentCustom.computeLuminance();
       return YossefAccent(
         id: 'custom', nameEn: 'Custom', nameAr: 'مخصص',
         accent: accentCustom,
-        hover: hsl.withLightness((hsl.lightness + 0.10).clamp(0.0, 1.0)).toColor(),
-        soft: accentCustom.withOpacity(0.20),
+        hover: HSLColor.fromColor(accentCustom)
+            .withLightness((HSLColor.fromColor(accentCustom).lightness + 0.1).clamp(0.0, 1.0))
+            .toColor(),
+        soft: accentCustom.withOpacity(0.2),
         onAccent: lum > 0.5 ? const Color(0xFF16161A) : Colors.white,
       );
     }
-    final idx = accentChoice.clamp(0, darkAccents.length - 1);
-    return darkAccents[idx];
+    return darkAccents[accentChoice.clamp(0, darkAccents.length - 1)];
   }
 
   Color get accent => activeTone.accent;
@@ -129,28 +112,29 @@ class YossefThemeData {
   Color get accentSoft => activeTone.soft;
   Color get onAccent => activeTone.onAccent;
 
-  Color get page => dark ? const Color(0xFF151517) : const Color(0xFFEBEBEF);
-  Color get panel => dark ? const Color(0xFF212123) : const Color(0xFFF7F7FA);
-  Color get raised => dark ? const Color(0xFF2B2B2E) : const Color(0xFFFFFFFF);
-  Color get well => dark ? const Color(0xFF19191B) : const Color(0xFFE2E2E8);
-  Color get field => dark ? const Color(0xFF323235) : const Color(0xFFEAEAF0);
-  Color get fieldHover => dark ? const Color(0xFF3B3B3E) : const Color(0xFFDFDFE7);
-  Color get fieldActive => dark ? const Color(0xFF46464A) : const Color(0xFFD2D2DC);
+  Color get page => dark ? const Color(0xFF131316) : const Color(0xFFEDEDF2);
+  Color get panel => dark ? const Color(0xFF1E1E22) : const Color(0xFFF8F8FB);
+  Color get raised => dark ? const Color(0xFF28282D) : const Color(0xFFFFFFFF);
+  Color get well => dark ? const Color(0xFF16161A) : const Color(0xFFE2E2EA);
+  Color get field => dark ? const Color(0xFF2F2F34) : const Color(0xFFEAEAF2);
+  Color get fieldHover => dark ? const Color(0xFF38383D) : const Color(0xFFDFDFE8);
+  Color get fieldActive => dark ? const Color(0xFF43434A) : const Color(0xFFD2D2DD);
 
-  Color get launchPage => dark ? const Color(0xFF0E0E10) : const Color(0xFFF2F2F6);
-  Color get launchPanel => dark ? const Color(0xFF161619) : const Color(0xFFFFFFFF);
-  Color get launchWell => dark ? const Color(0xFF101013) : const Color(0xFFE6E6EC);
-  Color get launchRaised => dark ? const Color(0xFF1E1E22) : const Color(0xFFF9F9FC);
-  Color get launchField => dark ? const Color(0xFF26262B) : const Color(0xFFECECF2);
+  Color get launchPage => dark ? const Color(0xFF0B0B0E) : const Color(0xFFF2F2F7);
+  Color get launchPanel => dark ? const Color(0xFF141418) : const Color(0xFFFFFFFF);
+  Color get launchWell => dark ? const Color(0xFF0E0E12) : const Color(0xFFE6E6EE);
+  Color get launchRaised => dark ? const Color(0xFF1C1C21) : const Color(0xFFF9F9FC);
+  Color get launchField => dark ? const Color(0xFF252529) : const Color(0xFFECECF2);
 
   Color get line => dark ? const Color(0x1AFFFFFF) : const Color(0x1A000000);
   Color get lineStrong => dark ? const Color(0x33FFFFFF) : const Color(0x33000000);
   Color get fg => dark ? const Color(0xFFF5F5F7) : const Color(0xFF16161A);
-  Color get fgMuted => dark ? const Color(0xFFA1A1A6) : const Color(0xFF5A5A62);
-  Color get fgDim => dark ? const Color(0xFF6E6E73) : const Color(0xFF8C8C96);
+  Color get fgMuted => dark ? const Color(0xFFA1A1A8) : const Color(0xFF5A5A62);
+  Color get fgDim => dark ? const Color(0xFF6E6E76) : const Color(0xFF8C8C96);
   Color get green => const Color(0xFF30D158);
   Color get danger => const Color(0xFFFF453A);
   Color get dangerSoft => const Color(0x24FF453A);
+  Color get warning => const Color(0xFFFFB340);
 
   Color get kindVideo => const Color(0xFF3373D1);
   Color get kindVideoWell => const Color(0xFF142238);
@@ -165,9 +149,9 @@ class YossefThemeData {
   Color get kindShape => const Color(0xFFD4A24B);
   Color get kindShapeWell => const Color(0xFF3A2D14);
 
-  Color get lane => dark ? const Color(0xFF1A1A1C) : const Color(0xFFE4E4EA);
-  Color get laneAlt => dark ? const Color(0xFF1E1E20) : const Color(0xFFEAEAF0);
-  Color get ruler => dark ? const Color(0xFF171719) : const Color(0xFFDDDDE4);
+  Color get lane => dark ? const Color(0xFF1A1A1E) : const Color(0xFFE5E5EC);
+  Color get laneAlt => dark ? const Color(0xFF1F1F23) : const Color(0xFFEBEBF2);
+  Color get ruler => dark ? const Color(0xFF141418) : const Color(0xFFDDDDE5);
   Color get playhead => playheadIsCustom ? playheadCustom : const Color(0xFFCBF53F);
 
   double get textScaleFactor {
@@ -195,24 +179,10 @@ class YossefThemeData {
   }
 }
 
-// Safe color channel helpers (avoid deprecated .red/.green/.blue)
-int _r(Color c) => (c.value >> 16) & 0xFF;
-int _g(Color c) => (c.value >> 8) & 0xFF;
-int _b(Color c) => c.value & 0xFF;
-
 // ============================================================================
 // 3. LOCALIZATION
 // ============================================================================
-
 class YossefI18n {
-  static const List<String> supportedLanguages = [
-    'العربية (YOSSEF Default)', 'English', 'Deutsch', 'Español', 'Français',
-    'Italiano', 'Nederlands', 'Polski', 'Português (Brasil)', 'Русский',
-    'Українська', 'Türkçe', 'Azərbaycanca', 'Hrvatski', 'Bahasa Indonesia',
-    'Tiếng Việt', 'ไทย', '日本語', '한국어', '简体中文', '繁體中文', 'עברית',
-    'فارسی', 'हिन्दी', 'اردو', 'বাংলা',
-  ];
-
   static String t(String key, bool isArabic) {
     final map = isArabic ? _ar : _en;
     return map[key] ?? _en[key] ?? key;
@@ -220,23 +190,18 @@ class YossefI18n {
 
   static const Map<String, String> _ar = {
     'app.title': 'استوديو YOSSEF الاحترافي',
-    'start.welcome': 'مرحباً بك في استوديو YOSSEF',
     'start.welcomeBack': 'مرحباً بعودتك في استوديو YOSSEF',
-    'start.welcomeNote': 'تحرير فيديو احترافي بدقة 8K و120 إطاراً بدون علامة مائية، يعمل بالكامل على جهازك بحقوق YOSSEF.',
+    'start.welcomeNote': 'تحرير فيديو احترافي بدقة 8K و240 إطاراً بدون علامة مائية، يعمل محلياً بحقوق YOSSEF.',
     'start.newProject': 'مشروع جديد',
     'start.newProjectNote': 'ابدأ تعديلاً جديداً بأعلى جودة 4K / 8K HDR',
     'start.openProject': 'فتح مشروع',
     'start.openProjectNote': 'استكمال مشروع محفوظ على جهازك',
     'start.recentProjects': 'المشاريع الأخيرة',
     'start.searchProjects': 'ابحث في المشاريع...',
-    'start.learnAndCommunity': 'الحقوق والتواصل والمجتمع (YOSSEF)',
-    'start.developerCardTitle': 'المطور: يوسف حامد (YOSSEF)',
-    'start.developerCardNote': 'تواصل مباشر عبر واتساب: 01029892573',
-    'start.documentation': 'دليل استوديو YOSSEF الشامل',
-    'start.documentationNote': 'شرح كامل للمؤثرات والذكاء الاصطناعي والمخطط الزمني',
-    'start.firstEdit': 'جولة البدء السريع',
-    'start.firstEditNote': 'افتح مشروعاً تجريبياً متكاملاً بجميع المسارات والمؤثرات',
-    'start.keyboardShortcuts': 'اختصارات لوحة المفاتيح',
+    'start.learnAndCommunity': 'الحقوق والتواصل والمجتمع',
+    'start.developerCardTitle': 'المطور: يوسف حامد',
+    'start.developerCardNote': 'تواصل عبر واتساب: 01029892573',
+    'start.keyboardShortcuts': 'اختصارات الكيبورد',
     'start.keyboardShortcutsNote': 'تحكم فائق السرعة في القص والتحريك',
     'common.settings': 'الضبط',
     'common.export': 'تصدير',
@@ -249,70 +214,57 @@ class YossefI18n {
     'common.transitions': 'الانتقالات',
     'common.stickers': 'الأشكال',
     'common.keyframes': 'الإطارات المفتاحية',
-    'common.inspector': 'الخصائص',
+    'common.inspector': 'خصائص',
     'common.timeline': 'المخطط',
-    'common.preview': 'المعاينة',
+    'common.preview': 'شاشة العرض',
     'common.library': 'المكتبة',
     'common.name': 'الاسم',
     'common.location': 'المجلد',
     'common.shape': 'الأبعاد',
     'common.size': 'الدقة',
-    'common.frameRate': 'الإطارات',
+    'common.frameRate': 'معدل الإطارات',
     'common.create': 'إنشاء المشروع',
     'common.cancel': 'إلغاء',
     'common.delete': 'حذف',
     'common.split': 'قص',
     'common.duplicate': 'تكرار',
-    'common.freeze': 'تجميد الإطار',
+    'common.freeze': 'تجميد',
     'common.reverse': 'عكس',
     'common.mirror': 'قلب',
-    'common.rotate': 'تدوير 90°',
+    'common.rotate': 'تدوير',
     'common.speed': 'السرعة',
     'common.adjust': 'تدرج الألوان',
-    'common.enhance': 'تحسين AI',
-    'common.mask': 'القناع الذكي',
+    'common.enhance': 'تحسين الجودة AI',
+    'common.mask': 'القناع',
     'common.cutout': 'إزالة الخلفية',
-    'common.captions': 'الترجمة AI',
+    'common.captions': 'الترجمة التلقائية',
     'common.speech': 'تحويل النص لصوت',
-    'common.voiceover': 'تعليق صوتي',
-    'settings.general': 'عام والأداء',
-    'settings.appearance': 'المظهر والألوان',
-    'settings.transcriber': 'نماذج Whisper AI',
-    'settings.speech': 'نماذج الصوت TTS',
-    'settings.vision': 'نماذج الرؤية AI',
-    'settings.automation': 'خادم الأتمتة MCP',
-    'settings.shortcuts': 'اختصارات الكيبورد',
+    'common.voiceover': 'تسجيل تعليق',
+    'settings.general': 'عام وأداء',
+    'settings.appearance': 'المظهر',
+    'settings.transcriber': 'نماذج التفريغ',
+    'settings.speech': 'نماذج الصوت',
+    'settings.vision': 'نماذج الرؤية',
+    'settings.automation': 'خادم الأتمتة',
+    'settings.shortcuts': 'الاختصارات',
     'settings.developer': 'المطور والحقوق',
-    'settings.about': 'حول النظام',
     'dev.title': 'حقوق الملكية والمطور الرسمي',
-    'dev.nameLabel': 'المطور الرسمي',
-    'dev.nameValue': 'يوسف حامد (YOSSEF HAMED)',
-    'dev.rightsLabel': 'حقوق الملكية',
-    'dev.rightsValue': 'جميع الحقوق محفوظة لـ YOSSEF © 2026',
-    'dev.whatsappLabel': 'التواصل المباشر واتساب',
-    'dev.whatsappBtn': 'تواصل عبر واتساب: 01029892573',
-    'dev.copyPhone': 'نسخ رقم الواتساب (01029892573)',
-    'dev.phoneCopied': 'تم نسخ رقم واتساب المطور يوسف حامد: 01029892573',
+    'dev.phoneCopied': 'تم نسخ رقم واتساب يوسف حامد: 01029892573',
   };
 
   static const Map<String, String> _en = {
     'app.title': 'YOSSEF Studio Pro',
-    'start.welcome': 'Welcome to YOSSEF Studio',
     'start.welcomeBack': 'Welcome back to YOSSEF Studio',
-    'start.welcomeNote': 'Ultra-quality 8K 120fps local GPU editing with zero watermarks. Exclusive rights to YOSSEF.',
+    'start.welcomeNote': 'Ultra-quality 8K 240fps local GPU editing with zero watermarks. Exclusive rights to YOSSEF.',
     'start.newProject': 'New Project',
-    'start.newProjectNote': 'Start a new cut in up to 8K HDR 120fps',
+    'start.newProjectNote': 'Start a new cut in up to 8K HDR 240fps',
     'start.openProject': 'Open Project',
     'start.openProjectNote': 'Resume a saved YOSSEF project folder',
     'start.recentProjects': 'Recent Projects',
     'start.searchProjects': 'Search projects...',
-    'start.learnAndCommunity': 'YOSSEF Rights & Developer Contact',
-    'start.developerCardTitle': 'Developer: يوسف حامد (Yossef Hamed)',
-    'start.developerCardNote': 'Direct WhatsApp Contact: 01029892573',
-    'start.documentation': 'YOSSEF Studio Documentation',
-    'start.documentationNote': 'Complete guide to GPU effects, AI models, and timeline',
-    'start.firstEdit': 'Quick Start Demo Project',
-    'start.firstEditNote': 'Open a rich multi-track showcase project',
+    'start.learnAndCommunity': 'Rights, Contact & Community',
+    'start.developerCardTitle': 'Developer: يوسف حامد (Yossef)',
+    'start.developerCardNote': 'Direct WhatsApp: 01029892573',
     'start.keyboardShortcuts': 'Keyboard Shortcuts',
     'start.keyboardShortcutsNote': 'Fast JKL scrubbing, splitting, and keyframing',
     'common.settings': 'Settings',
@@ -340,43 +292,34 @@ class YossefI18n {
     'common.delete': 'Delete',
     'common.split': 'Split',
     'common.duplicate': 'Duplicate',
-    'common.freeze': 'Freeze Frame',
+    'common.freeze': 'Freeze',
     'common.reverse': 'Reverse',
     'common.mirror': 'Mirror',
-    'common.rotate': 'Rotate 90°',
+    'common.rotate': 'Rotate',
     'common.speed': 'Speed',
     'common.adjust': 'Color Grading',
     'common.enhance': 'AI Enhance',
-    'common.mask': 'Smart Masking',
+    'common.mask': 'Mask',
     'common.cutout': 'Cutout',
     'common.captions': 'AI Captions',
-    'common.speech': 'TTS Speech',
+    'common.speech': 'AI Speech',
     'common.voiceover': 'Voiceover',
-    'settings.general': 'General & Engine',
+    'settings.general': 'General',
     'settings.appearance': 'Appearance',
-    'settings.transcriber': 'Whisper AI',
-    'settings.speech': 'TTS Models',
-    'settings.vision': 'Vision AI',
+    'settings.transcriber': 'Transcriber',
+    'settings.speech': 'Speech',
+    'settings.vision': 'Vision',
     'settings.automation': 'MCP Server',
     'settings.shortcuts': 'Shortcuts',
-    'settings.developer': 'Developer & Rights',
-    'settings.about': 'System Info',
-    'dev.title': 'Official Developer & Copyrights',
-    'dev.nameLabel': 'Lead Developer',
-    'dev.nameValue': 'يوسف حامد (Yossef Hamed)',
-    'dev.rightsLabel': 'Copyright',
-    'dev.rightsValue': 'All Rights Reserved to YOSSEF © 2026',
-    'dev.whatsappLabel': 'Direct WhatsApp',
-    'dev.whatsappBtn': 'Contact on WhatsApp: 01029892573',
-    'dev.copyPhone': 'Copy WhatsApp (01029892573)',
-    'dev.phoneCopied': 'Copied developer Yossef Hamed WhatsApp: 01029892573',
+    'settings.developer': 'Developer',
+    'dev.title': 'Developer & Copyright',
+    'dev.phoneCopied': 'Copied Yossef Hamed WhatsApp: 01029892573',
   };
 }
 
 // ============================================================================
 // 4. DATA MODELS
 // ============================================================================
-
 enum ClipKind { video, audio, image, text, filter, shape }
 enum TimelineTool { select, split, hand }
 enum PaneKind { media, preview, inspector, timeline, keyframes }
@@ -402,9 +345,6 @@ class TextPresetModel {
   final String id;
   final String name;
   final String sample;
-  final String fontFamily;
-  final FontWeight fontWeight;
-  final bool italic;
   final Color color;
   final Color? backgroundColor;
   final Color strokeColor;
@@ -412,9 +352,8 @@ class TextPresetModel {
 
   const TextPresetModel({
     required this.id, required this.name, required this.sample,
-    this.fontFamily = 'Roboto', this.fontWeight = FontWeight.w700,
-    this.italic = false, this.color = Colors.white,
-    this.backgroundColor, this.strokeColor = Colors.black, this.strokeWidth = 0.0,
+    this.color = Colors.white, this.backgroundColor,
+    this.strokeColor = Colors.black, this.strokeWidth = 0.0,
   });
 }
 
@@ -427,14 +366,11 @@ class AiModelItem {
   final int accuracy;
   bool installed;
   bool active;
-  bool downloading;
-  double progress;
 
   AiModelItem({
     required this.id, required this.family, required this.name,
     required this.note, required this.sizeText, required this.accuracy,
     this.installed = false, this.active = false,
-    this.downloading = false, this.progress = 0.0,
   });
 }
 
@@ -443,18 +379,12 @@ class AppliedEffect {
   final String name;
   bool enabled;
   double intensity;
-  double paramA;
-  double paramB;
 
   AppliedEffect({
-    required this.id, required this.name, this.enabled = true,
-    this.intensity = 80.0, this.paramA = 50.0, this.paramB = 25.0,
+    required this.id, required this.name, this.enabled = true, this.intensity = 80.0,
   });
 
-  AppliedEffect clone() => AppliedEffect(
-    id: id, name: name, enabled: enabled, intensity: intensity,
-    paramA: paramA, paramB: paramB,
-  );
+  AppliedEffect clone() => AppliedEffect(id: id, name: name, enabled: enabled, intensity: intensity);
 }
 
 class KeyframePoint {
@@ -469,15 +399,12 @@ class KeyframePoint {
   });
 
   KeyframePoint clone() => KeyframePoint(
-    timeOffset: timeOffset, value: value, property: property, easing: easing,
-  );
+        timeOffset: timeOffset, value: value, property: property, easing: easing,
+      );
 }
 
 class ColorWheelState {
-  double x;
-  double y;
-  double master;
-
+  double x, y, master;
   ColorWheelState({this.x = 0.0, this.y = 0.0, this.master = 0.0});
   ColorWheelState clone() => ColorWheelState(x: x, y: y, master: master);
 }
@@ -507,9 +434,9 @@ class TimelineClip {
   double chromaSimilarity;
 
   double speed;
-  bool keepPitch, speedCurved;
+  bool keepPitch;
+  bool speedCurved;
   String speedPreset;
-  List<Offset> speedRampPoints;
 
   double volume, fadeIn, fadeOut;
   bool denoise, enhanceVoice, normalizeLoudness;
@@ -542,44 +469,40 @@ class TimelineClip {
   List<AppliedEffect> visualChain;
   List<AppliedEffect> audioChain;
   List<KeyframePoint> keyframes;
+
   List<Color> previewColors;
 
   TimelineClip({
     required this.id, required this.name, required this.kind,
     required this.trackIndex, required this.startTime, required this.duration,
     this.sourceOffset = 0.0,
-    this.posX = 0.0, this.posY = 0.0, this.scale = 1.0,
-    this.rotation = 0.0, this.opacity = 1.0,
-    this.flipH = false, this.flipV = false, this.blendMode = 'Normal',
+    this.posX = 0.0, this.posY = 0.0, this.scale = 1.0, this.rotation = 0.0,
+    this.opacity = 1.0, this.flipH = false, this.flipV = false,
+    this.blendMode = 'Normal',
     this.canvasFillMode = 1, this.canvasBlur = 35.0,
     this.canvasColor = const Color(0xFF10141E),
-    this.maskShape = -1, this.maskFeather = 0.15,
-    this.maskRotation = 0.0, this.maskRoundness = 0.2,
-    this.maskInvert = false, this.cutoutMode = 0,
+    this.maskShape = -1, this.maskFeather = 0.15, this.maskRotation = 0.0,
+    this.maskRoundness = 0.2, this.maskInvert = false, this.cutoutMode = 0,
     this.chromaColor = const Color(0xFF00FF00), this.chromaSimilarity = 0.35,
     this.speed = 1.0, this.keepPitch = true, this.speedCurved = false,
-    this.speedPreset = 'Constant', List<Offset>? speedRampPoints,
+    this.speedPreset = 'Constant',
     this.volume = 1.0, this.fadeIn = 0.0, this.fadeOut = 0.0,
     this.denoise = false, this.enhanceVoice = false, this.normalizeLoudness = false,
     this.voiceEffect = 'None',
     this.exposure = 0.0, this.contrast = 0.0, this.saturation = 0.0,
-    this.temperature = 0.0, this.tint = 0.0, this.highlights = 0.0,
-    this.shadows = 0.0, this.vibrance = 0.0, this.sharpen = 0.0, this.vignette = 0.0,
+    this.temperature = 0.0, this.tint = 0.0, this.highlights = 0.0, this.shadows = 0.0,
+    this.vibrance = 0.0, this.sharpen = 0.0, this.vignette = 0.0,
     ColorWheelState? liftWheel, ColorWheelState? gammaWheel, ColorWheelState? gainWheel,
     this.aiEnhanced = false, this.aiUpscaleFactor = 2, this.aiEnhanceStrength = 0.85,
-    this.textContent = 'YOSSEF STUDIO PRO', this.fontFamily = 'Roboto',
-    this.fontSize = 42.0, this.textColor = Colors.white,
-    this.textStrokeColor = Colors.black, this.textStrokeWidth = 2.0,
-    this.textBackgroundPlate, this.textShadow = true,
+    this.textContent = 'YOSSEF STUDIO PRO',
+    this.fontFamily = 'Roboto', this.fontSize = 42.0,
+    this.textColor = Colors.white, this.textStrokeColor = Colors.black,
+    this.textStrokeWidth = 2.0, this.textBackgroundPlate, this.textShadow = true,
     this.shapeType = 'rectangle', this.shapeColor = const Color(0xFFCBF53F),
     this.transitionId, this.transitionName, this.transitionDuration = 0.8,
     List<AppliedEffect>? visualChain, List<AppliedEffect>? audioChain,
     List<KeyframePoint>? keyframes, List<Color>? previewColors,
-  })  : speedRampPoints = speedRampPoints ?? [
-          const Offset(0.0, 0.5), const Offset(0.3, 0.75),
-          const Offset(0.7, 0.35), const Offset(1.0, 0.5),
-        ],
-        liftWheel = liftWheel ?? ColorWheelState(),
+  })  : liftWheel = liftWheel ?? ColorWheelState(),
         gammaWheel = gammaWheel ?? ColorWheelState(),
         gainWheel = gainWheel ?? ColorWheelState(),
         visualChain = visualChain ?? [],
@@ -591,30 +514,28 @@ class TimelineClip {
 
   TimelineClip clone({String? newId}) {
     return TimelineClip(
-      id: newId ?? id, name: name, kind: kind,
-      trackIndex: trackIndex, startTime: startTime, duration: duration,
-      sourceOffset: sourceOffset, posX: posX, posY: posY, scale: scale,
-      rotation: rotation, opacity: opacity, flipH: flipH, flipV: flipV,
-      blendMode: blendMode, canvasFillMode: canvasFillMode,
-      canvasBlur: canvasBlur, canvasColor: canvasColor,
-      maskShape: maskShape, maskFeather: maskFeather,
-      maskRotation: maskRotation, maskRoundness: maskRoundness,
-      maskInvert: maskInvert, cutoutMode: cutoutMode,
+      id: newId ?? id, name: name, kind: kind, trackIndex: trackIndex,
+      startTime: startTime, duration: duration, sourceOffset: sourceOffset,
+      posX: posX, posY: posY, scale: scale, rotation: rotation, opacity: opacity,
+      flipH: flipH, flipV: flipV, blendMode: blendMode,
+      canvasFillMode: canvasFillMode, canvasBlur: canvasBlur, canvasColor: canvasColor,
+      maskShape: maskShape, maskFeather: maskFeather, maskRotation: maskRotation,
+      maskRoundness: maskRoundness, maskInvert: maskInvert, cutoutMode: cutoutMode,
       chromaColor: chromaColor, chromaSimilarity: chromaSimilarity,
-      speed: speed, keepPitch: keepPitch, speedCurved: speedCurved,
-      speedPreset: speedPreset, speedRampPoints: List<Offset>.from(speedRampPoints),
+      speed: speed, keepPitch: keepPitch, speedCurved: speedCurved, speedPreset: speedPreset,
       volume: volume, fadeIn: fadeIn, fadeOut: fadeOut,
       denoise: denoise, enhanceVoice: enhanceVoice, normalizeLoudness: normalizeLoudness,
-      voiceEffect: voiceEffect, exposure: exposure, contrast: contrast,
-      saturation: saturation, temperature: temperature, tint: tint,
-      highlights: highlights, shadows: shadows, vibrance: vibrance,
-      sharpen: sharpen, vignette: vignette,
+      voiceEffect: voiceEffect,
+      exposure: exposure, contrast: contrast, saturation: saturation,
+      temperature: temperature, tint: tint, highlights: highlights, shadows: shadows,
+      vibrance: vibrance, sharpen: sharpen, vignette: vignette,
       liftWheel: liftWheel.clone(), gammaWheel: gammaWheel.clone(), gainWheel: gainWheel.clone(),
       aiEnhanced: aiEnhanced, aiUpscaleFactor: aiUpscaleFactor, aiEnhanceStrength: aiEnhanceStrength,
       textContent: textContent, fontFamily: fontFamily, fontSize: fontSize,
       textColor: textColor, textStrokeColor: textStrokeColor,
       textStrokeWidth: textStrokeWidth, textBackgroundPlate: textBackgroundPlate,
-      textShadow: textShadow, shapeType: shapeType, shapeColor: shapeColor,
+      textShadow: textShadow,
+      shapeType: shapeType, shapeColor: shapeColor,
       transitionId: transitionId, transitionName: transitionName,
       transitionDuration: transitionDuration,
       visualChain: visualChain.map((e) => e.clone()).toList(),
@@ -635,8 +556,7 @@ class TimelineTrack {
 
   TimelineTrack({
     required this.index, required this.name,
-    this.visible = true, this.muted = false,
-    this.locked = false, this.height = 62.0,
+    this.visible = true, this.muted = false, this.locked = false, this.height = 62.0,
   });
 }
 
@@ -651,8 +571,8 @@ class MediaBinItem {
 
   const MediaBinItem({
     required this.id, required this.name, required this.kind,
-    required this.duration, required this.format,
-    required this.resolution, required this.gradient,
+    required this.duration, required this.format, required this.resolution,
+    required this.gradient,
   });
 }
 
@@ -662,91 +582,237 @@ class RecentProjectModel {
   final String detail;
   final String whenText;
   final String lengthText;
-  final double ratio;
   final List<Color> posterGradient;
 
   const RecentProjectModel({
     required this.path, required this.name, required this.detail,
-    required this.whenText, required this.lengthText,
-    required this.ratio, required this.posterGradient,
+    required this.whenText, required this.lengthText, required this.posterGradient,
   });
 }
 
 // ============================================================================
 // 5. BUILT-IN CATALOGUES
 // ============================================================================
-
 class YossefCatalogues {
   static List<CataloguePackage> buildAllPackages() {
     return [
-      CataloguePackage(id: 'yossef.film-grain', name: 'Film Grain 35mm', nameAr: 'تحبب سينمائي 35mm', kind: 'effect', category: 'Retro', description: 'Dancing logarithmic film grain.', previewGradient: [const Color(0xFF2C3E50), const Color(0xFFFD746C)], favourite: true),
-      CataloguePackage(id: 'yossef.halation', name: 'Halation Glow', nameAr: 'توهج الهاليشن', kind: 'effect', category: 'Retro', description: 'Red-orange bloom.', previewGradient: [const Color(0xFF8E2DE2), const Color(0xFFFF416C)], favourite: true),
-      CataloguePackage(id: 'yossef.bloom-pulse', name: 'Bloom Pulse HDR', nameAr: 'نبض الإضاءة HDR', kind: 'effect', category: 'Light', description: 'Rhythmic highlight bloom.', previewGradient: [const Color(0xFFF7971E), const Color(0xFFFFD200)]),
-      CataloguePackage(id: 'yossef.chromatic-aberration', name: 'Chromatic Aberration', nameAr: 'انحراف لوني', kind: 'effect', category: 'Distort', description: 'RGB channel split.', previewGradient: [const Color(0xFF00F260), const Color(0xFF0575E6)], favourite: true),
-      CataloguePackage(id: 'yossef.glow', name: 'Neon Soft Glow', nameAr: 'توهج نيون', kind: 'effect', category: 'Stylize', description: 'Dreamy glow.', previewGradient: [const Color(0xFFB721FF), const Color(0xFF21D4FD)]),
-      CataloguePackage(id: 'yossef.gaussian-blur', name: 'Gaussian Lens Blur', nameAr: 'تمويه عدسة', kind: 'effect', category: 'Blur', description: 'Smooth bokeh blur.', previewGradient: [const Color(0xFF485563), const Color(0xFF29323C)]),
-      CataloguePackage(id: 'yossef.motion-blur', name: 'Directional Motion Blur', nameAr: 'تمويه الحركة', kind: 'effect', category: 'Blur', description: 'Velocity streak blur.', previewGradient: [const Color(0xFF141E30), const Color(0xFF243B55)]),
-      CataloguePackage(id: 'yossef.zoom-blur', name: 'Radial Zoom Blur', nameAr: 'تمويه الزوم', kind: 'effect', category: 'Blur', description: 'Radial burst.', previewGradient: [const Color(0xFF614385), const Color(0xFF516395)]),
-      CataloguePackage(id: 'yossef.fisheye', name: 'Fisheye Wide Lens', nameAr: 'عين السمكة', kind: 'effect', category: 'Distort', description: 'Barrel distortion.', previewGradient: [const Color(0xFF11998E), const Color(0xFF38EF7D)]),
-      CataloguePackage(id: 'yossef.pixelate', name: 'Cyber Pixelate', nameAr: 'بكسلة رقمية', kind: 'effect', category: 'Distort', description: 'Mosaic pixel blocks.', previewGradient: [const Color(0xFFFC466B), const Color(0xFF3F5EFB)]),
-      CataloguePackage(id: 'yossef.halftone', name: 'Comic Halftone Dots', nameAr: 'نقاط كوميكس', kind: 'effect', category: 'Retro', description: 'Pop-art dots.', previewGradient: [const Color(0xFFFF9966), const Color(0xFFFF5E62)]),
-      CataloguePackage(id: 'yossef.posterize', name: 'Posterize Tones', nameAr: 'بوستر فني', kind: 'effect', category: 'Stylize', description: 'Bold tonal bands.', previewGradient: [const Color(0xFFDA4453), const Color(0xFF89216B)]),
-      CataloguePackage(id: 'yossef.vignette', name: 'Anamorphic Vignette', nameAr: 'تعتيم الحواف', kind: 'effect', category: 'Stylize', description: 'Optical falloff.', previewGradient: [const Color(0xFF0F2027), const Color(0xFF2C5364)]),
-      CataloguePackage(id: 'yossef.chroma-key', name: 'Ultra Chroma Key', nameAr: 'مفتاح الكروما', kind: 'effect', category: 'Cutout', description: 'Green/blue keyer.', previewGradient: [const Color(0xFF00B09B), const Color(0xFF96C93D)]),
-      CataloguePackage(id: 'yossef.luma-key', name: 'Luma Key', nameAr: 'مفتاح الإضاءة', kind: 'effect', category: 'Cutout', description: 'Keys by luminance.', previewGradient: [const Color(0xFF232526), const Color(0xFF414345)]),
-
-      CataloguePackage(id: 'yossef.teal-orange', name: 'Teal & Orange Blockbuster', nameAr: 'تيل وأورانج', kind: 'filter', category: 'Cinematic', description: 'Cyan shadows, warm skin.', previewGradient: [const Color(0xFF005C97), const Color(0xFFFF8008)], favourite: true),
-      CataloguePackage(id: 'yossef.cyberpunk', name: 'Cyberpunk 2099', nameAr: 'سايبربانك', kind: 'filter', category: 'Cinematic', description: 'Electric magenta + cyan.', previewGradient: [const Color(0xFFFF0099), const Color(0xFF00DBDE)], favourite: true),
-      CataloguePackage(id: 'yossef.golden-hour', name: 'Golden Hour Sunset', nameAr: 'الساعة الذهبية', kind: 'filter', category: 'Everyday', description: 'Sunset warmth.', previewGradient: [const Color(0xFFF12711), const Color(0xFFF5AF19)]),
-      CataloguePackage(id: 'yossef.classic-chrome', name: 'Classic Chrome', nameAr: 'كلاسيك كروم', kind: 'filter', category: 'Film', description: 'Documentary look.', previewGradient: [const Color(0xFF3A6073), const Color(0xFF16222A)]),
-      CataloguePackage(id: 'yossef.bleach-bypass', name: 'Bleach Bypass', nameAr: 'بليتش بايباس', kind: 'filter', category: 'Cinematic', description: 'Gritty silver.', previewGradient: [const Color(0xFF434343), const Color(0xFF000000)]),
-      CataloguePackage(id: 'yossef.vhs', name: 'VHS 1994 Tape', nameAr: 'شريط VHS', kind: 'filter', category: 'Retro', description: 'Analog warmth.', previewGradient: [const Color(0xFF833AB4), const Color(0xFFFD1D1D)]),
-      CataloguePackage(id: 'yossef.super-8', name: 'Kodak Super 8', nameAr: 'سوبر 8', kind: 'filter', category: 'Film', description: 'Super-8 warmth.', previewGradient: [const Color(0xFFD38312), const Color(0xFFA83279)]),
-      CataloguePackage(id: 'yossef.noir', name: 'Cinema Noir Mono', nameAr: 'أبيض وأسود', kind: 'filter', category: 'B&W', description: 'Dramatic monochrome.', previewGradient: [const Color(0xFFbdc3c7), const Color(0xFF2c3e50)]),
-      CataloguePackage(id: 'yossef.vaporwave', name: 'Vaporwave Aesthetic', nameAr: 'فابورويف', kind: 'filter', category: 'Vibe', description: 'Pastel synthwave.', previewGradient: [const Color(0xFFFF758C), const Color(0xFF764BA2)]),
-      CataloguePackage(id: 'yossef.matcha', name: 'Matcha Film', nameAr: 'ماتشا', kind: 'filter', category: 'Stylised', description: 'Botanical greens.', previewGradient: [const Color(0xFF56AB2F), const Color(0xFFA8E063)]),
-
-      CataloguePackage(id: 'yossef.dissolve', name: 'Cross Dissolve', nameAr: 'تلاشي متقاطع', kind: 'transition', category: 'Basic', description: 'Optical blend.', previewGradient: [const Color(0xFF4FACFE), const Color(0xFF00F2FE)], favourite: true),
-      CataloguePackage(id: 'yossef.whip-pan', name: 'Whip Pan Fast', nameAr: 'Whip Pan', kind: 'transition', category: 'Wipe', description: 'Motion-blur whip.', previewGradient: [const Color(0xFFFF416C), const Color(0xFFFF4B2B)], favourite: true),
-      CataloguePackage(id: 'yossef.zoom-transition', name: 'Hyper Zoom Warp', nameAr: 'زوم سينمائي', kind: 'transition', category: 'Zoom', description: 'Zoom punch.', previewGradient: [const Color(0xFF7F00FF), const Color(0xFFE100FF)]),
-      CataloguePackage(id: 'yossef.glitch-transition', name: 'Digital Glitch Cut', nameAr: 'غليتش رقمي', kind: 'transition', category: 'Glitch', description: 'RGB slice.', previewGradient: [const Color(0xFF00FF87), const Color(0xFF60EFFF)]),
-      CataloguePackage(id: 'yossef.light-leak-flash', name: 'Light Leak Flash', nameAr: 'تسرب ضوئي', kind: 'transition', category: 'Light', description: 'Warm flare.', previewGradient: [const Color(0xFFF7971E), const Color(0xFFFFD200)]),
-      CataloguePackage(id: 'yossef.film-burn', name: 'Film Burn Roll', nameAr: 'احتراق فيلم', kind: 'transition', category: 'Dissolve', description: 'Vintage burn.', previewGradient: [const Color(0xFFEB3349), const Color(0xFFF45C43)]),
-      CataloguePackage(id: 'yossef.cube', name: '3D Cube Spin', nameAr: 'مكعب 3D', kind: 'transition', category: 'Spin', description: 'Cube rotation.', previewGradient: [const Color(0xFF1D976C), const Color(0xFF93F9B9)]),
-      CataloguePackage(id: 'yossef.fade-black', name: 'Dip to Black', nameAr: 'تلاشي أسود', kind: 'transition', category: 'Basic', description: 'Fade through black.', previewGradient: [const Color(0xFF232526), const Color(0xFF000000)]),
-
-      CataloguePackage(id: 'yossef.denoise', name: 'AI Studio Noise Reduction', nameAr: 'عزل الضوضاء', kind: 'audio', category: 'Clean', description: 'Removes background noise.', previewGradient: [const Color(0xFF11998E), const Color(0xFF38EF7D)], favourite: true),
-      CataloguePackage(id: 'yossef.enhance-voice', name: 'Podcast Voice Enhancer', nameAr: 'تحسين الصوت', kind: 'audio', category: 'Clean', description: 'Broadcast warmth.', previewGradient: [const Color(0xFF00B4DB), const Color(0xFF0083B0)], favourite: true),
-      CataloguePackage(id: 'yossef.loudness', name: 'Broadcast Loudness (-14 LUFS)', nameAr: 'موازنة الصوت', kind: 'audio', category: 'Clean', description: 'Normalizes loudness.', previewGradient: [const Color(0xFF56CCF2), const Color(0xFF2F80ED)]),
-      CataloguePackage(id: 'yossef.bass', name: 'Sub Bass Boost', nameAr: 'تعزيز الباس', kind: 'audio', category: 'Tone', description: 'Low-end boost.', previewGradient: [const Color(0xFFFF512F), const Color(0xFFDD2476)]),
-      CataloguePackage(id: 'yossef.cathedral', name: 'Cathedral Reverb', nameAr: 'صدى القاعة', kind: 'audio', category: 'Space', description: 'Hall reverb.', previewGradient: [const Color(0xFF8E2DE2), const Color(0xFF4A00E0)]),
-      CataloguePackage(id: 'yossef.echo', name: 'Stereo Delay Echo', nameAr: 'تكرار الصدى', kind: 'audio', category: 'Space', description: 'Decay echo.', previewGradient: [const Color(0xFF4568DC), const Color(0xFFB06AB3)]),
-      CataloguePackage(id: 'yossef.chipmunk', name: 'Chipmunk Pitch', nameAr: 'صوت سنجاب', kind: 'audio', category: 'Voice', description: 'High pitch.', previewGradient: [const Color(0xFFF7971E), const Color(0xFFFFD200)]),
-      CataloguePackage(id: 'yossef.robot', name: 'Cyber Robot Vocoder', nameAr: 'صوت روبوت', kind: 'audio', category: 'Voice', description: 'Metallic robot.', previewGradient: [const Color(0xFF00C9FF), const Color(0xFF92FE9D)]),
+      // ---- Visual Effects (20) ----
+      CataloguePackage(id: 'yossef.film-grain', name: 'Film Grain 35mm', nameAr: 'تحبب سينمائي 35mm',
+          kind: 'effect', category: 'Retro', description: 'Dancing film stock grain on GPU.',
+          previewGradient: [const Color(0xFF2C3E50), const Color(0xFFFD746C)], favourite: true),
+      CataloguePackage(id: 'yossef.halation', name: 'Halation Glow', nameAr: 'توهج الهاليشن',
+          kind: 'effect', category: 'Retro', description: 'Red-orange halation bloom around highlights.',
+          previewGradient: [const Color(0xFF8E2DE2), const Color(0xFFFF416C)], favourite: true),
+      CataloguePackage(id: 'yossef.bloom-pulse', name: 'Bloom Pulse HDR', nameAr: 'نبض الإضاءة',
+          kind: 'effect', category: 'Light', description: 'Rhythmic soft highlight bloom on 10-bit highlights.',
+          previewGradient: [const Color(0xFFF7971E), const Color(0xFFFFD200)]),
+      CataloguePackage(id: 'yossef.chromatic-aberration', name: 'Chromatic Aberration', nameAr: 'انحراف لوني',
+          kind: 'effect', category: 'Distort', description: 'Lens RGB channel split towards corners.',
+          previewGradient: [const Color(0xFF00F260), const Color(0xFF0575E6)], favourite: true),
+      CataloguePackage(id: 'yossef.glow', name: 'Neon Soft Glow', nameAr: 'توهج نيون',
+          kind: 'effect', category: 'Stylize', description: 'Dreamy atmospheric glow over bright regions.',
+          previewGradient: [const Color(0xFFB721FF), const Color(0xFF21D4FD)]),
+      CataloguePackage(id: 'yossef.gaussian-blur', name: 'Gaussian Lens Blur', nameAr: 'تمويه عدسة',
+          kind: 'effect', category: 'Blur', description: 'Smooth multi-pass GPU Gaussian bokeh.',
+          previewGradient: [const Color(0xFF485563), const Color(0xFF29323C)]),
+      CataloguePackage(id: 'yossef.motion-blur', name: 'Directional Motion Blur', nameAr: 'تمويه الحركة',
+          kind: 'effect', category: 'Blur', description: 'Velocity streak blur for action cuts.',
+          previewGradient: [const Color(0xFF141E30), const Color(0xFF243B55)]),
+      CataloguePackage(id: 'yossef.zoom-blur', name: 'Radial Zoom Blur', nameAr: 'تمويه الزوم',
+          kind: 'effect', category: 'Blur', description: 'Dynamic radial burst toward center.',
+          previewGradient: [const Color(0xFF614385), const Color(0xFF516395)]),
+      CataloguePackage(id: 'yossef.fisheye', name: 'Fisheye Wide Lens', nameAr: 'عين السمكة',
+          kind: 'effect', category: 'Distort', description: 'Barrel distortion action camera look.',
+          previewGradient: [const Color(0xFF11998E), const Color(0xFF38EF7D)]),
+      CataloguePackage(id: 'yossef.pixelate', name: 'Cyber Pixelate', nameAr: 'بكسلة رقمية',
+          kind: 'effect', category: 'Distort', description: 'Crisp mosaic pixel blocks.',
+          previewGradient: [const Color(0xFFFC466B), const Color(0xFF3F5EFB)]),
+      CataloguePackage(id: 'yossef.halftone', name: 'Comic Halftone Dots', nameAr: 'نقاط كوميكس',
+          kind: 'effect', category: 'Retro', description: 'Pop-art printed dot screen shader.',
+          previewGradient: [const Color(0xFFFF9966), const Color(0xFFFF5E62)]),
+      CataloguePackage(id: 'yossef.posterize', name: 'Posterize Tones', nameAr: 'بوستر فني',
+          kind: 'effect', category: 'Stylize', description: 'Quantizes color into tonal bands.',
+          previewGradient: [const Color(0xFFDA4453), const Color(0xFF89216B)]),
+      CataloguePackage(id: 'yossef.vignette', name: 'Anamorphic Vignette', nameAr: 'تعتيم الحواف',
+          kind: 'effect', category: 'Stylize', description: 'Smooth optical falloff around borders.',
+          previewGradient: [const Color(0xFF0F2027), const Color(0xFF2C5364)]),
+      CataloguePackage(id: 'yossef.chroma-key', name: 'Ultra Chroma Key', nameAr: 'مفتاح كروما',
+          kind: 'effect', category: 'Cutout', description: 'Clean green/blue screen keyer.',
+          previewGradient: [const Color(0xFF00B09B), const Color(0xFF96C93D)]),
+      CataloguePackage(id: 'yossef.luma-key', name: 'Luma Key', nameAr: 'مفتاح الإضاءة',
+          kind: 'effect', category: 'Cutout', description: 'Keys shadows or highlights by luminance.',
+          previewGradient: [const Color(0xFF232526), const Color(0xFF414345)]),
+      CataloguePackage(id: 'yossef.old-film', name: 'Old Film 16mm', nameAr: 'فيلم قديم 16mm',
+          kind: 'effect', category: 'Retro', description: 'Vintage scratches and jitter.',
+          previewGradient: [const Color(0xFF6A4D2C), const Color(0xFFC8B560)]),
+      CataloguePackage(id: 'yossef.shake', name: 'Camera Shake', nameAr: 'اهتزاز كاميرا',
+          kind: 'effect', category: 'Motion', description: 'Organic handheld camera shake.',
+          previewGradient: [const Color(0xFF3A1C71), const Color(0xFFD76D77)]),
+      CataloguePackage(id: 'yossef.kaleidoscope', name: 'Kaleidoscope', nameAr: 'كاليدسكوب',
+          kind: 'effect', category: 'Distort', description: 'Mirrored geometric kaleidoscope.',
+          previewGradient: [const Color(0xFFFF00C8), const Color(0xFF00FFFF)]),
+      CataloguePackage(id: 'yossef.lens-flare', name: 'Anamorphic Lens Flare', nameAr: 'شعاع عدسة',
+          kind: 'effect', category: 'Light', description: 'Anamorphic blue horizontal flare.',
+          previewGradient: [const Color(0xFF003366), const Color(0xFF66B2FF)]),
+      CataloguePackage(id: 'yossef.rgb-split', name: 'RGB Split Glitch', nameAr: 'انقسام RGB',
+          kind: 'effect', category: 'Glitch', description: 'Digital RGB channel split.',
+          previewGradient: [const Color(0xFFFF0080), const Color(0xFF00FFCC)]),
+      // ---- Filters (15) ----
+      CataloguePackage(id: 'yossef.teal-orange', name: 'Teal & Orange', nameAr: 'تيل وأورانج',
+          kind: 'filter', category: 'Cinematic', description: 'Cyan shadows + warm skin tones.',
+          previewGradient: [const Color(0xFF005C97), const Color(0xFFFF8008)], favourite: true),
+      CataloguePackage(id: 'yossef.cyberpunk', name: 'Cyberpunk 2099', nameAr: 'سايبربانك',
+          kind: 'filter', category: 'Cinematic', description: 'Electric magenta and neon cyan.',
+          previewGradient: [const Color(0xFFFF0099), const Color(0xFF00DBDE)], favourite: true),
+      CataloguePackage(id: 'yossef.golden-hour', name: 'Golden Hour', nameAr: 'الساعة الذهبية',
+          kind: 'filter', category: 'Everyday', description: 'Rich sunset warmth.',
+          previewGradient: [const Color(0xFFF12711), const Color(0xFFF5AF19)]),
+      CataloguePackage(id: 'yossef.classic-chrome', name: 'Classic Chrome', nameAr: 'كلاسيك كروم',
+          kind: 'filter', category: 'Film', description: 'Documentary saturation.',
+          previewGradient: [const Color(0xFF3A6073), const Color(0xFF16222A)]),
+      CataloguePackage(id: 'yossef.bleach-bypass', name: 'Bleach Bypass', nameAr: 'بليتش بايباس',
+          kind: 'filter', category: 'Cinematic', description: 'High contrast gritty cinema.',
+          previewGradient: [const Color(0xFF434343), const Color(0xFF000000)]),
+      CataloguePackage(id: 'yossef.vhs', name: 'VHS 1994', nameAr: 'شريط VHS',
+          kind: 'filter', category: 'Retro', description: 'Analog bleed, scanlines, warmth.',
+          previewGradient: [const Color(0xFF833AB4), const Color(0xFFFD1D1D)]),
+      CataloguePackage(id: 'yossef.super-8', name: 'Kodak Super 8', nameAr: 'سوبر 8',
+          kind: 'filter', category: 'Film', description: 'Nostalgic warm Super-8 curve.',
+          previewGradient: [const Color(0xFFD38312), const Color(0xFFA83279)]),
+      CataloguePackage(id: 'yossef.noir', name: 'Cinema Noir Mono', nameAr: 'نوار أبيض وأسود',
+          kind: 'filter', category: 'B&W', description: 'Deep dramatic monochrome.',
+          previewGradient: [const Color(0xFFbdc3c7), const Color(0xFF2c3e50)]),
+      CataloguePackage(id: 'yossef.vaporwave', name: 'Vaporwave', nameAr: 'فابورويف',
+          kind: 'filter', category: 'Vibe', description: 'Pastel pink and turquoise palette.',
+          previewGradient: [const Color(0xFFFF758C), const Color(0xFF764BA2)]),
+      CataloguePackage(id: 'yossef.matcha', name: 'Matcha Film', nameAr: 'ماتشا',
+          kind: 'filter', category: 'Stylised', description: 'Earthy botanical greens.',
+          previewGradient: [const Color(0xFF56AB2F), const Color(0xFFA8E063)]),
+      CataloguePackage(id: 'yossef.sepia', name: 'Sepia Antique', nameAr: 'سيبيا',
+          kind: 'filter', category: 'Retro', description: 'Classic sepia antique tone.',
+          previewGradient: [const Color(0xFF704214), const Color(0xFFC9A66B)]),
+      CataloguePackage(id: 'yossef.polaroid', name: 'Polaroid Faded', nameAr: 'بولارويد',
+          kind: 'filter', category: 'Retro', description: 'Faded instant film colors.',
+          previewGradient: [const Color(0xFFFFE5B4), const Color(0xFFCD853F)]),
+      CataloguePackage(id: 'yossef.cinema-cold', name: 'Cinema Cold Blue', nameAr: 'سينما باردة',
+          kind: 'filter', category: 'Cinematic', description: 'Cold thriller blue tones.',
+          previewGradient: [const Color(0xFF0F2027), const Color(0xFF4A90E2)]),
+      CataloguePackage(id: 'yossef.dreamy', name: 'Dreamy Soft', nameAr: 'حالم ناعم',
+          kind: 'filter', category: 'Vibe', description: 'Soft dreamy pastel tones.',
+          previewGradient: [const Color(0xFFFFC3A0), const Color(0xFFFFA8A8)]),
+      CataloguePackage(id: 'yossef.anime', name: 'Anime Vibrant', nameAr: 'أنيمي',
+          kind: 'filter', category: 'Stylised', description: 'Bold anime-style color saturation.',
+          previewGradient: [const Color(0xFFFF6B9D), const Color(0xFF5EE7DF)]),
+      // ---- Transitions (10) ----
+      CataloguePackage(id: 'yossef.dissolve', name: 'Cross Dissolve', nameAr: 'تلاشي ناعم',
+          kind: 'transition', category: 'Basic', description: 'Smooth optical blend.',
+          previewGradient: [const Color(0xFF4FACFE), const Color(0xFF00F2FE)], favourite: true),
+      CataloguePackage(id: 'yossef.whip-pan', name: 'Whip Pan Fast', nameAr: 'خاطف',
+          kind: 'transition', category: 'Wipe', description: 'High-speed whip cut.',
+          previewGradient: [const Color(0xFFFF416C), const Color(0xFFFF4B2B)], favourite: true),
+      CataloguePackage(id: 'yossef.zoom-transition', name: 'Hyper Zoom Warp', nameAr: 'زوم سينمائي',
+          kind: 'transition', category: 'Zoom', description: 'Seamless zoom punch.',
+          previewGradient: [const Color(0xFF7F00FF), const Color(0xFFE100FF)]),
+      CataloguePackage(id: 'yossef.glitch-transition', name: 'Digital Glitch Cut', nameAr: 'غليتش رقمي',
+          kind: 'transition', category: 'Glitch', description: 'RGB slice displacement.',
+          previewGradient: [const Color(0xFF00FF87), const Color(0xFF60EFFF)]),
+      CataloguePackage(id: 'yossef.light-leak-flash', name: 'Light Leak Flash', nameAr: 'تسرب ضوئي',
+          kind: 'transition', category: 'Light', description: 'Warm anamorphic flare burn.',
+          previewGradient: [const Color(0xFFF7971E), const Color(0xFFFFD200)]),
+      CataloguePackage(id: 'yossef.film-burn', name: 'Film Burn', nameAr: 'احتراق فيلم',
+          kind: 'transition', category: 'Dissolve', description: 'Vintage celluloid flash burn.',
+          previewGradient: [const Color(0xFFEB3349), const Color(0xFFF45C43)]),
+      CataloguePackage(id: 'yossef.cube', name: '3D Cube Spin', nameAr: 'مكعب 3D',
+          kind: 'transition', category: 'Spin', description: 'Perspective 3D cube rotation.',
+          previewGradient: [const Color(0xFF1D976C), const Color(0xFF93F9B9)]),
+      CataloguePackage(id: 'yossef.fade-black', name: 'Dip to Black', nameAr: 'تلاشي أسود',
+          kind: 'transition', category: 'Basic', description: 'Cinematic fade through black.',
+          previewGradient: [const Color(0xFF232526), const Color(0xFF000000)]),
+      CataloguePackage(id: 'yossef.slide-left', name: 'Slide Left', nameAr: 'انزلاق يسار',
+          kind: 'transition', category: 'Slide', description: 'Directional slide transition.',
+          previewGradient: [const Color(0xFF3A1C71), const Color(0xFFD76D77)]),
+      CataloguePackage(id: 'yossef.flip', name: '3D Flip', nameAr: 'قلب 3D',
+          kind: 'transition', category: 'Flip', description: '3D card flip rotation.',
+          previewGradient: [const Color(0xFF00B4DB), const Color(0xFF0083B0)]),
+      // ---- Audio Effects (10) ----
+      CataloguePackage(id: 'yossef.denoise', name: 'AI Studio Noise Reduction', nameAr: 'عزل الضوضاء',
+          kind: 'audio', category: 'Clean', description: 'Removes hum, hiss, and fan noise.',
+          previewGradient: [const Color(0xFF11998E), const Color(0xFF38EF7D)], favourite: true),
+      CataloguePackage(id: 'yossef.enhance-voice', name: 'Podcast Voice Enhancer', nameAr: 'تحسين الإذاعي',
+          kind: 'audio', category: 'Clean', description: 'Broadcast warmth + presence.',
+          previewGradient: [const Color(0xFF00B4DB), const Color(0xFF0083B0)], favourite: true),
+      CataloguePackage(id: 'yossef.loudness', name: 'Broadcast Loudness -14 LUFS', nameAr: 'موازنة الصوت',
+          kind: 'audio', category: 'Clean', description: 'Normalizes to broadcast standard.',
+          previewGradient: [const Color(0xFF56CCF2), const Color(0xFF2F80ED)]),
+      CataloguePackage(id: 'yossef.bass', name: 'Sub Bass Boost', nameAr: 'تعزيز الباس',
+          kind: 'audio', category: 'Tone', description: 'Deep punchy low-end boost.',
+          previewGradient: [const Color(0xFFFF512F), const Color(0xFFDD2476)]),
+      CataloguePackage(id: 'yossef.cathedral', name: 'Cathedral Reverb', nameAr: 'صدى القاعة',
+          kind: 'audio', category: 'Space', description: 'Lush stereo hall reverb.',
+          previewGradient: [const Color(0xFF8E2DE2), const Color(0xFF4A00E0)]),
+      CataloguePackage(id: 'yossef.echo', name: 'Stereo Delay Echo', nameAr: 'تكرار الصدى',
+          kind: 'audio', category: 'Space', description: 'Rhythmic decaying echo.',
+          previewGradient: [const Color(0xFF4568DC), const Color(0xFFB06AB3)]),
+      CataloguePackage(id: 'yossef.chipmunk', name: 'Chipmunk Pitch', nameAr: 'صوت سنجاب',
+          kind: 'audio', category: 'Voice', description: 'High-pitched voice change.',
+          previewGradient: [const Color(0xFFF7971E), const Color(0xFFFFD200)]),
+      CataloguePackage(id: 'yossef.robot', name: 'Cyber Robot Vocoder', nameAr: 'صوت روبوت',
+          kind: 'audio', category: 'Voice', description: 'Metallic robotic synth voice.',
+          previewGradient: [const Color(0xFF00C9FF), const Color(0xFF92FE9D)]),
+      CataloguePackage(id: 'yossef.telephone', name: 'Telephone EQ', nameAr: 'هاتف',
+          kind: 'audio', category: 'Voice', description: 'Lo-fi telephone bandpass.',
+          previewGradient: [const Color(0xFF757F9A), const Color(0xFFD7DDE8)]),
+      CataloguePackage(id: 'yossef.whisper', name: 'Whisper Boost', nameAr: 'همسة',
+          kind: 'audio', category: 'Voice', description: 'ASMR whisper enhancement.',
+          previewGradient: [const Color(0xFFB993D6), const Color(0xFF8CA6DB)]),
     ];
   }
 
   static const List<TextPresetModel> textPresets = [
-    TextPresetModel(id: 'default', name: 'YOSSEF Clean Title', sample: 'YOSSEF', color: Colors.white, strokeWidth: 0),
-    TextPresetModel(id: 'yossef.bold-caption', name: 'Bold TikTok Caption', sample: 'CAPTION', color: Color(0xFFCBF53F), strokeColor: Colors.black, strokeWidth: 3.0),
-    TextPresetModel(id: 'yossef.block', name: 'Highlight Block', sample: 'BLOCK', color: Color(0xFF111111), backgroundColor: Color(0xFFFFE14A), strokeWidth: 0),
-    TextPresetModel(id: 'yossef.lower-third', name: 'YOSSEF Lower Third', sample: 'يوسف حامد', color: Color(0xFF10160A), backgroundColor: Color(0xFFCBF53F), strokeWidth: 0),
-    TextPresetModel(id: 'yossef.neon-cyber', name: 'Neon Cyber Glow', sample: 'CYBER', color: Color(0xFF7FFFD4), strokeColor: Color(0xFF005C97), strokeWidth: 2.5),
-    TextPresetModel(id: 'yossef.comic', name: 'Comic POW!', sample: 'POW!', color: Color(0xFFFFE14A), strokeColor: Color(0xFF111111), strokeWidth: 3.5),
-    TextPresetModel(id: 'yossef.retro', name: 'Retro Sunset', sample: 'Retro', italic: true, color: Color(0xFFFF6FB5), strokeColor: Color(0xFF3A0B2A), strokeWidth: 2.0),
-    TextPresetModel(id: 'yossef.code', name: 'Developer Terminal', sample: 'yossef()', color: Color(0xFFE6EDF3), backgroundColor: Color(0xE60D1117), strokeWidth: 0),
+    TextPresetModel(id: 'default', name: 'YOSSEF Clean Title', sample: 'YOSSEF', color: Colors.white),
+    TextPresetModel(id: 'yossef.bold-caption', name: 'Bold TikTok Caption', sample: 'CAPTION',
+        color: Color(0xFFCBF53F), strokeWidth: 3.0),
+    TextPresetModel(id: 'yossef.block', name: 'Highlight Block', sample: 'BLOCK',
+        color: Color(0xFF111111), backgroundColor: Color(0xFFFFE14A)),
+    TextPresetModel(id: 'yossef.lower-third', name: 'YOSSEF Lower Third', sample: 'يوسف حامد',
+        color: Color(0xFF10160A), backgroundColor: Color(0xFFCBF53F)),
+    TextPresetModel(id: 'yossef.neon-cyber', name: 'Neon Cyber Glow', sample: 'CYBER',
+        color: Color(0xFF7FFFD4), strokeColor: Color(0xFF005C97), strokeWidth: 2.5),
+    TextPresetModel(id: 'yossef.comic', name: 'Comic POW!', sample: 'POW!',
+        color: Color(0xFFFFE14A), strokeWidth: 3.5),
+    TextPresetModel(id: 'yossef.retro', name: 'Retro Sunset', sample: 'Retro',
+        color: Color(0xFFFF6FB5), strokeColor: Color(0xFF3A0B2A), strokeWidth: 2.0),
+    TextPresetModel(id: 'yossef.code', name: 'Developer Terminal', sample: 'yossef()',
+        color: Color(0xFFE6EDF3), backgroundColor: Color(0xE60D1117)),
   ];
 
   static List<AiModelItem> buildAiModels() {
     return [
-      AiModelItem(id: 'whisper-tiny', family: 'whisper', name: 'YOSSEF Whisper Tiny', note: 'أسرع تفريغ نصي يدعم العربية و26 لغة', sizeText: '78 MB', accuracy: 3, installed: true, active: true),
-      AiModelItem(id: 'whisper-base', family: 'whisper', name: 'YOSSEF Whisper Base Pro', note: 'توازن سرعة ودقة', sizeText: '148 MB', accuracy: 4, installed: true, active: false),
-      AiModelItem(id: 'whisper-small', family: 'whisper', name: 'YOSSEF Whisper Studio Ultra', note: 'أعلى دقة تفريغ نصي', sizeText: '488 MB', accuracy: 5, installed: false, active: false),
-      AiModelItem(id: 'kokoro-multi-v1', family: 'tts', name: 'YOSSEF Kokoro Neural TTS', note: 'توليد صوت بشري طبيعي', sizeText: '132 MB', accuracy: 5, installed: true, active: true),
-      AiModelItem(id: 'pocket-tts-clone', family: 'tts', name: 'YOSSEF Pocket Voice Cloner', note: 'استنساخ أي صوت في 3 ثوانٍ', sizeText: '98 MB', accuracy: 5, installed: true, active: false),
-      AiModelItem(id: 'chatterbox-turbo', family: 'tts', name: 'YOSSEF Chatterbox Turbo', note: 'تعليق صوتي بمشاعر', sizeText: '350 MB', accuracy: 5, installed: false, active: false),
-      AiModelItem(id: 'rvm-cutout-person', family: 'vision', name: 'YOSSEF Robust Video Matting', note: 'عزل خلفية الأشخاص بدقة الشعر', sizeText: '15 MB', accuracy: 5, installed: true, active: true),
-      AiModelItem(id: 'realesr-8k-upscale', family: 'vision', name: 'YOSSEF Real-ESRGAN x4', note: 'ترميم الفيديو ورفعه 8K', sizeText: '5 MB', accuracy: 5, installed: true, active: true),
+      AiModelItem(id: 'whisper-tiny', family: 'whisper',
+          name: 'YOSSEF Whisper Tiny (Multilingual + Arabic)',
+          note: 'أسرع تفريغ نصي فوري يدعم العربية و26 لغة',
+          sizeText: '78 MB', accuracy: 3, installed: true, active: true),
+      AiModelItem(id: 'whisper-base', family: 'whisper', name: 'YOSSEF Whisper Base Pro',
+          note: 'توازن مثالي بين السرعة والدقة للتسميات',
+          sizeText: '148 MB', accuracy: 4, installed: true),
+      AiModelItem(id: 'whisper-small', family: 'whisper', name: 'YOSSEF Whisper Studio Ultra',
+          note: 'أعلى دقة تفريغ نصي سينمائي (5/5)',
+          sizeText: '488 MB', accuracy: 5),
+      AiModelItem(id: 'kokoro-multi-v1', family: 'tts', name: 'YOSSEF Kokoro Neural TTS v1.0',
+          note: 'توليد صوت بشري طبيعي متعدد اللغات',
+          sizeText: '132 MB', accuracy: 5, installed: true, active: true),
+      AiModelItem(id: 'pocket-tts-clone', family: 'tts', name: 'YOSSEF Pocket Voice Cloner',
+          note: 'استنساخ أي صوت من عينة 3 ثوانٍ',
+          sizeText: '98 MB', accuracy: 5, installed: true),
+      AiModelItem(id: 'chatterbox-turbo', family: 'tts', name: 'YOSSEF Chatterbox Turbo',
+          note: 'توليد تعليق صوتي تفاعلي مع مشاعر',
+          sizeText: '350 MB', accuracy: 5),
+      AiModelItem(id: 'rvm-cutout-person', family: 'vision', name: 'YOSSEF Robust Video Matting',
+          note: 'عزل خلفية الأشخاص بدقة الشعر',
+          sizeText: '15 MB', accuracy: 5, installed: true, active: true),
+      AiModelItem(id: 'realesr-8k-upscale', family: 'vision', name: 'YOSSEF Real-ESRGAN x4 (8K)',
+          note: 'ترميم ومضاعفة دقة الفيديو إلى 8K',
+          sizeText: '5 MB', accuracy: 5, installed: true),
     ];
   }
 }
@@ -754,7 +820,6 @@ class YossefCatalogues {
 // ============================================================================
 // 6. MAIN CONTROLLER
 // ============================================================================
-
 class YossefStudioController extends ChangeNotifier {
   bool onStartScreen = true;
   bool forcePhoneMode = false;
@@ -770,7 +835,6 @@ class YossefStudioController extends ChangeNotifier {
   double frameRate = 60.0;
   String colorSpace = 'Rec.2020 HDR10 (10-bit)';
   int previewQualityIndex = 0;
-  int aspectIndex = 0;
 
   bool gpuHardwareAcceleration = true;
   bool magneticTimeline = true;
@@ -778,19 +842,18 @@ class YossefStudioController extends ChangeNotifier {
   bool smartProxies = true;
   bool playheadStopsAtEnd = true;
   bool vuMetersShown = true;
-  bool previewAxisHover = true;
   bool tenBitHdrPipeline = true;
   bool mcpServerEnabled = true;
   String mcpServerHost = '127.0.0.1';
   int mcpServerPort = 7420;
   String mcpServerToken = 'YOSSEF-PRO-TOKEN-2026';
 
+  double topRowFlex = 0.56;
   double leftColumnFlex = 0.27;
   double centerColumnFlex = 0.45;
   double rightColumnFlex = 0.28;
-  double topRowFlex = 0.56;
 
-  List<String> timelineTabs = ['المشهد الرئيسي', 'ريلز 9:16', 'مؤثرات YOSSEF'];
+  List<String> timelineTabs = ['المشهد الرئيسي', 'نسخة ريلز 9:16', 'مؤثرات YOSSEF'];
   int currentTimelineTab = 0;
   TimelineTool activeTool = TimelineTool.select;
   double playhead = 2.4;
@@ -819,7 +882,8 @@ class YossefStudioController extends ChangeNotifier {
   bool voiceoverRecording = false;
   double voiceoverSeconds = 0.0;
   double voiceoverGainDb = 0.0;
-  String teleprompterText = 'مرحباً بكم في تطبيق استوديو YOSSEF الاحترافي لتحرير الفيديو بأعلى جودة 8K HDR.\nتم تطوير هذا النظام بالكامل بواسطة المطور يوسف حامد - للتواصل واتساب 01029892573.';
+  String teleprompterText =
+      'مرحباً بكم في تطبيق استوديو YOSSEF الاحترافي لتحرير الفيديو بأعلى جودة 8K HDR.\nتم تطوير هذا النظام بالكامل بواسطة المطور يوسف حامد - واتساب 01029892573.';
 
   bool isExporting = false;
   double exportProgress = 0.0;
@@ -829,34 +893,68 @@ class YossefStudioController extends ChangeNotifier {
   bool exportHdr = true;
   double exportBitrateMbps = 85.0;
 
-  YossefStudioController() { _initData(); }
+  YossefStudioController() {
+    _initData();
+  }
 
   void _initData() {
     packages = YossefCatalogues.buildAllPackages();
     aiModels = YossefCatalogues.buildAiModels();
 
     recentProjects = [
-      const RecentProjectModel(path: '/Projects/YOSSEF_Cinema_8K', name: 'إعلان سينمائي YOSSEF 8K HDR', detail: '7680 × 4320 · 60 fps · 10-bit HDR', whenText: 'منذ 10 دقائق', lengthText: '00:14', ratio: 16 / 9, posterGradient: [Color(0xFF0F2027), Color(0xFF2C5364), Color(0xFFCBF53F)]),
-      const RecentProjectModel(path: '/Projects/YOSSEF_Reels_Pro', name: 'ريلز احترافي', detail: '1080 × 1920 · 60 fps', whenText: 'منذ ساعتين', lengthText: '00:30', ratio: 9 / 16, posterGradient: [Color(0xFF833AB4), Color(0xFFFD1D1D), Color(0xFFFCB045)]),
-      const RecentProjectModel(path: '/Projects/YOSSEF_Documentary', name: 'وثائقي الطبيعة', detail: '3840 × 2160 · 24 fps', whenText: 'أمس', lengthText: '03:45', ratio: 16 / 9, posterGradient: [Color(0xFF134E5E), Color(0xFF71B280)]),
-      const RecentProjectModel(path: '/Projects/YOSSEF_Podcast_Episode', name: 'حلقة بودكاست', detail: '3840 × 2160 · 30 fps', whenText: 'منذ 3 أيام', lengthText: '12:20', ratio: 16 / 9, posterGradient: [Color(0xFF3A1C71), Color(0xFFD76D77), Color(0xFFFFAF7B)]),
+      const RecentProjectModel(
+        path: '/Projects/YOSSEF_Cinema_8K', name: 'إعلان سينمائي YOSSEF 8K HDR',
+        detail: '7680 × 4320 · 60 fps · 10-bit HDR', whenText: 'منذ 10 دقائق',
+        lengthText: '00:14',
+        posterGradient: [Color(0xFF0F2027), Color(0xFF2C5364), Color(0xFFCBF53F)],
+      ),
+      const RecentProjectModel(
+        path: '/Projects/YOSSEF_Reels_Pro', name: 'ريلز احترافي وتأثيرات بصرية',
+        detail: '1080 × 1920 · 60 fps · YOSSEF AI', whenText: 'منذ ساعتين',
+        lengthText: '00:30',
+        posterGradient: [Color(0xFF833AB4), Color(0xFFFD1D1D), Color(0xFFFCB045)],
+      ),
+      const RecentProjectModel(
+        path: '/Projects/YOSSEF_Documentary', name: 'وثائقي الطبيعة',
+        detail: '3840 × 2160 · 24 fps · Rec.2020', whenText: 'أمس',
+        lengthText: '03:45',
+        posterGradient: [Color(0xFF134E5E), Color(0xFF71B280)],
+      ),
+      const RecentProjectModel(
+        path: '/Projects/YOSSEF_Podcast', name: 'حلقة بودكاست مع ترجمة AI',
+        detail: '3840 × 2160 · 30 fps · Whisper AI', whenText: 'منذ 3 أيام',
+        lengthText: '12:20',
+        posterGradient: [Color(0xFF3A1C71), Color(0xFFD76D77), Color(0xFFFFAF7B)],
+      ),
     ];
 
     mediaBin = [
-      const MediaBinItem(id: 'm1', name: 'YOSSEF_Drone_Cairo_8K.mp4', kind: ClipKind.video, duration: 8.5, format: 'MP4 · HEVC 10-bit', resolution: '7680×4320 · 60fps', gradient: [Color(0xFF141E30), Color(0xFF243B55), Color(0xFF3373D1)]),
-      const MediaBinItem(id: 'm2', name: 'YOSSEF_Studio_B_Roll_4K.mov', kind: ClipKind.video, duration: 6.2, format: 'MOV · ProRes 422 HQ', resolution: '3840×2160 · 120fps', gradient: [Color(0xFF3A1C71), Color(0xFFD76D77), Color(0xFFFFAF7B)]),
-      const MediaBinItem(id: 'm3', name: 'YOSSEF_Neon_Action_Cut.mp4', kind: ClipKind.video, duration: 5.5, format: 'MP4 · AV1 HDR', resolution: '3840×2160 · 60fps', gradient: [Color(0xFF005C97), Color(0xFF363795), Color(0xFF00F2FE)]),
-      const MediaBinItem(id: 'm4', name: 'YOSSEF_Cinematic_Soundtrack.wav', kind: ClipKind.audio, duration: 14.0, format: 'WAV · 96kHz 24-bit', resolution: 'Stereo Master', gradient: [Color(0xFF11998E), Color(0xFF38EF7D)]),
-      const MediaBinItem(id: 'm5', name: 'YOSSEF_AI_Voiceover_Arabic.wav', kind: ClipKind.audio, duration: 6.0, format: 'WAV · Neural TTS', resolution: '48kHz Mono', gradient: [Color(0xFF00B09B), Color(0xFF96C93D)]),
-      const MediaBinItem(id: 'm6', name: 'YOSSEF_Brand_Overlay_4K.png', kind: ClipKind.image, duration: 5.0, format: 'PNG · RGBA 16-bit', resolution: '3840×2160', gradient: [Color(0xFF8E2DE2), Color(0xFF4A00E0)]),
+      const MediaBinItem(id: 'm1', name: 'YOSSEF_Drone_Cairo_8K.mp4', kind: ClipKind.video,
+          duration: 8.5, format: 'MP4 · HEVC 10-bit', resolution: '7680×4320 · 60fps',
+          gradient: [Color(0xFF141E30), Color(0xFF243B55), Color(0xFF3373D1)]),
+      const MediaBinItem(id: 'm2', name: 'YOSSEF_Studio_B_Roll_4K.mov', kind: ClipKind.video,
+          duration: 6.2, format: 'MOV · ProRes 422 HQ', resolution: '3840×2160 · 120fps',
+          gradient: [Color(0xFF3A1C71), Color(0xFFD76D77), Color(0xFFFFAF7B)]),
+      const MediaBinItem(id: 'm3', name: 'YOSSEF_Neon_Action_Cut.mp4', kind: ClipKind.video,
+          duration: 5.5, format: 'MP4 · AV1 HDR', resolution: '3840×2160 · 60fps',
+          gradient: [Color(0xFF005C97), Color(0xFF363795), Color(0xFF00F2FE)]),
+      const MediaBinItem(id: 'm4', name: 'YOSSEF_Cinematic_Soundtrack.wav', kind: ClipKind.audio,
+          duration: 14.0, format: 'WAV · 96kHz 24-bit', resolution: 'Stereo Master',
+          gradient: [Color(0xFF11998E), Color(0xFF38EF7D)]),
+      const MediaBinItem(id: 'm5', name: 'YOSSEF_AI_Voiceover_Arabic.wav', kind: ClipKind.audio,
+          duration: 6.0, format: 'WAV · Neural TTS', resolution: '48kHz Mono',
+          gradient: [Color(0xFF00B09B), Color(0xFF96C93D)]),
+      const MediaBinItem(id: 'm6', name: 'YOSSEF_Brand_Overlay_4K.png', kind: ClipKind.image,
+          duration: 5.0, format: 'PNG · RGBA 16-bit', resolution: '3840×2160',
+          gradient: [Color(0xFF8E2DE2), Color(0xFF4A00E0)]),
     ];
 
     tracks = [
-      TimelineTrack(index: 0, name: 'V3 · العناوين', height: 54),
-      TimelineTrack(index: 1, name: 'V2 · المؤثرات', height: 54),
-      TimelineTrack(index: 2, name: 'V1 · المسار الرئيسي', height: 68),
-      TimelineTrack(index: 3, name: 'A1 · التعليق الصوتي', height: 56),
-      TimelineTrack(index: 4, name: 'A2 · الموسيقى', height: 56),
+      TimelineTrack(index: 0, name: 'V3 · العناوين (Titles)', height: 54),
+      TimelineTrack(index: 1, name: 'V2 · الألوان (FX & LUTs)', height: 54),
+      TimelineTrack(index: 2, name: 'V1 · المسار الرئيسي (Video)', height: 68),
+      TimelineTrack(index: 3, name: 'A1 · التعليق (Voiceover)', height: 56),
+      TimelineTrack(index: 4, name: 'A2 · الموسيقى (Score)', height: 56),
     ];
 
     clips = [
@@ -873,22 +971,22 @@ class YossefStudioController extends ChangeNotifier {
         ],
       ),
       TimelineClip(
-        id: 'clip_fx1', name: 'Teal & Orange + Halation', kind: ClipKind.filter, trackIndex: 1,
-        startTime: 0.0, duration: 8.5, opacity: 0.9,
+        id: 'clip_fx1', name: 'Teal & Orange + Halation', kind: ClipKind.filter,
+        trackIndex: 1, startTime: 0.0, duration: 8.5, opacity: 0.9,
         visualChain: [
           AppliedEffect(id: 'yossef.teal-orange', name: 'Teal & Orange', intensity: 85),
           AppliedEffect(id: 'yossef.halation', name: 'Halation Glow', intensity: 65),
         ],
       ),
       TimelineClip(
-        id: 'clip_v1', name: 'YOSSEF_Drone_Cairo_8K.mp4', kind: ClipKind.video, trackIndex: 2,
-        startTime: 0.0, duration: 5.5,
+        id: 'clip_v1', name: 'YOSSEF_Drone_Cairo_8K.mp4', kind: ClipKind.video,
+        trackIndex: 2, startTime: 0.0, duration: 5.5,
         contrast: 12.0, saturation: 15.0, vibrance: 20.0, sharpen: 18.0,
         aiEnhanced: true,
-        transitionId: 'yossef.whip-pan', transitionName: 'Whip Pan Fast',
+        transitionId: 'yossef.whip-pan', transitionName: 'Whip Pan',
         visualChain: [
-          AppliedEffect(id: 'yossef.film-grain', name: 'Film Grain 35mm', intensity: 35),
-          AppliedEffect(id: 'yossef.bloom-pulse', name: 'Bloom Pulse HDR', intensity: 50),
+          AppliedEffect(id: 'yossef.film-grain', name: 'Film Grain', intensity: 35),
+          AppliedEffect(id: 'yossef.bloom-pulse', name: 'Bloom Pulse', intensity: 50),
         ],
         keyframes: [
           KeyframePoint(timeOffset: 0.0, value: 1.0, property: 'scale'),
@@ -898,26 +996,26 @@ class YossefStudioController extends ChangeNotifier {
         previewColors: const [Color(0xFF0F2027), Color(0xFF203A43), Color(0xFF2C5364)],
       ),
       TimelineClip(
-        id: 'clip_v2', name: 'YOSSEF_Studio_B_Roll_4K.mov', kind: ClipKind.video, trackIndex: 2,
-        startTime: 5.5, duration: 5.0,
+        id: 'clip_v2', name: 'YOSSEF_Studio_B_Roll_4K.mov', kind: ClipKind.video,
+        trackIndex: 2, startTime: 5.5, duration: 5.0,
         exposure: 0.3, contrast: 18.0, saturation: 22.0,
-        transitionId: 'yossef.zoom-transition', transitionName: 'Hyper Zoom Warp',
+        transitionId: 'yossef.zoom-transition', transitionName: 'Hyper Zoom',
         previewColors: const [Color(0xFF3A1C71), Color(0xFFD76D77), Color(0xFFFFAF7B)],
       ),
       TimelineClip(
-        id: 'clip_v3', name: 'YOSSEF_Neon_Action_Cut.mp4', kind: ClipKind.video, trackIndex: 2,
-        startTime: 10.5, duration: 3.5,
+        id: 'clip_v3', name: 'YOSSEF_Neon_Action_Cut.mp4', kind: ClipKind.video,
+        trackIndex: 2, startTime: 10.5, duration: 3.5,
         previewColors: const [Color(0xFF005C97), Color(0xFF363795), Color(0xFF00F2FE)],
       ),
       TimelineClip(
-        id: 'clip_a1', name: 'YOSSEF_AI_Voiceover_Arabic.wav', kind: ClipKind.audio, trackIndex: 3,
-        startTime: 0.5, duration: 6.0, volume: 1.15,
-        denoise: true, enhanceVoice: true, normalizeLoudness: true,
+        id: 'clip_a1', name: 'YOSSEF_AI_Voiceover.wav', kind: ClipKind.audio,
+        trackIndex: 3, startTime: 0.5, duration: 6.0,
+        volume: 1.15, denoise: true, enhanceVoice: true, normalizeLoudness: true,
       ),
       TimelineClip(
-        id: 'clip_a2', name: 'YOSSEF_Cinematic_Soundtrack.wav', kind: ClipKind.audio, trackIndex: 4,
-        startTime: 0.0, duration: 14.0, volume: 0.85,
-        fadeIn: 1.0, fadeOut: 1.5,
+        id: 'clip_a2', name: 'YOSSEF_Soundtrack.wav', kind: ClipKind.audio,
+        trackIndex: 4, startTime: 0.0, duration: 14.0,
+        volume: 0.85, fadeIn: 1.0, fadeOut: 1.5,
       ),
     ];
   }
@@ -944,11 +1042,11 @@ class YossefStudioController extends ChangeNotifier {
   List<TimelineClip> get activeClipsAtPlayhead {
     final active = <TimelineClip>[];
     for (final c in clips) {
-      final track = tracks.firstWhere(
-        (t) => t.index == c.trackIndex,
-        orElse: () => TimelineTrack(index: 0, name: ''),
-      );
-      if (!track.visible) continue;
+      TimelineTrack? track;
+      for (final t in tracks) {
+        if (t.index == c.trackIndex) { track = t; break; }
+      }
+      if (track != null && !track.visible) continue;
       if (playhead >= c.startTime && playhead <= c.endTime) active.add(c);
     }
     active.sort((a, b) => b.trackIndex.compareTo(a.trackIndex));
@@ -968,6 +1066,7 @@ class YossefStudioController extends ChangeNotifier {
     if (_undoStack.isEmpty) return;
     _redoStack.add(clips.map((c) => c.clone()).toList());
     clips = _undoStack.removeLast();
+    _validateSelection();
     notifyListeners();
   }
 
@@ -975,19 +1074,26 @@ class YossefStudioController extends ChangeNotifier {
     if (_redoStack.isEmpty) return;
     _undoStack.add(clips.map((c) => c.clone()).toList());
     clips = _redoStack.removeLast();
+    _validateSelection();
     notifyListeners();
+  }
+
+  void _validateSelection() {
+    if (selectedClipId != null && !clips.any((c) => c.id == selectedClipId)) {
+      selectedClipId = clips.isNotEmpty ? clips.first.id : null;
+    }
   }
 
   void togglePlay() {
     isPlaying = !isPlaying;
+    _playbackTimer?.cancel();
     if (isPlaying) {
-      _playbackTimer?.cancel();
-      _playbackTimer = Timer.periodic(const Duration(milliseconds: 33), (_) {
-        playhead += 0.033;
+      _playbackTimer = Timer.periodic(const Duration(milliseconds: 16), (_) {
+        playhead += 1.0 / frameRate;
         final maxDur = timelineDuration - 2.0;
         if (playhead >= maxDur) {
           if (playheadStopsAtEnd) {
-            playhead = 0.0;
+            playhead = maxDur;
             isPlaying = false;
             _playbackTimer?.cancel();
           } else {
@@ -996,9 +1102,13 @@ class YossefStudioController extends ChangeNotifier {
         }
         notifyListeners();
       });
-    } else {
-      _playbackTimer?.cancel();
     }
+    notifyListeners();
+  }
+
+  void stop() {
+    isPlaying = false;
+    _playbackTimer?.cancel();
     notifyListeners();
   }
 
@@ -1084,10 +1194,8 @@ class YossefStudioController extends ChangeNotifier {
     final freeze = TimelineClip(
       id: 'freeze_${DateTime.now().microsecondsSinceEpoch}',
       name: 'إطار مجمد - ${target.name}',
-      kind: ClipKind.image,
-      trackIndex: target.trackIndex,
-      startTime: playhead,
-      duration: 2.5,
+      kind: ClipKind.image, trackIndex: target.trackIndex,
+      startTime: playhead, duration: 2.5,
       previewColors: List<Color>.from(target.previewColors),
     );
     clips.add(freeze);
@@ -1116,7 +1224,7 @@ class YossefStudioController extends ChangeNotifier {
     final target = selectedClip;
     if (target == null) return;
     _saveHistory();
-    target.rotation = (target.rotation + 90.0) % 360.0;
+    target.rotation = ((target.rotation + 90.0) % 360.0);
     if (target.rotation > 180.0) target.rotation -= 360.0;
     notifyListeners();
   }
@@ -1144,8 +1252,8 @@ class YossefStudioController extends ChangeNotifier {
       textContent: preset.id == 'yossef.lower-third'
           ? 'المطور: يوسف حامد · واتساب 01029892573'
           : '${preset.sample} · YOSSEF',
-      fontFamily: preset.fontFamily, fontSize: 40.0,
-      textColor: preset.color, textBackgroundPlate: preset.backgroundColor,
+      fontSize: 40.0, textColor: preset.color,
+      textBackgroundPlate: preset.backgroundColor,
       textStrokeColor: preset.strokeColor, textStrokeWidth: preset.strokeWidth,
     );
     clips.add(newClip);
@@ -1172,9 +1280,8 @@ class YossefStudioController extends ChangeNotifier {
     if (pkg.kind == 'filter' && target == null) {
       final layer = TimelineClip(
         id: 'filter_${DateTime.now().microsecondsSinceEpoch}',
-        name: isArabic ? pkg.nameAr : pkg.name,
-        kind: ClipKind.filter, trackIndex: 1,
-        startTime: playhead, duration: 5.0,
+        name: isArabic ? pkg.nameAr : pkg.name, kind: ClipKind.filter,
+        trackIndex: 1, startTime: playhead, duration: 5.0,
         visualChain: [AppliedEffect(id: pkg.id, name: isArabic ? pkg.nameAr : pkg.name, intensity: 85)],
         previewColors: List<Color>.from(pkg.previewGradient),
       );
@@ -1191,9 +1298,9 @@ class YossefStudioController extends ChangeNotifier {
       target.transitionId = pkg.id;
       target.transitionName = isArabic ? pkg.nameAr : pkg.name;
     } else if (pkg.kind == 'audio') {
-      target.audioChain.add(AppliedEffect(id: pkg.id, name: isArabic ? pkg.nameAr : pkg.name, intensity: 80));
+      target.audioChain.add(AppliedEffect(id: pkg.id, name: isArabic ? pkg.nameAr : pkg.name));
     } else {
-      target.visualChain.add(AppliedEffect(id: pkg.id, name: isArabic ? pkg.nameAr : pkg.name, intensity: 85));
+      target.visualChain.add(AppliedEffect(id: pkg.id, name: isArabic ? pkg.nameAr : pkg.name));
     }
     notifyListeners();
   }
@@ -1202,8 +1309,9 @@ class YossefStudioController extends ChangeNotifier {
     _saveHistory();
     final layer = TimelineClip(
       id: 'adj_${DateTime.now().microsecondsSinceEpoch}',
-      name: isArabic ? 'طبقة تعديل ألوان YOSSEF HDR' : 'YOSSEF Adjustment Layer',
-      kind: ClipKind.filter, trackIndex: 1, startTime: playhead, duration: 6.0,
+      name: isArabic ? 'طبقة ألوان YOSSEF HDR' : 'YOSSEF Adjustment Layer',
+      kind: ClipKind.filter, trackIndex: 1,
+      startTime: playhead, duration: 6.0,
       contrast: 15.0, saturation: 18.0, vibrance: 25.0,
       visualChain: [AppliedEffect(id: 'yossef.teal-orange', name: 'Teal & Orange', intensity: 75)],
     );
@@ -1217,7 +1325,8 @@ class YossefStudioController extends ChangeNotifier {
     if (target == null) return;
     _saveHistory();
     final localTime = (playhead - target.startTime).clamp(0.0, target.duration);
-    target.keyframes.removeWhere((k) => k.property == property && (k.timeOffset - localTime).abs() < 0.08);
+    target.keyframes.removeWhere(
+        (k) => k.property == property && (k.timeOffset - localTime).abs() < 0.08);
     target.keyframes.add(KeyframePoint(
       timeOffset: localTime,
       value: normalizedValue.clamp(0.0, 1.0),
@@ -1227,21 +1336,32 @@ class YossefStudioController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void removeKeyframe(String property, double localTime) {
+    final target = selectedClip;
+    if (target == null) return;
+    _saveHistory();
+    target.keyframes.removeWhere(
+        (k) => k.property == property && (k.timeOffset - localTime).abs() < 0.08);
+    notifyListeners();
+  }
+
   void generateAutoCaptions(String customScript) {
     _saveHistory();
     final phrases = customScript.trim().isNotEmpty
         ? customScript.split('\n').where((s) => s.trim().isNotEmpty).toList()
         : [
             'مرحباً بكم في استوديو YOSSEF الاحترافي',
-            'أقوى محرر فيديو بالذكاء الاصطناعي',
+            'أقوى محرر فيديو بالذكاء الاصطناعي بدقة 8K HDR',
             'تم التطوير بحقوق YOSSEF - المطور يوسف حامد',
             'للتواصل واتساب: 01029892573',
           ];
+
     double cursor = playhead;
     for (int i = 0; i < phrases.length; i++) {
       final cap = TimelineClip(
         id: 'cap_${DateTime.now().microsecondsSinceEpoch}_$i',
-        name: 'ترجمة AI #${i + 1}', kind: ClipKind.text, trackIndex: 0,
+        name: 'ترجمة AI #${i + 1}',
+        kind: ClipKind.text, trackIndex: 0,
         startTime: cursor, duration: 2.6,
         textContent: phrases[i], fontSize: 34.0,
         textColor: const Color(0xFFCBF53F),
@@ -1259,7 +1379,8 @@ class YossefStudioController extends ChangeNotifier {
     final ttsClip = TimelineClip(
       id: 'tts_${DateTime.now().microsecondsSinceEpoch}',
       name: 'صوت ذكي ($voiceName)', kind: ClipKind.audio, trackIndex: 3,
-      startTime: playhead, duration: math.max(3.0, scriptText.length * 0.08),
+      startTime: playhead,
+      duration: math.max(3.0, scriptText.length * 0.08),
       volume: 1.2, enhanceVoice: true, normalizeLoudness: true,
     );
     clips.add(ttsClip);
@@ -1279,10 +1400,8 @@ class YossefStudioController extends ChangeNotifier {
 // ============================================================================
 // 7. ROOT APP
 // ============================================================================
-
 class YossefStudioApp extends StatefulWidget {
   const YossefStudioApp({super.key});
-
   @override
   State<YossefStudioApp> createState() => _YossefStudioAppState();
 }
@@ -1309,16 +1428,15 @@ class _YossefStudioAppState extends State<YossefStudioApp> {
             brightness: t.dark ? Brightness.dark : Brightness.light,
             scaffoldBackgroundColor: t.page,
             primaryColor: t.accent,
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: t.accent,
+            colorScheme: ColorScheme(
               brightness: t.dark ? Brightness.dark : Brightness.light,
+              primary: t.accent, onPrimary: t.onAccent,
+              secondary: t.accentHover, onSecondary: t.onAccent,
+              error: t.danger, onError: Colors.white,
+              surface: t.panel, onSurface: t.fg,
             ),
             fontFamily: 'Roboto',
             useMaterial3: true,
-            sliderTheme: SliderThemeData(
-              activeTrackColor: t.accent,
-              thumbColor: t.accent,
-            ),
           ),
           builder: (context, child) {
             return Directionality(
@@ -1341,11 +1459,9 @@ class _YossefStudioAppState extends State<YossefStudioApp> {
 // ============================================================================
 // 8. MAIN WINDOW
 // ============================================================================
-
 class YossefMainWindow extends StatefulWidget {
   final YossefStudioController controller;
   const YossefMainWindow({super.key, required this.controller});
-
   @override
   State<YossefMainWindow> createState() => _YossefMainWindowState();
 }
@@ -1354,12 +1470,6 @@ class _YossefMainWindowState extends State<YossefMainWindow> {
   final FocusNode _keyboardFocus = FocusNode();
   YossefStudioController get c => widget.controller;
   YossefThemeData get t => c.theme;
-
-  @override
-  void dispose() {
-    _keyboardFocus.dispose();
-    super.dispose();
-  }
 
   void _handleKeyEvent(KeyEvent event) {
     if (event is! KeyDownEvent) return;
@@ -1375,17 +1485,16 @@ class _YossefMainWindowState extends State<YossefMainWindow> {
         !c.onStartScreen) {
       c.deleteSelectedClip();
     } else if (key == LogicalKeyboardKey.keyZ && isCtrl) {
-      if (HardwareKeyboard.instance.isShiftPressed) {
-        c.redo();
-      } else {
-        c.undo();
-      }
+      if (HardwareKeyboard.instance.isShiftPressed) c.redo();
+      else c.undo();
     } else if (key == LogicalKeyboardKey.keyD && isCtrl && !c.onStartScreen) {
       c.duplicateSelectedClip();
     } else if (key == LogicalKeyboardKey.arrowLeft && !c.onStartScreen) {
       c.stepFrames(-1);
     } else if (key == LogicalKeyboardKey.arrowRight && !c.onStartScreen) {
       c.stepFrames(1);
+    } else if (key == LogicalKeyboardKey.keyK && !c.onStartScreen) {
+      c.stop();
     }
   }
 
@@ -1404,10 +1513,9 @@ class _YossefMainWindowState extends State<YossefMainWindow> {
           child: Column(
             children: [
               YossefTitleBar(
-                controller: c,
-                isPhoneLayout: isPhoneLayout,
-                onOpenSettings: ({int initialTab = 0}) => _showSettingsDialog(context, initialTab: initialTab),
-                onOpenDeveloperSettings: () => _showSettingsDialog(context, initialTab: 7),
+                controller: c, isPhoneLayout: isPhoneLayout,
+                onOpenSettings: ({int initialTab = 0}) => _showSettingsDialog(context, initialTab),
+                onOpenDeveloperSettings: () => _showSettingsDialog(context, 7),
                 onOpenNewProject: () => _showNewProjectDialog(context),
                 onOpenExport: () => _showExportDialog(context),
                 onOpenCaptions: () => _showCaptionsDialog(context),
@@ -1417,15 +1525,14 @@ class _YossefMainWindowState extends State<YossefMainWindow> {
               Expanded(
                 child: c.onStartScreen
                     ? YossefStartScreen(
-                        controller: c,
-                        isPhoneLayout: isPhoneLayout,
+                        controller: c, isPhoneLayout: isPhoneLayout,
                         onCreateNew: () => _showNewProjectDialog(context),
-                        onOpenSettings: ({int initialTab = 0}) => _showSettingsDialog(context, initialTab: initialTab),
+                        onOpenSettings: ({int initialTab = 0}) => _showSettingsDialog(context, initialTab),
                       )
                     : isPhoneLayout
                         ? YossefPhoneEditor(
                             controller: c,
-                            onOpenSettings: ({int initialTab = 0}) => _showSettingsDialog(context, initialTab: initialTab),
+                            onOpenSettings: ({int initialTab = 0}) => _showSettingsDialog(context, initialTab),
                             onOpenExport: () => _showExportDialog(context),
                             onOpenCaptions: () => _showCaptionsDialog(context),
                             onOpenSpeech: () => _showSpeechDialog(context),
@@ -1433,7 +1540,7 @@ class _YossefMainWindowState extends State<YossefMainWindow> {
                           )
                         : YossefDesktopWorkspace(
                             controller: c,
-                            onOpenSettings: ({int initialTab = 0}) => _showSettingsDialog(context, initialTab: initialTab),
+                            onOpenSettings: ({int initialTab = 0}) => _showSettingsDialog(context, initialTab),
                             onOpenExport: () => _showExportDialog(context),
                             onOpenCaptions: () => _showCaptionsDialog(context),
                             onOpenSpeech: () => _showSpeechDialog(context),
@@ -1458,18 +1565,16 @@ class _YossefMainWindowState extends State<YossefMainWindow> {
       ),
       child: Row(
         children: [
-          Container(width: 8, height: 8, decoration: BoxDecoration(color: t.accent, shape: BoxShape.circle)),
+          Container(width: 8, height: 8,
+              decoration: BoxDecoration(color: t.accent, shape: BoxShape.circle)),
           const SizedBox(width: 6),
-          Flexible(
-            child: Text(
-              '${YossefBrand.shortName} ULTRA GPU · ${c.outputWidth}×${c.outputHeight} · ${c.frameRate.toInt()} FPS · ${c.colorSpace}',
-              style: TextStyle(color: t.fgMuted, fontSize: 11, fontWeight: FontWeight.w600),
-              overflow: TextOverflow.ellipsis,
-            ),
+          Text(
+            '${YossefBrand.shortName} ULTRA v3.0 · ${c.outputWidth}×${c.outputHeight} · ${c.frameRate.toInt()} FPS · ${c.colorSpace}',
+            style: TextStyle(color: t.fgMuted, fontSize: 11, fontWeight: FontWeight.w600),
           ),
           const Spacer(),
           InkWell(
-            onTap: () => _showSettingsDialog(context, initialTab: 7),
+            onTap: () => _showSettingsDialog(context, 7),
             borderRadius: BorderRadius.circular(4),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
@@ -1479,7 +1584,7 @@ class _YossefMainWindowState extends State<YossefMainWindow> {
                   Icon(Icons.verified_user, size: 13, color: t.accent),
                   const SizedBox(width: 4),
                   Text(
-                    'YOSSEF · يوسف حامد · 01029892573',
+                    'حقوق YOSSEF · يوسف حامد · واتساب: 01029892573',
                     style: TextStyle(color: t.accent, fontSize: 11, fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -1491,8 +1596,9 @@ class _YossefMainWindowState extends State<YossefMainWindow> {
     );
   }
 
-  void _showSettingsDialog(BuildContext context, {int initialTab = 0}) {
-    showDialog(context: context, builder: (_) => YossefSettingsDialog(controller: c, initialTab: initialTab));
+  void _showSettingsDialog(BuildContext context, int initialTab) {
+    showDialog(context: context, builder: (_) =>
+        YossefSettingsDialog(controller: c, initialTab: initialTab));
   }
 
   void _showNewProjectDialog(BuildContext context) {
@@ -1517,9 +1623,8 @@ class _YossefMainWindowState extends State<YossefMainWindow> {
 }
 
 // ============================================================================
-// 9. TITLE BAR (Fixed PopupMenuButton onSelected API)
+// 9. TITLE BAR (Fixed popup menu handling)
 // ============================================================================
-
 class YossefTitleBar extends StatelessWidget {
   final YossefStudioController controller;
   final bool isPhoneLayout;
@@ -1558,7 +1663,7 @@ class YossefTitleBar extends StatelessWidget {
             },
             borderRadius: BorderRadius.circular(8),
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [t.accent, t.accentHover]),
                 borderRadius: BorderRadius.circular(7),
@@ -1568,38 +1673,27 @@ class YossefTitleBar extends StatelessWidget {
                 children: [
                   Icon(Icons.movie_filter_rounded, size: 16, color: t.onAccent),
                   const SizedBox(width: 6),
-                  Text('YOSSEF', style: TextStyle(color: t.onAccent, fontWeight: FontWeight.w900, fontSize: 13, letterSpacing: 0.8)),
+                  Text('YOSSEF',
+                      style: TextStyle(color: t.onAccent, fontWeight: FontWeight.w900,
+                          fontSize: 13, letterSpacing: 0.8)),
                 ],
               ),
             ),
           ),
           const SizedBox(width: 10),
-
           if (!isPhoneLayout) ...[
-            _FileMenu(onNew: onOpenNewProject, onOpenWorkspace: () {
-              controller.onStartScreen = false;
-              controller.notifyUpdate();
-            }, onExport: onOpenExport, onHome: () {
-              controller.onStartScreen = true;
-              controller.notifyUpdate();
-            }),
-            _EditMenu(controller: controller),
-            _AiMenu(
-              controller: controller,
-              onCaptions: onOpenCaptions,
-              onSpeech: onOpenSpeech,
-              onVoiceover: onOpenVoiceover,
-              onAiSettings: () => onOpenSettings(initialTab: 2),
-            ),
+            _buildFileMenu(context),
+            _buildEditMenu(context),
+            _buildAiMenu(context),
+            _buildViewMenu(context),
           ],
-
           const Spacer(),
-
           if (!controller.onStartScreen && !isPhoneLayout)
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
               decoration: BoxDecoration(
-                color: t.field, borderRadius: BorderRadius.circular(6),
+                color: t.field,
+                borderRadius: BorderRadius.circular(6),
                 border: Border.all(color: t.line),
               ),
               child: Row(
@@ -1607,28 +1701,34 @@ class YossefTitleBar extends StatelessWidget {
                 children: [
                   Icon(Icons.folder_special_outlined, size: 14, color: t.accent),
                   const SizedBox(width: 6),
-                  Text(controller.projectName, style: TextStyle(color: t.fg, fontWeight: FontWeight.w600, fontSize: 12)),
+                  Text(controller.projectName,
+                      style: TextStyle(color: t.fg, fontWeight: FontWeight.w600, fontSize: 12)),
+                  const SizedBox(width: 8),
+                  Text('· ${controller.projectStatus}',
+                      style: TextStyle(color: t.green, fontSize: 11)),
                 ],
               ),
             ),
-
           const Spacer(),
-
           IconButton(
             tooltip: controller.isArabic ? 'Switch to English' : 'التحويل للعربية',
-            onPressed: () { controller.isArabic = !controller.isArabic; controller.notifyUpdate(); },
+            onPressed: () {
+              controller.isArabic = !controller.isArabic;
+              controller.notifyUpdate();
+            },
             icon: Icon(Icons.language, size: 18, color: t.fgMuted),
           ),
-
           IconButton(
             tooltip: controller.forcePhoneMode ? 'Desktop Mode' : 'Phone Mode',
-            onPressed: () { controller.forcePhoneMode = !controller.forcePhoneMode; controller.notifyUpdate(); },
+            onPressed: () {
+              controller.forcePhoneMode = !controller.forcePhoneMode;
+              controller.notifyUpdate();
+            },
             icon: Icon(
               controller.forcePhoneMode ? Icons.desktop_windows_outlined : Icons.smartphone_rounded,
               size: 18, color: t.fgMuted,
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
             child: OutlinedButton.icon(
@@ -1641,10 +1741,10 @@ class YossefTitleBar extends StatelessWidget {
               ),
               onPressed: () => onOpenSettings(initialTab: 7),
               icon: Icon(Icons.settings_suggest_rounded, size: 16, color: t.accent),
-              label: Text(controller.tr('common.settings'), style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+              label: Text(controller.tr('common.settings'),
+                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
             ),
           ),
-
           if (!controller.onStartScreen)
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
@@ -1655,114 +1755,145 @@ class YossefTitleBar extends StatelessWidget {
               ),
               onPressed: onOpenExport,
               icon: const Icon(Icons.ios_share_rounded, size: 15),
-              label: Text(controller.tr('common.export'), style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+              label: Text(controller.tr('common.export'),
+                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
             ),
         ],
       ),
     );
   }
-}
 
-class _FileMenu extends StatelessWidget {
-  final VoidCallback onNew;
-  final VoidCallback onOpenWorkspace;
-  final VoidCallback onExport;
-  final VoidCallback onHome;
-  const _FileMenu({required this.onNew, required this.onOpenWorkspace, required this.onExport, required this.onHome});
-
-  @override
-  Widget build(BuildContext context) {
-    final t = context.findAncestorStateOfType<_YossefMainWindowState>()?.controller.theme;
+  Widget _buildFileMenu(BuildContext context) {
+    final t = controller.theme;
     return PopupMenuButton<String>(
-      tooltip: 'File',
-      color: t?.raised,
-      onSelected: (v) {
-        switch (v) {
-          case 'new': onNew(); break;
-          case 'open': onOpenWorkspace(); break;
-          case 'export': onExport(); break;
-          case 'home': onHome(); break;
+      tooltip: controller.isArabic ? 'ملف' : 'File',
+      color: t.raised,
+      onSelected: (value) {
+        switch (value) {
+          case 'new': onOpenNewProject(); break;
+          case 'open':
+            controller.onStartScreen = false;
+            controller.notifyUpdate();
+            break;
+          case 'export': onOpenExport(); break;
+          case 'home':
+            controller.onStartScreen = true;
+            controller.notifyUpdate();
+            break;
         }
       },
-      itemBuilder: (context) => const [
-        PopupMenuItem(value: 'new', child: Text('New Project')),
-        PopupMenuItem(value: 'open', child: Text('Open Workspace')),
-        PopupMenuItem(value: 'export', child: Text('Export')),
-        PopupMenuItem(value: 'home', child: Text('Back to Home')),
+      itemBuilder: (_) => [
+        PopupMenuItem(value: 'new', child: Text(controller.tr('start.newProject'))),
+        PopupMenuItem(value: 'open', child: Text(controller.tr('start.openProject'))),
+        PopupMenuItem(value: 'export', child: Text(controller.tr('common.export'))),
+        const PopupMenuDivider(),
+        PopupMenuItem(value: 'home', child: Text(controller.isArabic ? 'العودة للرئيسية' : 'Back to Home')),
       ],
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-        child: Text('ملف', style: TextStyle(color: t?.fgMuted ?? Colors.grey, fontSize: 12, fontWeight: FontWeight.w500)),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        child: Text(controller.isArabic ? 'ملف' : 'File',
+            style: TextStyle(color: t.fgMuted, fontSize: 12, fontWeight: FontWeight.w500)),
       ),
     );
   }
-}
 
-class _EditMenu extends StatelessWidget {
-  final YossefStudioController controller;
-  const _EditMenu({required this.controller});
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildEditMenu(BuildContext context) {
     final t = controller.theme;
     return PopupMenuButton<String>(
-      tooltip: 'Edit',
+      tooltip: controller.isArabic ? 'تحرير' : 'Edit',
       color: t.raised,
-      onSelected: (v) {
-        switch (v) {
+      onSelected: (value) {
+        switch (value) {
           case 'undo': controller.undo(); break;
           case 'redo': controller.redo(); break;
           case 'split': controller.splitSelectedOrAtPlayhead(); break;
           case 'duplicate': controller.duplicateSelectedClip(); break;
           case 'delete': controller.deleteSelectedClip(); break;
+          case 'freeze': controller.freezeFrameSelectedClip(); break;
+          case 'reverse': controller.reverseSelectedClip(); break;
+          case 'mirror': controller.mirrorSelectedClip(); break;
+          case 'rotate': controller.rotateSelectedClip(); break;
         }
       },
-      itemBuilder: (context) => const [
-        PopupMenuItem(value: 'undo', child: Text('Undo (Ctrl+Z)')),
-        PopupMenuItem(value: 'redo', child: Text('Redo (Ctrl+Shift+Z)')),
-        PopupMenuItem(value: 'split', child: Text('Split (S)')),
-        PopupMenuItem(value: 'duplicate', child: Text('Duplicate (Ctrl+D)')),
-        PopupMenuItem(value: 'delete', child: Text('Delete (Del)')),
+      itemBuilder: (_) => [
+        PopupMenuItem(value: 'undo', child: Text(controller.isArabic ? 'تراجع (Ctrl+Z)' : 'Undo (Ctrl+Z)')),
+        PopupMenuItem(value: 'redo', child: Text(controller.isArabic ? 'إعادة (Ctrl+Shift+Z)' : 'Redo')),
+        const PopupMenuDivider(),
+        PopupMenuItem(value: 'split', child: Text(controller.tr('common.split'))),
+        PopupMenuItem(value: 'duplicate', child: Text(controller.tr('common.duplicate'))),
+        PopupMenuItem(value: 'delete', child: Text(controller.tr('common.delete'))),
+        const PopupMenuDivider(),
+        PopupMenuItem(value: 'freeze', child: Text(controller.tr('common.freeze'))),
+        PopupMenuItem(value: 'reverse', child: Text(controller.tr('common.reverse'))),
+        PopupMenuItem(value: 'mirror', child: Text(controller.tr('common.mirror'))),
+        PopupMenuItem(value: 'rotate', child: Text(controller.tr('common.rotate'))),
       ],
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-        child: Text('تحرير', style: TextStyle(color: t.fgMuted, fontSize: 12, fontWeight: FontWeight.w500)),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        child: Text(controller.isArabic ? 'تحرير' : 'Edit',
+            style: TextStyle(color: t.fgMuted, fontSize: 12, fontWeight: FontWeight.w500)),
       ),
     );
   }
-}
 
-class _AiMenu extends StatelessWidget {
-  final YossefStudioController controller;
-  final VoidCallback onCaptions;
-  final VoidCallback onSpeech;
-  final VoidCallback onVoiceover;
-  final VoidCallback onAiSettings;
-  const _AiMenu({required this.controller, required this.onCaptions, required this.onSpeech, required this.onVoiceover, required this.onAiSettings});
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildAiMenu(BuildContext context) {
     final t = controller.theme;
     return PopupMenuButton<String>(
-      tooltip: 'AI Tools',
+      tooltip: 'YOSSEF AI',
       color: t.raised,
-      onSelected: (v) {
-        switch (v) {
-          case 'cap': onCaptions(); break;
-          case 'tts': onSpeech(); break;
-          case 'vo': onVoiceover(); break;
-          case 'models': onAiSettings(); break;
+      onSelected: (value) {
+        switch (value) {
+          case 'captions': onOpenCaptions(); break;
+          case 'speech': onOpenSpeech(); break;
+          case 'voiceover': onOpenVoiceover(); break;
+          case 'models': onOpenSettings(initialTab: 2); break;
         }
       },
-      itemBuilder: (context) => const [
-        PopupMenuItem(value: 'cap', child: Text('AI Captions')),
-        PopupMenuItem(value: 'tts', child: Text('Text-to-Speech')),
-        PopupMenuItem(value: 'vo', child: Text('Voiceover')),
-        PopupMenuItem(value: 'models', child: Text('AI Models Manager')),
+      itemBuilder: (_) => [
+        PopupMenuItem(value: 'captions', child: Text(controller.tr('common.captions'))),
+        PopupMenuItem(value: 'speech', child: Text(controller.tr('common.speech'))),
+        PopupMenuItem(value: 'voiceover', child: Text(controller.tr('common.voiceover'))),
+        const PopupMenuDivider(),
+        PopupMenuItem(value: 'models', child: Text(controller.isArabic ? 'إدارة النماذج' : 'AI Models')),
       ],
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-        child: Text('YOSSEF AI', style: TextStyle(color: t.fgMuted, fontSize: 12, fontWeight: FontWeight.w500)),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        child: Text(controller.isArabic ? 'AI' : 'YOSSEF AI',
+            style: TextStyle(color: t.accent, fontSize: 12, fontWeight: FontWeight.w600)),
+      ),
+    );
+  }
+
+  Widget _buildViewMenu(BuildContext context) {
+    final t = controller.theme;
+    return PopupMenuButton<String>(
+      tooltip: 'View',
+      color: t.raised,
+      onSelected: (value) {
+        switch (value) {
+          case 'zoom-in':
+            controller.zoomPixelsPerSecond = (controller.zoomPixelsPerSecond * 1.25).clamp(20.0, 200.0);
+            controller.notifyUpdate();
+            break;
+          case 'zoom-out':
+            controller.zoomPixelsPerSecond = (controller.zoomPixelsPerSecond / 1.25).clamp(20.0, 200.0);
+            controller.notifyUpdate();
+            break;
+          case 'phone':
+            controller.forcePhoneMode = !controller.forcePhoneMode;
+            controller.notifyUpdate();
+            break;
+        }
+      },
+      itemBuilder: (_) => [
+        PopupMenuItem(value: 'zoom-in', child: Text(controller.isArabic ? 'تكبير المخطط' : 'Zoom In Timeline')),
+        PopupMenuItem(value: 'zoom-out', child: Text(controller.isArabic ? 'تصغير المخطط' : 'Zoom Out Timeline')),
+        PopupMenuItem(value: 'phone', child: Text(controller.isArabic ? 'وضع الهاتف' : 'Phone Mode')),
+      ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        child: Text(controller.isArabic ? 'عرض' : 'View',
+            style: TextStyle(color: t.fgMuted, fontSize: 12, fontWeight: FontWeight.w500)),
       ),
     );
   }
@@ -1771,7 +1902,6 @@ class _AiMenu extends StatelessWidget {
 // ============================================================================
 // 10. START SCREEN
 // ============================================================================
-
 class YossefStartScreen extends StatelessWidget {
   final YossefStudioController controller;
   final bool isPhoneLayout;
@@ -1802,143 +1932,11 @@ class YossefStartScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(24),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [t.launchPanel, t.accent.withOpacity(0.12), t.launchRaised],
-                    begin: Alignment.topLeft, end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: t.accent.withOpacity(0.4), width: 1.2),
-                ),
-                child: Wrap(
-                  spacing: 20, runSpacing: 16,
-                  alignment: WrapAlignment.spaceBetween,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                              decoration: BoxDecoration(color: t.accent, borderRadius: BorderRadius.circular(20)),
-                              child: Text('YOSSEF OFFICIAL · 8K HDR',
-                                  style: TextStyle(color: t.onAccent, fontSize: 11, fontWeight: FontWeight.w900)),
-                            ),
-                            const SizedBox(width: 10),
-                            Text(YossefBrand.version, style: TextStyle(color: t.fgMuted, fontSize: 12)),
-                          ],
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          controller.tr('start.welcomeBack'),
-                          style: TextStyle(
-                            color: t.fg, fontSize: isPhoneLayout ? 24 : 32,
-                            fontWeight: FontWeight.w900, letterSpacing: -0.5,
-                          ),
-                        ),
-                        const SizedBox(height: 6),
-                        Text(controller.tr('start.welcomeNote'),
-                            style: TextStyle(color: t.fgMuted, fontSize: 14)),
-                      ],
-                    ),
-                    InkWell(
-                      onTap: () => onOpenSettings(initialTab: 7),
-                      borderRadius: BorderRadius.circular(12),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                        decoration: BoxDecoration(
-                          color: t.launchField, borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: t.accent),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(mainAxisSize: MainAxisSize.min, children: [
-                              Icon(Icons.verified_rounded, color: t.accent, size: 18),
-                              const SizedBox(width: 6),
-                              Text('المطور: يوسف حامد (YOSSEF)',
-                                  style: TextStyle(color: t.fg, fontWeight: FontWeight.bold, fontSize: 13)),
-                            ]),
-                            const SizedBox(height: 4),
-                            Row(mainAxisSize: MainAxisSize.min, children: [
-                              Icon(Icons.chat_bubble_outline_rounded, color: t.green, size: 15),
-                              const SizedBox(width: 6),
-                              Text('واتساب: ${YossefBrand.whatsappNumber}',
-                                  style: TextStyle(color: t.green, fontWeight: FontWeight.w700, fontSize: 13)),
-                            ]),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              _buildHero(context),
               const SizedBox(height: 24),
-              Wrap(
-                spacing: 14, runSpacing: 14,
-                children: [
-                  _buildActionTile(
-                    context, primary: true,
-                    icon: Icons.add_circle_outline_rounded,
-                    title: controller.tr('start.newProject'),
-                    subtitle: controller.tr('start.newProjectNote'),
-                    width: isPhoneLayout ? double.infinity : 360,
-                    onTap: onCreateNew,
-                  ),
-                  _buildActionTile(
-                    context, primary: false,
-                    icon: Icons.play_circle_fill_rounded,
-                    title: controller.isArabic ? 'فتح المحرر الآن' : 'Launch Editor',
-                    subtitle: controller.isArabic ? 'الدخول للمشروع المحمل' : 'Jump into active project',
-                    width: isPhoneLayout ? double.infinity : 340,
-                    onTap: () { controller.onStartScreen = false; controller.notifyUpdate(); },
-                  ),
-                  _buildActionTile(
-                    context, primary: false,
-                    icon: Icons.settings_applications_rounded,
-                    title: controller.isArabic ? 'الضبط والمطور' : 'Settings & Developer',
-                    subtitle: 'YOSSEF · 01029892573',
-                    width: isPhoneLayout ? double.infinity : 340,
-                    onTap: () => onOpenSettings(initialTab: 7),
-                  ),
-                ],
-              ),
+              _buildActionRow(context),
               const SizedBox(height: 32),
-              Row(
-                children: [
-                  Text(controller.tr('start.recentProjects'),
-                      style: TextStyle(color: t.fg, fontSize: 18, fontWeight: FontWeight.bold)),
-                  const SizedBox(width: 10),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                    decoration: BoxDecoration(color: t.launchField, borderRadius: BorderRadius.circular(12)),
-                    child: Text('${filteredProjects.length}',
-                        style: TextStyle(color: t.fgMuted, fontSize: 12)),
-                  ),
-                  const Spacer(),
-                  SizedBox(
-                    width: isPhoneLayout ? 160 : 260,
-                    height: 34,
-                    child: TextField(
-                      onChanged: (v) { controller.startSearchQuery = v; controller.notifyUpdate(); },
-                      style: TextStyle(color: t.fg, fontSize: 13),
-                      decoration: InputDecoration(
-                        hintText: controller.tr('start.searchProjects'),
-                        hintStyle: TextStyle(color: t.fgDim, fontSize: 12),
-                        prefixIcon: Icon(Icons.search, size: 16, color: t.fgDim),
-                        filled: true, fillColor: t.launchPanel, contentPadding: EdgeInsets.zero,
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(18), borderSide: BorderSide(color: t.line)),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              _buildRecentHeader(context, filteredProjects.length),
               const SizedBox(height: 16),
               GridView.builder(
                 shrinkWrap: true,
@@ -1946,55 +1944,131 @@ class YossefStartScreen extends StatelessWidget {
                 itemCount: filteredProjects.length,
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: isPhoneLayout ? 420 : 320,
-                  mainAxisExtent: 215, crossAxisSpacing: 16, mainAxisSpacing: 16,
+                  mainAxisExtent: 215,
+                  crossAxisSpacing: 16, mainAxisSpacing: 16,
                 ),
-                itemBuilder: (context, index) {
-                  final proj = filteredProjects[index];
-                  return _buildProjectCard(context, proj);
-                },
+                itemBuilder: (context, index) => _buildProjectCard(context, filteredProjects[index]),
               ),
               const SizedBox(height: 36),
-              Text(controller.tr('start.learnAndCommunity'),
-                  style: TextStyle(color: t.fg, fontSize: 18, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 14),
-              Wrap(
-                spacing: 14, runSpacing: 14,
-                children: [
-                  _buildLearnCard(
-                    context,
-                    icon: Icons.verified_user_rounded,
-                    title: controller.tr('start.developerCardTitle'),
-                    note: controller.tr('start.developerCardNote'),
-                    highlight: true,
-                    onTap: () => onOpenSettings(initialTab: 7),
-                  ),
-                  _buildLearnCard(
-                    context,
-                    icon: Icons.auto_fix_high_rounded,
-                    title: controller.tr('start.firstEdit'),
-                    note: controller.tr('start.firstEditNote'),
-                    onTap: () { controller.onStartScreen = false; controller.notifyUpdate(); },
-                  ),
-                  _buildLearnCard(
-                    context,
-                    icon: Icons.keyboard_alt_outlined,
-                    title: controller.tr('start.keyboardShortcuts'),
-                    note: controller.tr('start.keyboardShortcutsNote'),
-                    onTap: () => onOpenSettings(initialTab: 6),
-                  ),
-                  _buildLearnCard(
-                    context,
-                    icon: Icons.psychology_rounded,
-                    title: 'AI Models (Whisper, TTS, RVM)',
-                    note: 'Manage local AI models',
-                    onTap: () => onOpenSettings(initialTab: 2),
-                  ),
-                ],
-              ),
+              _buildLearnSection(context),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildHero(BuildContext context) {
+    final t = controller.theme;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [t.launchPanel, t.accent.withOpacity(0.12), t.launchRaised],
+          begin: Alignment.topLeft, end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: t.accent.withOpacity(0.4), width: 1.2),
+      ),
+      child: Wrap(
+        spacing: 20, runSpacing: 16,
+        alignment: WrapAlignment.spaceBetween,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    decoration: BoxDecoration(color: t.accent, borderRadius: BorderRadius.circular(20)),
+                    child: Text('YOSSEF OFFICIAL · 8K HDR',
+                        style: TextStyle(color: t.onAccent, fontSize: 11, fontWeight: FontWeight.w900)),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(YossefBrand.version, style: TextStyle(color: t.fgMuted, fontSize: 12)),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Text(
+                controller.tr('start.welcomeBack'),
+                style: TextStyle(color: t.fg, fontSize: isPhoneLayout ? 24 : 32,
+                    fontWeight: FontWeight.w900, letterSpacing: -0.5),
+              ),
+              const SizedBox(height: 6),
+              Text(controller.tr('start.welcomeNote'),
+                  style: TextStyle(color: t.fgMuted, fontSize: 14)),
+            ],
+          ),
+          InkWell(
+            onTap: () => onOpenSettings(initialTab: 7),
+            borderRadius: BorderRadius.circular(12),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              decoration: BoxDecoration(
+                color: t.launchField,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: t.accent),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.verified_rounded, color: t.accent, size: 18),
+                      const SizedBox(width: 6),
+                      Text('المطور: يوسف حامد',
+                          style: TextStyle(color: t.fg, fontWeight: FontWeight.bold, fontSize: 13)),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.chat_bubble_outline_rounded, color: t.green, size: 15),
+                      const SizedBox(width: 6),
+                      Text('واتساب: ${YossefBrand.whatsappNumber}',
+                          style: TextStyle(color: t.green, fontWeight: FontWeight.w700, fontSize: 13)),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildActionRow(BuildContext context) {
+    return Wrap(
+      spacing: 14, runSpacing: 14,
+      children: [
+        _buildActionTile(context, primary: true,
+            icon: Icons.add_circle_outline_rounded,
+            title: controller.tr('start.newProject'),
+            subtitle: controller.tr('start.newProjectNote'),
+            width: isPhoneLayout ? double.infinity : 360, onTap: onCreateNew),
+        _buildActionTile(context, primary: false,
+            icon: Icons.play_circle_fill_rounded,
+            title: controller.isArabic ? 'فتح المحرر الآن' : 'Launch Full Editor',
+            subtitle: controller.isArabic ? 'الدخول المباشر للمشروع' : 'Jump into active project',
+            width: isPhoneLayout ? double.infinity : 340,
+            onTap: () {
+              controller.onStartScreen = false;
+              controller.notifyUpdate();
+            }),
+        _buildActionTile(context, primary: false,
+            icon: Icons.settings_applications_rounded,
+            title: controller.isArabic ? 'الضبط والمطور' : 'Settings & Developer',
+            subtitle: 'YOSSEF · واتساب 01029892573',
+            width: isPhoneLayout ? double.infinity : 340,
+            onTap: () => onOpenSettings(initialTab: 7)),
+      ],
     );
   }
 
@@ -2007,7 +2081,6 @@ class YossefStartScreen extends StatelessWidget {
     final bg = primary ? t.accent : t.launchPanel;
     final fg = primary ? t.onAccent : t.fg;
     final subFg = primary ? t.onAccent.withOpacity(0.78) : t.fgMuted;
-
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(14),
@@ -2015,7 +2088,8 @@ class YossefStartScreen extends StatelessWidget {
         width: width,
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
         decoration: BoxDecoration(
-          color: bg, borderRadius: BorderRadius.circular(14),
+          color: bg,
+          borderRadius: BorderRadius.circular(14),
           border: primary ? null : Border.all(color: t.lineStrong),
         ),
         child: Row(
@@ -2035,13 +2109,53 @@ class YossefStartScreen extends StatelessWidget {
                 children: [
                   Text(title, style: TextStyle(color: fg, fontSize: 16, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 4),
-                  Text(subtitle, style: TextStyle(color: subFg, fontSize: 12), maxLines: 2, overflow: TextOverflow.ellipsis),
+                  Text(subtitle, style: TextStyle(color: subFg, fontSize: 12),
+                      maxLines: 2, overflow: TextOverflow.ellipsis),
                 ],
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildRecentHeader(BuildContext context, int count) {
+    final t = controller.theme;
+    return Row(
+      children: [
+        Text(controller.tr('start.recentProjects'),
+            style: TextStyle(color: t.fg, fontSize: 18, fontWeight: FontWeight.bold)),
+        const SizedBox(width: 10),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+          decoration: BoxDecoration(color: t.launchField, borderRadius: BorderRadius.circular(12)),
+          child: Text('$count', style: TextStyle(color: t.fgMuted, fontSize: 12)),
+        ),
+        const Spacer(),
+        SizedBox(
+          width: isPhoneLayout ? 160 : 260,
+          height: 34,
+          child: TextField(
+            onChanged: (v) {
+              controller.startSearchQuery = v;
+              controller.notifyUpdate();
+            },
+            style: TextStyle(color: t.fg, fontSize: 13),
+            decoration: InputDecoration(
+              hintText: controller.tr('start.searchProjects'),
+              hintStyle: TextStyle(color: t.fgDim, fontSize: 12),
+              prefixIcon: Icon(Icons.search, size: 16, color: t.fgDim),
+              filled: true, fillColor: t.launchPanel,
+              contentPadding: EdgeInsets.zero,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(18),
+                borderSide: BorderSide(color: t.line),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -2057,7 +2171,8 @@ class YossefStartScreen extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: t.launchPanel, borderRadius: BorderRadius.circular(12),
+          color: t.launchPanel,
+          borderRadius: BorderRadius.circular(12),
           border: Border.all(color: t.line),
         ),
         child: Column(
@@ -2067,20 +2182,24 @@ class YossefStartScreen extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: proj.posterGradient,
-                    begin: Alignment.topLeft, end: Alignment.bottomRight,
-                  ),
+                  gradient: LinearGradient(colors: proj.posterGradient,
+                      begin: Alignment.topLeft, end: Alignment.bottomRight),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Stack(
                   children: [
-                    Center(child: Icon(Icons.play_circle_outline_rounded, size: 38, color: Colors.white.withOpacity(0.85))),
+                    Center(
+                      child: Icon(Icons.play_circle_outline_rounded,
+                          size: 38, color: Colors.white.withOpacity(0.85)),
+                    ),
                     Positioned(
                       top: 8, left: 8,
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
-                        decoration: BoxDecoration(color: Colors.black.withOpacity(0.65), borderRadius: BorderRadius.circular(4)),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.65),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
                         child: const Text('YOSSEF PRO',
                             style: TextStyle(color: Color(0xFFCBF53F), fontSize: 10, fontWeight: FontWeight.bold)),
                       ),
@@ -2089,7 +2208,10 @@ class YossefStartScreen extends StatelessWidget {
                       bottom: 8, right: 8,
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
-                        decoration: BoxDecoration(color: Colors.black.withOpacity(0.75), borderRadius: BorderRadius.circular(4)),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.75),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
                         child: Text(proj.lengthText,
                             style: const TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold)),
                       ),
@@ -2101,20 +2223,52 @@ class YossefStartScreen extends StatelessWidget {
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: Text(proj.name,
-                  style: TextStyle(color: t.fg, fontSize: 14, fontWeight: FontWeight.bold),
+              child: Text(proj.name, style: TextStyle(color: t.fg, fontSize: 14, fontWeight: FontWeight.bold),
                   maxLines: 1, overflow: TextOverflow.ellipsis),
             ),
             const SizedBox(height: 2),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: Text('${proj.whenText}  ·  ${proj.detail}',
+              child: Text('${proj.whenText} · ${proj.detail}',
                   style: TextStyle(color: t.fgDim, fontSize: 11),
                   maxLines: 1, overflow: TextOverflow.ellipsis),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildLearnSection(BuildContext context) {
+    final t = controller.theme;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(controller.tr('start.learnAndCommunity'),
+            style: TextStyle(color: t.fg, fontSize: 18, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 14),
+        Wrap(
+          spacing: 14, runSpacing: 14,
+          children: [
+            _buildLearnCard(context, icon: Icons.verified_user_rounded,
+                title: controller.tr('start.developerCardTitle'),
+                note: controller.tr('start.developerCardNote'),
+                highlight: true, onTap: () => onOpenSettings(initialTab: 7)),
+            _buildLearnCard(context, icon: Icons.keyboard_alt_outlined,
+                title: controller.tr('start.keyboardShortcuts'),
+                note: controller.tr('start.keyboardShortcutsNote'),
+                onTap: () => onOpenSettings(initialTab: 6)),
+            _buildLearnCard(context, icon: Icons.psychology_rounded,
+                title: controller.isArabic ? 'نماذج الذكاء الاصطناعي' : 'Local AI Models',
+                note: controller.isArabic ? 'Whisper · TTS · RVM · 8K Upscaler' : 'Whisper, TTS, RVM, 8K Upscaler',
+                onTap: () => onOpenSettings(initialTab: 2)),
+            _buildLearnCard(context, icon: Icons.hub_outlined,
+                title: controller.isArabic ? 'خادم الأتمتة MCP' : 'MCP Automation Server',
+                note: '${controller.mcpServerHost}:${controller.mcpServerPort}',
+                onTap: () => onOpenSettings(initialTab: 5)),
+          ],
+        ),
+      ],
     );
   }
 
@@ -2166,7 +2320,6 @@ class YossefStartScreen extends StatelessWidget {
 // ============================================================================
 // 11. DESKTOP WORKSPACE
 // ============================================================================
-
 class YossefDesktopWorkspace extends StatefulWidget {
   final YossefStudioController controller;
   final void Function({int initialTab}) onOpenSettings;
@@ -2176,9 +2329,9 @@ class YossefDesktopWorkspace extends StatefulWidget {
   final VoidCallback onOpenVoiceover;
 
   const YossefDesktopWorkspace({
-    super.key, required this.controller, required this.onOpenSettings,
-    required this.onOpenExport, required this.onOpenCaptions,
-    required this.onOpenSpeech, required this.onOpenVoiceover,
+    super.key, required this.controller,
+    required this.onOpenSettings, required this.onOpenExport,
+    required this.onOpenCaptions, required this.onOpenSpeech, required this.onOpenVoiceover,
   });
 
   @override
@@ -2231,7 +2384,8 @@ class _YossefDesktopWorkspaceState extends State<YossefDesktopWorkspace> {
               });
             },
             child: Container(
-              height: 6, alignment: Alignment.center,
+              height: 6,
+              alignment: Alignment.center,
               child: Container(
                 width: 48, height: 2,
                 decoration: BoxDecoration(color: t.lineStrong, borderRadius: BorderRadius.circular(1)),
@@ -2241,7 +2395,10 @@ class _YossefDesktopWorkspaceState extends State<YossefDesktopWorkspace> {
           Expanded(
             flex: ((1.0 - c.topRowFlex) * 100).round(),
             child: showKeyframesInBottom
-                ? YossefKeyframesPane(controller: c, onBackToTimeline: () => setState(() => showKeyframesInBottom = false))
+                ? YossefKeyframesPane(
+                    controller: c,
+                    onBackToTimeline: () => setState(() => showKeyframesInBottom = false),
+                  )
                 : YossefTimelinePane(
                     controller: c,
                     onOpenKeyframes: () => setState(() => showKeyframesInBottom = true),
@@ -2259,7 +2416,6 @@ class _YossefDesktopWorkspaceState extends State<YossefDesktopWorkspace> {
 // ============================================================================
 // 12. LIBRARY PANE
 // ============================================================================
-
 class YossefLibraryPane extends StatelessWidget {
   final YossefStudioController controller;
   final VoidCallback onOpenCaptions;
@@ -2287,13 +2443,14 @@ class YossefLibraryPane extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: t.panel, borderRadius: BorderRadius.circular(10),
+        color: t.panel,
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(color: t.line),
       ),
       child: Column(
         children: [
           Container(
-            height: 50,
+            height: 54,
             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
             decoration: BoxDecoration(border: Border(bottom: BorderSide(color: t.line))),
             child: ListView.separated(
@@ -2303,7 +2460,11 @@ class YossefLibraryPane extends StatelessWidget {
               itemBuilder: (context, idx) {
                 final selected = controller.activeLibraryTab == idx;
                 return InkWell(
-                  onTap: () { controller.activeLibraryTab = idx; controller.notifyUpdate(); },
+                  onTap: () {
+                    controller.activeLibraryTab = idx;
+                    controller.librarySearchQuery = '';
+                    controller.notifyUpdate();
+                  },
                   borderRadius: BorderRadius.circular(6),
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -2314,12 +2475,15 @@ class YossefLibraryPane extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(tabs[idx].$1, size: 15, color: selected ? t.accent : t.fgMuted),
+                        Icon(tabs[idx].$1, size: 16,
+                            color: selected ? t.accent : t.fgMuted),
                         const SizedBox(height: 2),
-                        Text(tabs[idx].$2, style: TextStyle(
-                          color: selected ? t.fg : t.fgMuted, fontSize: 10,
-                          fontWeight: selected ? FontWeight.bold : FontWeight.normal,
-                        )),
+                        Text(tabs[idx].$2,
+                            style: TextStyle(
+                              color: selected ? t.fg : t.fgMuted,
+                              fontSize: 10,
+                              fontWeight: selected ? FontWeight.bold : FontWeight.normal,
+                            )),
                       ],
                     ),
                   ),
@@ -2335,14 +2499,23 @@ class YossefLibraryPane extends StatelessWidget {
                   child: SizedBox(
                     height: 30,
                     child: TextField(
-                      onChanged: (v) { controller.librarySearchQuery = v; controller.notifyUpdate(); },
+                      controller: TextEditingController(text: controller.librarySearchQuery)
+                        ..selection = TextSelection.collapsed(offset: controller.librarySearchQuery.length),
+                      onChanged: (v) {
+                        controller.librarySearchQuery = v;
+                        controller.notifyUpdate();
+                      },
                       style: TextStyle(color: t.fg, fontSize: 12),
                       decoration: InputDecoration(
-                        hintText: controller.isArabic ? 'بحث في المكتبة...' : 'Search Library...',
+                        hintText: controller.isArabic ? 'بحث في المكتبة...' : 'Search library...',
                         hintStyle: TextStyle(color: t.fgDim, fontSize: 11),
                         prefixIcon: Icon(Icons.search, size: 14, color: t.fgDim),
-                        filled: true, fillColor: t.field, contentPadding: EdgeInsets.zero,
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(6), borderSide: BorderSide.none),
+                        filled: true, fillColor: t.field,
+                        contentPadding: EdgeInsets.zero,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(6),
+                          borderSide: BorderSide.none,
+                        ),
                       ),
                     ),
                   ),
@@ -2360,7 +2533,8 @@ class YossefLibraryPane extends StatelessWidget {
                         id: 'm_${DateTime.now().millisecondsSinceEpoch}',
                         name: 'YOSSEF_Shot_${controller.mediaBin.length + 1}_8K.mp4',
                         kind: ClipKind.video, duration: 6.0,
-                        format: 'MP4 · 10-bit HDR', resolution: '7680×4320 · 60fps',
+                        format: 'MP4 · 10-bit HDR',
+                        resolution: '7680×4320 · 60fps',
                         gradient: const [Color(0xFF1F4037), Color(0xFF99F2C8)],
                       ));
                       controller.notifyUpdate();
@@ -2398,6 +2572,7 @@ class YossefLibraryPane extends StatelessWidget {
       if (controller.librarySearchQuery.trim().isEmpty) return true;
       return m.name.toLowerCase().contains(controller.librarySearchQuery.toLowerCase());
     }).toList();
+    if (items.isEmpty) return _emptyState(context);
 
     return GridView.builder(
       padding: const EdgeInsets.all(8),
@@ -2413,7 +2588,8 @@ class YossefLibraryPane extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           child: Container(
             decoration: BoxDecoration(
-              color: t.raised, borderRadius: BorderRadius.circular(8),
+              color: t.raised,
+              borderRadius: BorderRadius.circular(8),
               border: Border.all(color: t.line),
             ),
             child: Column(
@@ -2441,7 +2617,10 @@ class YossefLibraryPane extends StatelessWidget {
                           bottom: 4, right: 4,
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-                            decoration: BoxDecoration(color: Colors.black.withOpacity(0.75), borderRadius: BorderRadius.circular(4)),
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(0.75),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
                             child: Text('${item.duration.toStringAsFixed(1)}s',
                                 style: const TextStyle(color: Colors.white, fontSize: 10)),
                           ),
@@ -2463,9 +2642,11 @@ class YossefLibraryPane extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(item.name, style: TextStyle(color: t.fg, fontSize: 11, fontWeight: FontWeight.w600),
+                      Text(item.name,
+                          style: TextStyle(color: t.fg, fontSize: 11, fontWeight: FontWeight.w600),
                           maxLines: 1, overflow: TextOverflow.ellipsis),
-                      Text(item.resolution, style: TextStyle(color: t.fgDim, fontSize: 9.5),
+                      Text(item.resolution,
+                          style: TextStyle(color: t.fgDim, fontSize: 9.5),
                           maxLines: 1, overflow: TextOverflow.ellipsis),
                     ],
                   ),
@@ -2502,12 +2683,13 @@ class YossefLibraryPane extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 12),
-        Text(controller.isArabic ? 'المؤثرات الصوتية' : 'Audio Processors',
+        Text(controller.isArabic ? 'مؤثرات صوتية احترافية' : 'Studio Audio Processors',
             style: TextStyle(color: t.fgMuted, fontSize: 12, fontWeight: FontWeight.bold)),
         const SizedBox(height: 8),
         ...controller.packages.where((p) => p.kind == 'audio').map((pkg) {
           return Card(
-            color: t.raised, margin: const EdgeInsets.only(bottom: 6),
+            color: t.raised,
+            margin: const EdgeInsets.only(bottom: 6),
             child: ListTile(
               dense: true,
               leading: CircleAvatar(
@@ -2542,7 +2724,7 @@ class YossefLibraryPane extends StatelessWidget {
                   style: ElevatedButton.styleFrom(backgroundColor: t.accent, foregroundColor: t.onAccent),
                   onPressed: () => controller.addTextFromPreset(YossefCatalogues.textPresets.first),
                   icon: const Icon(Icons.add, size: 16),
-                  label: Text(controller.isArabic ? 'إضافة عنوان' : 'Add Title',
+                  label: Text(controller.isArabic ? 'عنوان جديد' : 'Add Title',
                       style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
                 ),
               ),
@@ -2571,7 +2753,8 @@ class YossefLibraryPane extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: const Color(0xFF37373A), borderRadius: BorderRadius.circular(8),
+                    color: const Color(0xFF37373A),
+                    borderRadius: BorderRadius.circular(8),
                     border: Border.all(color: t.line),
                   ),
                   child: Column(
@@ -2583,14 +2766,14 @@ class YossefLibraryPane extends StatelessWidget {
                           color: preset.backgroundColor ?? Colors.transparent,
                           borderRadius: BorderRadius.circular(4),
                         ),
-                        child: Text(preset.sample, style: TextStyle(
-                          color: preset.color, fontWeight: preset.fontWeight,
-                          fontStyle: preset.italic ? FontStyle.italic : FontStyle.normal,
-                          fontSize: 17,
-                        )),
+                        child: Text(preset.sample,
+                            style: TextStyle(
+                              color: preset.color, fontWeight: FontWeight.w700, fontSize: 17,
+                            )),
                       ),
                       const SizedBox(height: 6),
-                      Text(preset.name, style: TextStyle(color: t.fgMuted, fontSize: 10.5),
+                      Text(preset.name,
+                          style: TextStyle(color: t.fgMuted, fontSize: 10.5),
                           maxLines: 1, overflow: TextOverflow.ellipsis),
                     ],
                   ),
@@ -2609,8 +2792,12 @@ class YossefLibraryPane extends StatelessWidget {
       if (p.kind != kind) return false;
       if (controller.librarySearchQuery.trim().isEmpty) return true;
       final q = controller.librarySearchQuery.toLowerCase();
-      return p.name.toLowerCase().contains(q) || p.nameAr.contains(q) || p.category.toLowerCase().contains(q);
+      return p.name.toLowerCase().contains(q) ||
+          p.nameAr.contains(q) ||
+          p.category.toLowerCase().contains(q);
     }).toList();
+
+    if (list.isEmpty) return _emptyState(context);
 
     return GridView.builder(
       padding: const EdgeInsets.all(8),
@@ -2626,7 +2813,8 @@ class YossefLibraryPane extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           child: Container(
             decoration: BoxDecoration(
-              color: t.raised, borderRadius: BorderRadius.circular(8),
+              color: t.raised,
+              borderRadius: BorderRadius.circular(8),
               border: Border.all(color: t.line),
             ),
             child: Column(
@@ -2643,15 +2831,25 @@ class YossefLibraryPane extends StatelessWidget {
                     ),
                     child: Stack(
                       children: [
-                        Center(child: Text(pkg.category.toUpperCase(),
-                            style: TextStyle(color: Colors.white.withOpacity(0.85),
-                                fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 0.7))),
+                        Center(
+                          child: Text(pkg.category.toUpperCase(),
+                              style: TextStyle(
+                                color: Colors.white.withOpacity(0.85), fontSize: 10,
+                                fontWeight: FontWeight.w900, letterSpacing: 0.7,
+                              )),
+                        ),
                         Positioned(
                           top: 4, right: 4,
                           child: InkWell(
-                            onTap: () { pkg.favourite = !pkg.favourite; controller.notifyUpdate(); },
-                            child: Icon(pkg.favourite ? Icons.star_rounded : Icons.star_border_rounded,
-                                size: 16, color: pkg.favourite ? Colors.amber : Colors.white70),
+                            onTap: () {
+                              pkg.favourite = !pkg.favourite;
+                              controller.notifyUpdate();
+                            },
+                            child: Icon(
+                              pkg.favourite ? Icons.star_rounded : Icons.star_border_rounded,
+                              size: 16,
+                              color: pkg.favourite ? Colors.amber : Colors.white70,
+                            ),
                           ),
                         ),
                       ],
@@ -2688,7 +2886,7 @@ class YossefLibraryPane extends StatelessWidget {
               style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
         ),
         const SizedBox(height: 10),
-        Text(controller.isArabic ? 'YOSSEF 3D .CUBE LUTs' : 'YOSSEF Cinematic 3D .CUBE LUTs',
+        Text(controller.isArabic ? 'ملفات .CUBE LUTs سينمائية' : 'Cinematic .CUBE LUTs',
             style: TextStyle(color: t.fgMuted, fontSize: 12, fontWeight: FontWeight.bold)),
         const SizedBox(height: 8),
         ...[
@@ -2696,9 +2894,11 @@ class YossefLibraryPane extends StatelessWidget {
           ('YOSSEF Kodak 2383 Print Film.cube', [const Color(0xFF834D9B), const Color(0xFFD04ED6)]),
           ('YOSSEF Anamorphic Teal Gold.cube', [const Color(0xFF005C97), const Color(0xFFFF8008)]),
           ('YOSSEF Cairo Golden Desert HDR.cube', [const Color(0xFFF7971E), const Color(0xFFFFD200)]),
+          ('YOSSEF Netflix Original.cube', [const Color(0xFF232526), const Color(0xFF414345)]),
         ].map((lut) {
           return Card(
-            color: t.raised, margin: const EdgeInsets.only(bottom: 8),
+            color: t.raised,
+            margin: const EdgeInsets.only(bottom: 8),
             child: ListTile(
               dense: true,
               leading: Container(
@@ -2709,7 +2909,8 @@ class YossefLibraryPane extends StatelessWidget {
                 ),
                 child: const Icon(Icons.wb_iridescent_rounded, color: Colors.white, size: 16),
               ),
-              title: Text(lut.$1, style: TextStyle(color: t.fg, fontSize: 11.5, fontWeight: FontWeight.bold)),
+              title: Text(lut.$1,
+                  style: TextStyle(color: t.fg, fontSize: 11.5, fontWeight: FontWeight.bold)),
               trailing: IconButton(
                 icon: Icon(Icons.add_circle_outline, color: t.accent, size: 18),
                 onPressed: controller.addAdjustmentLayer,
@@ -2728,7 +2929,7 @@ class YossefLibraryPane extends StatelessWidget {
       ('circle', controller.isArabic ? 'دائرة' : 'Circle', Icons.circle_outlined, const Color(0xFF5FB8FF)),
       ('star', controller.isArabic ? 'نجمة' : 'Star', Icons.star_rounded, const Color(0xFFFFB340)),
       ('arrow', controller.isArabic ? 'سهم' : 'Arrow', Icons.trending_flat_rounded, const Color(0xFFFF6FA3)),
-      ('badge', controller.isArabic ? 'شارة' : 'Badge', Icons.verified_rounded, const Color(0xFF3FDCC4)),
+      ('badge', controller.isArabic ? 'شارة YOSSEF' : 'YOSSEF Badge', Icons.verified_rounded, const Color(0xFF3FDCC4)),
     ];
     return GridView.builder(
       padding: const EdgeInsets.all(10),
@@ -2744,7 +2945,8 @@ class YossefLibraryPane extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           child: Container(
             decoration: BoxDecoration(
-              color: t.raised, borderRadius: BorderRadius.circular(8),
+              color: t.raised,
+              borderRadius: BorderRadius.circular(8),
               border: Border.all(color: t.line),
             ),
             child: Column(
@@ -2760,15 +2962,30 @@ class YossefLibraryPane extends StatelessWidget {
       },
     );
   }
+
+  Widget _emptyState(BuildContext context) {
+    final t = controller.theme;
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.search_off_rounded, size: 42, color: t.fgDim),
+          const SizedBox(height: 8),
+          Text(controller.isArabic ? 'لا توجد نتائج' : 'No results',
+              style: TextStyle(color: t.fgMuted, fontSize: 12)),
+        ],
+      ),
+    );
+  }
 }
 
 // ============================================================================
 // 13. PREVIEW PANE
 // ============================================================================
-
 class YossefPreviewPane extends StatelessWidget {
   final YossefStudioController controller;
   final bool bare;
+
   const YossefPreviewPane({super.key, required this.controller, this.bare = false});
 
   @override
@@ -2779,7 +2996,8 @@ class YossefPreviewPane extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: t.panel, borderRadius: BorderRadius.circular(10),
+        color: t.panel,
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(color: t.line),
       ),
       child: Column(
@@ -2810,11 +3028,14 @@ class YossefPreviewPane extends StatelessWidget {
                       style: TextStyle(color: t.fg, fontSize: 11),
                       items: const [
                         DropdownMenuItem(value: 0, child: Text('Ultra Full')),
-                        DropdownMenuItem(value: 1, child: Text('Half Proxy')),
-                        DropdownMenuItem(value: 2, child: Text('Quarter Fast')),
+                        DropdownMenuItem(value: 1, child: Text('Half')),
+                        DropdownMenuItem(value: 2, child: Text('Quarter')),
                       ],
                       onChanged: (v) {
-                        if (v != null) { controller.previewQualityIndex = v; controller.notifyUpdate(); }
+                        if (v != null) {
+                          controller.previewQualityIndex = v;
+                          controller.notifyUpdate();
+                        }
                       },
                     ),
                   ),
@@ -2825,7 +3046,8 @@ class YossefPreviewPane extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.black, borderRadius: BorderRadius.circular(8),
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: t.lineStrong),
               ),
               clipBehavior: Clip.antiAlias,
@@ -2834,8 +3056,10 @@ class YossefPreviewPane extends StatelessWidget {
                   return GestureDetector(
                     onPanUpdate: (details) {
                       if (selected != null) {
-                        selected.posX = (selected.posX + details.delta.dx / (constraints.maxWidth * 0.5)).clamp(-1.0, 1.0);
-                        selected.posY = (selected.posY + details.delta.dy / (constraints.maxHeight * 0.5)).clamp(-1.0, 1.0);
+                        selected.posX = (selected.posX +
+                            details.delta.dx / (constraints.maxWidth * 0.5)).clamp(-1.0, 1.0);
+                        selected.posY = (selected.posY +
+                            details.delta.dy / (constraints.maxHeight * 0.5)).clamp(-1.0, 1.0);
                         controller.notifyUpdate();
                       }
                     },
@@ -2845,9 +3069,9 @@ class YossefPreviewPane extends StatelessWidget {
                         for (final clip in activeClips)
                           if (clip.kind != ClipKind.audio)
                             _buildCompositedClipLayer(clip, constraints),
-                        CustomPaint(
-                          painter: _StageGuidesPainter(accentColor: t.accent, selectedClip: selected),
-                        ),
+                        CustomPaint(painter: _StageGuidesPainter(
+                          accentColor: t.accent, selectedClip: selected,
+                        )),
                         Positioned(
                           top: 10, right: 10,
                           child: Container(
@@ -2873,12 +3097,15 @@ class YossefPreviewPane extends StatelessWidget {
                             top: 10, left: 10,
                             child: Container(
                               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                              decoration: BoxDecoration(color: Colors.black.withOpacity(0.7), borderRadius: BorderRadius.circular(6)),
+                              decoration: BoxDecoration(
+                                color: Colors.black.withOpacity(0.7),
+                                borderRadius: BorderRadius.circular(6),
+                              ),
                               child: Text(
                                 [
-                                  if (selected.aiEnhanced) 'AI 8K ON',
-                                  if (selected.cutoutMode == 1) 'Auto-Cutout ON',
-                                  if (selected.cutoutMode == 3) 'Chroma ON',
+                                  if (selected.aiEnhanced) 'AI 8K',
+                                  if (selected.cutoutMode == 1) 'AI Cutout',
+                                  if (selected.cutoutMode == 3) 'Chroma',
                                 ].join(' · '),
                                 style: TextStyle(color: t.green, fontSize: 10, fontWeight: FontWeight.bold),
                               ),
@@ -2898,7 +3125,10 @@ class YossefPreviewPane extends StatelessWidget {
             child: Row(
               children: [
                 Text(_formatTimecode(controller.playhead, controller.frameRate),
-                    style: TextStyle(color: t.accent, fontSize: 13, fontWeight: FontWeight.w800, fontFamily: 'monospace')),
+                    style: TextStyle(
+                      color: t.accent, fontSize: 13,
+                      fontWeight: FontWeight.w800, fontFamily: 'monospace',
+                    )),
                 Text(' / ${_formatTimecode(controller.timelineDuration, controller.frameRate)}',
                     style: TextStyle(color: t.fgDim, fontSize: 12, fontFamily: 'monospace')),
                 const Spacer(),
@@ -2908,7 +3138,7 @@ class YossefPreviewPane extends StatelessWidget {
                   icon: Icon(Icons.skip_previous_rounded, size: 19, color: t.fgMuted),
                 ),
                 IconButton(
-                  tooltip: 'Prev Frame',
+                  tooltip: 'Prev Frame (←)',
                   onPressed: () => controller.stepFrames(-1),
                   icon: Icon(Icons.navigate_before_rounded, size: 20, color: t.fg),
                 ),
@@ -2925,7 +3155,7 @@ class YossefPreviewPane extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  tooltip: 'Next Frame',
+                  tooltip: 'Next Frame (→)',
                   onPressed: () => controller.stepFrames(1),
                   icon: Icon(Icons.navigate_next_rounded, size: 20, color: t.fg),
                 ),
@@ -2935,13 +3165,9 @@ class YossefPreviewPane extends StatelessWidget {
                   icon: Icon(Icons.content_cut_rounded, size: 17, color: t.accent),
                 ),
                 const Spacer(),
-                Flexible(
-                  child: Text(
-                    selected != null ? selected.name : 'YOSSEF Stage',
+                Text(selected != null ? selected.name : 'YOSSEF Stage',
                     style: TextStyle(color: t.fgMuted, fontSize: 11),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
+                    overflow: TextOverflow.ellipsis),
               ],
             ),
           ),
@@ -2953,9 +3179,8 @@ class YossefPreviewPane extends StatelessWidget {
   Widget _buildCompositedClipLayer(TimelineClip clip, BoxConstraints constraints) {
     final dx = clip.posX * (constraints.maxWidth * 0.35);
     final dy = clip.posY * (constraints.maxHeight * 0.35);
-
-    final double expFactor = math.pow(2.0, clip.exposure * 0.35).toDouble();
-    final double satFactor = ((100.0 + clip.saturation + clip.vibrance * 0.5) / 100.0).clamp(0.0, 2.5);
+    final expFactor = math.pow(2.0, clip.exposure * 0.35).toDouble();
+    final satFactor = ((100.0 + clip.saturation + clip.vibrance * 0.5) / 100.0).clamp(0.0, 2.5);
 
     Widget content;
     if (clip.kind == ClipKind.text) {
@@ -2966,16 +3191,20 @@ class YossefPreviewPane extends StatelessWidget {
             color: clip.textBackgroundPlate ?? Colors.transparent,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Text(
-            clip.textContent,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: clip.textColor, fontSize: clip.fontSize * 0.72, fontWeight: FontWeight.w900,
-              shadows: clip.textShadow ? [
-                Shadow(color: clip.textStrokeColor, blurRadius: clip.textStrokeWidth * 2, offset: const Offset(0, 2)),
-              ] : null,
-            ),
-          ),
+          child: Text(clip.textContent,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: clip.textColor,
+                fontSize: clip.fontSize * 0.72,
+                fontWeight: FontWeight.w900,
+                shadows: clip.textShadow
+                    ? [Shadow(
+                        color: clip.textStrokeColor,
+                        blurRadius: clip.textStrokeWidth * 2,
+                        offset: const Offset(0, 2),
+                      )]
+                    : null,
+              )),
         ),
       );
     } else if (clip.kind == ClipKind.shape) {
@@ -2987,31 +3216,31 @@ class YossefPreviewPane extends StatelessWidget {
             shape: clip.shapeType == 'circle' ? BoxShape.circle : BoxShape.rectangle,
             borderRadius: clip.shapeType == 'circle' ? null : BorderRadius.circular(16),
           ),
-          child: Center(child: Text('YOSSEF',
-              style: TextStyle(color: Colors.black.withOpacity(0.8), fontWeight: FontWeight.w900))),
+          child: Center(
+            child: Text('YOSSEF',
+                style: TextStyle(color: Colors.black.withOpacity(0.8), fontWeight: FontWeight.w900)),
+          ),
         ),
       );
     } else if (clip.kind == ClipKind.filter) {
       content = Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              const Color(0xFF005C97).withOpacity(0.18 * clip.opacity),
-              const Color(0xFFFF8008).withOpacity(0.18 * clip.opacity),
-            ],
-          ),
+          gradient: LinearGradient(colors: [
+            const Color(0xFF005C97).withOpacity(0.18 * clip.opacity),
+            const Color(0xFFFF8008).withOpacity(0.18 * clip.opacity),
+          ]),
         ),
       );
     } else {
       content = Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: clip.previewColors.map((c) {
-              final r = (_r(c) * expFactor).round().clamp(0, 255);
-              final g = (_g(c) * expFactor).round().clamp(0, 255);
-              final b = (_b(c) * satFactor).round().clamp(0, 255);
-              return Color.fromARGB(255, r, g, b);
-            }).toList(),
+            colors: clip.previewColors.map((c) => Color.fromARGB(
+              255,
+              (c.red * expFactor).round().clamp(0, 255),
+              (c.green * expFactor).round().clamp(0, 255),
+              (c.blue * satFactor).round().clamp(0, 255),
+            )).toList(),
             begin: Alignment.topLeft, end: Alignment.bottomRight,
           ),
         ),
@@ -3022,18 +3251,24 @@ class YossefPreviewPane extends StatelessWidget {
               Icon(Icons.hd_rounded, size: 46, color: Colors.white.withOpacity(0.28)),
               const SizedBox(height: 6),
               Text(clip.name,
-                  style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 13, fontWeight: FontWeight.bold),
-                  maxLines: 1, overflow: TextOverflow.ellipsis),
+                  style: TextStyle(color: Colors.white.withOpacity(0.7),
+                      fontSize: 13, fontWeight: FontWeight.bold)),
               if (clip.visualChain.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.only(top: 4),
                   child: Wrap(
                     spacing: 4,
-                    children: clip.visualChain.where((e) => e.enabled).map((e) => Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                      decoration: BoxDecoration(color: Colors.black45, borderRadius: BorderRadius.circular(4)),
-                      child: Text(e.name, style: const TextStyle(color: Color(0xFFCBF53F), fontSize: 10)),
-                    )).toList(),
+                    children: clip.visualChain
+                        .where((e) => e.enabled)
+                        .map((e) => Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                              decoration: BoxDecoration(
+                                color: Colors.black45, borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Text(e.name,
+                                  style: const TextStyle(color: Color(0xFFCBF53F), fontSize: 10)),
+                            ))
+                        .toList(),
                   ),
                 ),
             ],
@@ -3079,7 +3314,6 @@ class _StageGuidesPainter extends CustomPainter {
       ..color = Colors.white.withOpacity(0.08)
       ..strokeWidth = 1.0
       ..style = PaintingStyle.stroke;
-
     canvas.drawLine(Offset(size.width / 3, 0), Offset(size.width / 3, size.height), guidePaint);
     canvas.drawLine(Offset(size.width * 2 / 3, 0), Offset(size.width * 2 / 3, size.height), guidePaint);
     canvas.drawLine(Offset(0, size.height / 3), Offset(size.width, size.height / 3), guidePaint);
@@ -3091,13 +3325,11 @@ class _StageGuidesPainter extends CustomPainter {
       final boxW = (size.width * 0.55) * selectedClip!.scale.clamp(0.2, 2.0);
       final boxH = (size.height * 0.55) * selectedClip!.scale.clamp(0.2, 2.0);
       final rect = Rect.fromCenter(center: Offset(cx, cy), width: boxW, height: boxH);
-
       final boxPaint = Paint()
         ..color = accentColor
         ..strokeWidth = 1.5
         ..style = PaintingStyle.stroke;
       canvas.drawRect(rect, boxPaint);
-
       final handlePaint = Paint()..color = accentColor;
       for (final corner in [rect.topLeft, rect.topRight, rect.bottomLeft, rect.bottomRight]) {
         canvas.drawCircle(corner, 4.5, handlePaint);
@@ -3112,11 +3344,13 @@ class _StageGuidesPainter extends CustomPainter {
 // ============================================================================
 // 14. INSPECTOR PANE
 // ============================================================================
-
 class YossefInspectorPane extends StatelessWidget {
   final YossefStudioController controller;
   final void Function({int initialTab}) onOpenSettings;
-  const YossefInspectorPane({super.key, required this.controller, required this.onOpenSettings});
+
+  const YossefInspectorPane({
+    super.key, required this.controller, required this.onOpenSettings,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -3125,7 +3359,8 @@ class YossefInspectorPane extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: t.panel, borderRadius: BorderRadius.circular(10),
+        color: t.panel,
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(color: t.line),
       ),
       child: clip == null
@@ -3141,7 +3376,7 @@ class YossefInspectorPane extends StatelessWidget {
                     children: [
                       _buildTabChip(0, Icons.transform_rounded, controller.isArabic ? 'تحريك' : 'Video'),
                       _buildTabChip(1, Icons.palette_outlined, controller.isArabic ? 'ألوان' : 'Color'),
-                      _buildTabChip(2, Icons.auto_awesome_motion, controller.isArabic ? 'مؤثرات' : 'FX'),
+                      _buildTabChip(2, Icons.auto_awesome_motion, controller.isArabic ? 'مؤثرات' : 'Effects'),
                       _buildTabChip(3, Icons.volume_up_rounded, controller.isArabic ? 'صوت' : 'Audio'),
                       _buildTabChip(4, Icons.speed_rounded, controller.isArabic ? 'سرعة' : 'Speed'),
                       _buildTabChip(5, Icons.auto_fix_high_rounded, controller.isArabic ? 'AI' : 'AI'),
@@ -3189,7 +3424,10 @@ class YossefInspectorPane extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 4),
       child: InkWell(
-        onTap: () { controller.activeInspectorTab = index; controller.notifyUpdate(); },
+        onTap: () {
+          controller.activeInspectorTab = index;
+          controller.notifyUpdate();
+        },
         borderRadius: BorderRadius.circular(6),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -3202,10 +3440,12 @@ class YossefInspectorPane extends StatelessWidget {
             children: [
               Icon(icon, size: 14, color: active ? t.onAccent : t.fgMuted),
               const SizedBox(width: 4),
-              Text(label, style: TextStyle(
-                color: active ? t.onAccent : t.fgMuted, fontSize: 11,
-                fontWeight: active ? FontWeight.bold : FontWeight.normal,
-              )),
+              Text(label,
+                  style: TextStyle(
+                    color: active ? t.onAccent : t.fgMuted,
+                    fontSize: 11,
+                    fontWeight: active ? FontWeight.bold : FontWeight.normal,
+                  )),
             ],
           ),
         ),
@@ -3218,17 +3458,21 @@ class YossefInspectorPane extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.all(14),
       children: [
-        Row(children: [
-          Icon(Icons.info_outline_rounded, size: 16, color: t.accent),
-          const SizedBox(width: 6),
-          Text(controller.isArabic ? 'تفاصيل المشروع' : 'Project Details',
-              style: TextStyle(color: t.fg, fontSize: 13, fontWeight: FontWeight.bold)),
-        ]),
+        Row(
+          children: [
+            Icon(Icons.info_outline_rounded, size: 16, color: t.accent),
+            const SizedBox(width: 6),
+            Text(controller.isArabic ? 'تفاصيل المشروع' : 'Project Details',
+                style: TextStyle(color: t.fg, fontSize: 13, fontWeight: FontWeight.bold)),
+          ],
+        ),
         const SizedBox(height: 12),
         _buildFactRow(controller.tr('common.name'), controller.projectName),
         _buildFactRow(controller.tr('common.location'), controller.projectLocation),
-        _buildFactRow(controller.tr('common.size'), '${controller.outputWidth} × ${controller.outputHeight}'),
-        _buildFactRow(controller.tr('common.frameRate'), '${controller.frameRate.toStringAsFixed(2)} fps'),
+        _buildFactRow(controller.tr('common.size'),
+            '${controller.outputWidth} × ${controller.outputHeight}'),
+        _buildFactRow(controller.tr('common.frameRate'),
+            '${controller.frameRate.toStringAsFixed(2)} fps'),
         _buildFactRow('Color Space', controller.colorSpace),
         _buildFactRow(controller.tr('common.media'), '${controller.mediaBin.length} files'),
         _buildFactRow('Clips', '${controller.clips.length} clips'),
@@ -3236,7 +3480,8 @@ class YossefInspectorPane extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: t.accentSoft, borderRadius: BorderRadius.circular(10),
+            color: t.accentSoft,
+            borderRadius: BorderRadius.circular(10),
             border: Border.all(color: t.accent),
           ),
           child: Column(
@@ -3245,13 +3490,15 @@ class YossefInspectorPane extends StatelessWidget {
               Text('حقوق الملكية: YOSSEF',
                   style: TextStyle(color: t.accent, fontWeight: FontWeight.bold, fontSize: 12)),
               const SizedBox(height: 4),
-              Text('المطور: يوسف حامد (Yossef Hamed)\nواتساب: 01029892573',
+              Text('المطور: يوسف حامد\nواتساب: 01029892573',
                   style: TextStyle(color: t.fg, fontSize: 11.5)),
               const SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(backgroundColor: t.accent, foregroundColor: t.onAccent),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: t.accent, foregroundColor: t.onAccent,
+                  ),
                   onPressed: () => onOpenSettings(initialTab: 7),
                   icon: const Icon(Icons.settings, size: 15),
                   label: Text(controller.isArabic ? 'ضبط المطور' : 'Developer Settings',
@@ -3295,35 +3542,89 @@ class YossefInspectorPane extends StatelessWidget {
           TextFormField(
             initialValue: clip.textContent,
             style: TextStyle(color: t.fg, fontSize: 12),
-            onChanged: (v) { clip.textContent = v; controller.notifyUpdate(); },
+            onChanged: (v) {
+              clip.textContent = v;
+              controller.notifyUpdate();
+            },
             decoration: InputDecoration(
               filled: true, fillColor: t.field,
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(6)),
             ),
           ),
           const SizedBox(height: 10),
-          _buildParamSlider(label: 'Font Size', value: clip.fontSize, min: 14, max: 96, unit: 'pt',
-              onChanged: (v) { clip.fontSize = v; controller.notifyUpdate(); }),
+          _buildParamSlider(
+            label: controller.isArabic ? 'حجم الخط' : 'Font Size',
+            value: clip.fontSize, min: 14, max: 96, unit: 'pt',
+            onChanged: (v) {
+              clip.fontSize = v;
+              controller.notifyUpdate();
+            },
+          ),
           const Divider(height: 20),
         ],
-        Text(controller.isArabic ? 'التحجيم والموضع' : 'Transform',
+        Text(controller.isArabic ? 'التحجيم والموضع' : 'Transform & Placement',
             style: TextStyle(color: t.fgMuted, fontSize: 11.5, fontWeight: FontWeight.bold)),
         const SizedBox(height: 8),
-        _buildParamSlider(label: 'Scale', value: clip.scale * 100, min: 10, max: 300, unit: '%',
-            onKeyframe: () => controller.addKeyframeToSelected('scale', clip.scale / 3.0),
-            onChanged: (v) { clip.scale = v / 100.0; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Position X', value: clip.posX * 100, min: -100, max: 100, unit: '%',
-            onKeyframe: () => controller.addKeyframeToSelected('posX', (clip.posX + 1) / 2),
-            onChanged: (v) { clip.posX = v / 100.0; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Position Y', value: clip.posY * 100, min: -100, max: 100, unit: '%',
-            onKeyframe: () => controller.addKeyframeToSelected('posY', (clip.posY + 1) / 2),
-            onChanged: (v) { clip.posY = v / 100.0; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Rotation', value: clip.rotation, min: -180, max: 180, unit: '°',
-            onKeyframe: () => controller.addKeyframeToSelected('rotation', (clip.rotation + 180) / 360),
-            onChanged: (v) { clip.rotation = v; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Opacity', value: clip.opacity * 100, min: 0, max: 100, unit: '%',
-            onKeyframe: () => controller.addKeyframeToSelected('opacity', clip.opacity),
-            onChanged: (v) { clip.opacity = v / 100.0; controller.notifyUpdate(); }),
+        _buildParamSlider(
+          label: 'Scale', value: clip.scale * 100, min: 10, max: 300, unit: '%',
+          onKeyframe: () => controller.addKeyframeToSelected('scale', clip.scale / 3.0),
+          onChanged: (v) {
+            clip.scale = v / 100.0;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Pos X', value: clip.posX * 100, min: -100, max: 100, unit: '%',
+          onKeyframe: () => controller.addKeyframeToSelected('posX', (clip.posX + 1) / 2),
+          onChanged: (v) {
+            clip.posX = v / 100.0;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Pos Y', value: clip.posY * 100, min: -100, max: 100, unit: '%',
+          onKeyframe: () => controller.addKeyframeToSelected('posY', (clip.posY + 1) / 2),
+          onChanged: (v) {
+            clip.posY = v / 100.0;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Rotation', value: clip.rotation, min: -180, max: 180, unit: '°',
+          onKeyframe: () => controller.addKeyframeToSelected('rotation', (clip.rotation + 180) / 360),
+          onChanged: (v) {
+            clip.rotation = v;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Opacity', value: clip.opacity * 100, min: 0, max: 100, unit: '%',
+          onKeyframe: () => controller.addKeyframeToSelected('opacity', clip.opacity),
+          onChanged: (v) {
+            clip.opacity = v / 100.0;
+            controller.notifyUpdate();
+          },
+        ),
+        const SizedBox(height: 8),
+        Row(
+          children: [
+            Text('Blend', style: TextStyle(color: t.fgMuted, fontSize: 11.5)),
+            const Spacer(),
+            DropdownButton<String>(
+              value: clip.blendMode,
+              dropdownColor: t.raised,
+              style: TextStyle(color: t.fg, fontSize: 11.5),
+              items: ['Normal', 'Multiply', 'Screen', 'Overlay', 'Lighten', 'Darken']
+                  .map((m) => DropdownMenuItem(value: m, child: Text(m))).toList(),
+              onChanged: (v) {
+                if (v != null) {
+                  clip.blendMode = v;
+                  controller.notifyUpdate();
+                }
+              },
+            ),
+          ],
+        ),
       ],
     );
   }
@@ -3333,7 +3634,7 @@ class YossefInspectorPane extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(controller.isArabic ? 'عجلات الألوان 3-Way' : '3-Way Color Wheels',
+        Text(controller.isArabic ? 'عجلات الألوان' : '3-Way Color Wheels',
             style: TextStyle(color: t.accent, fontSize: 11.5, fontWeight: FontWeight.bold)),
         const SizedBox(height: 10),
         Row(
@@ -3345,20 +3646,55 @@ class YossefInspectorPane extends StatelessWidget {
           ],
         ),
         const Divider(height: 22),
-        _buildParamSlider(label: 'Exposure', value: clip.exposure, min: -4.0, max: 4.0, unit: ' EV',
-            onChanged: (v) { clip.exposure = v; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Contrast', value: clip.contrast, min: -100, max: 100, unit: '',
-            onChanged: (v) { clip.contrast = v; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Saturation', value: clip.saturation, min: -100, max: 100, unit: '',
-            onChanged: (v) { clip.saturation = v; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Vibrance', value: clip.vibrance, min: -100, max: 100, unit: '',
-            onChanged: (v) { clip.vibrance = v; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Temperature', value: clip.temperature, min: -100, max: 100, unit: 'K',
-            onChanged: (v) { clip.temperature = v; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Sharpen', value: clip.sharpen, min: 0, max: 100, unit: '%',
-            onChanged: (v) { clip.sharpen = v; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Vignette', value: clip.vignette, min: 0, max: 100, unit: '%',
-            onChanged: (v) { clip.vignette = v; controller.notifyUpdate(); }),
+        _buildParamSlider(
+          label: 'Exposure', value: clip.exposure, min: -4.0, max: 4.0, unit: ' EV',
+          onChanged: (v) {
+            clip.exposure = v;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Contrast', value: clip.contrast, min: -100, max: 100, unit: '',
+          onChanged: (v) {
+            clip.contrast = v;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Saturation', value: clip.saturation, min: -100, max: 100, unit: '',
+          onChanged: (v) {
+            clip.saturation = v;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Vibrance', value: clip.vibrance, min: -100, max: 100, unit: '',
+          onChanged: (v) {
+            clip.vibrance = v;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Temperature', value: clip.temperature, min: -100, max: 100, unit: 'K',
+          onChanged: (v) {
+            clip.temperature = v;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Sharpen', value: clip.sharpen, min: 0, max: 100, unit: '%',
+          onChanged: (v) {
+            clip.sharpen = v;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Vignette', value: clip.vignette, min: 0, max: 100, unit: '%',
+          onChanged: (v) {
+            clip.vignette = v;
+            controller.notifyUpdate();
+          },
+        ),
       ],
     );
   }
@@ -3375,15 +3711,20 @@ class YossefInspectorPane extends StatelessWidget {
             wheel.y = (wheel.y + d.delta.dy / 32.0).clamp(-1.0, 1.0);
             controller.notifyUpdate();
           },
-          onDoubleTap: () { wheel.x = 0.0; wheel.y = 0.0; controller.notifyUpdate(); },
+          onDoubleTap: () {
+            wheel.x = 0.0;
+            wheel.y = 0.0;
+            controller.notifyUpdate();
+          },
           child: Container(
             width: 68, height: 68,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: t.lineStrong, width: 1.5),
-              gradient: const SweepGradient(
-                colors: [Colors.red, Colors.yellow, Colors.green, Colors.cyan, Colors.blue, Colors.purple, Colors.red],
-              ),
+              gradient: const SweepGradient(colors: [
+                Colors.red, Colors.yellow, Colors.green,
+                Colors.cyan, Colors.blue, Colors.purple, Colors.red,
+              ]),
             ),
             child: Center(
               child: Transform.translate(
@@ -3408,15 +3749,18 @@ class YossefInspectorPane extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(controller.isArabic ? 'سلسلة المؤثرات' : 'Applied Effects',
+        Text(controller.isArabic ? 'سلسلة المؤثرات' : 'Applied Effects Chain',
             style: TextStyle(color: t.accent, fontSize: 12, fontWeight: FontWeight.bold)),
         const SizedBox(height: 8),
         if (clip.visualChain.isEmpty)
-          Text(controller.isArabic ? 'لا توجد مؤثرات مضافة.' : 'No visual effects applied yet.',
+          Text(controller.isArabic ? 'لا توجد مؤثرات مضافة' : 'No visual effects applied',
               style: TextStyle(color: t.fgDim, fontSize: 11.5)),
-        for (int i = 0; i < clip.visualChain.length; i++)
-          Card(
-            color: t.raised, margin: const EdgeInsets.only(bottom: 8),
+        ...clip.visualChain.asMap().entries.map((entry) {
+          final i = entry.key;
+          final eff = entry.value;
+          return Card(
+            color: t.raised,
+            margin: const EdgeInsets.only(bottom: 8),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -3424,27 +3768,38 @@ class YossefInspectorPane extends StatelessWidget {
                   Row(
                     children: [
                       Switch(
-                        value: clip.visualChain[i].enabled,
+                        value: eff.enabled,
                         activeColor: t.accent,
-                        onChanged: (v) { clip.visualChain[i].enabled = v; controller.notifyUpdate(); },
+                        onChanged: (v) {
+                          eff.enabled = v;
+                          controller.notifyUpdate();
+                        },
                       ),
                       Expanded(
-                        child: Text(clip.visualChain[i].name,
+                        child: Text(eff.name,
                             style: TextStyle(color: t.fg, fontSize: 12, fontWeight: FontWeight.bold)),
                       ),
                       IconButton(
                         icon: Icon(Icons.delete_outline, size: 16, color: t.danger),
-                        onPressed: () { clip.visualChain.removeAt(i); controller.notifyUpdate(); },
+                        onPressed: () {
+                          clip.visualChain.removeAt(i);
+                          controller.notifyUpdate();
+                        },
                       ),
                     ],
                   ),
-                  _buildParamSlider(label: 'Intensity', value: clip.visualChain[i].intensity,
-                      min: 0, max: 100, unit: '%',
-                      onChanged: (v) { clip.visualChain[i].intensity = v; controller.notifyUpdate(); }),
+                  _buildParamSlider(
+                    label: 'Intensity', value: eff.intensity, min: 0, max: 100, unit: '%',
+                    onChanged: (v) {
+                      eff.intensity = v;
+                      controller.notifyUpdate();
+                    },
+                  ),
                 ],
               ),
             ),
-          ),
+          );
+        }),
         if (clip.transitionName != null) ...[
           const Divider(height: 20),
           ListTile(
@@ -3456,7 +3811,11 @@ class YossefInspectorPane extends StatelessWidget {
             subtitle: Text('${clip.transitionDuration.toStringAsFixed(1)}s'),
             trailing: IconButton(
               icon: Icon(Icons.close, size: 16, color: t.fgMuted),
-              onPressed: () { clip.transitionId = null; clip.transitionName = null; controller.notifyUpdate(); },
+              onPressed: () {
+                clip.transitionId = null;
+                clip.transitionName = null;
+                controller.notifyUpdate();
+              },
             ),
           ),
         ],
@@ -3469,35 +3828,56 @@ class YossefInspectorPane extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildParamSlider(label: 'Volume', value: clip.volume * 100, min: 0, max: 200, unit: '%',
-            onChanged: (v) { clip.volume = v / 100.0; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Fade In', value: clip.fadeIn, min: 0, max: 5.0, unit: 's',
-            onChanged: (v) { clip.fadeIn = v; controller.notifyUpdate(); }),
-        _buildParamSlider(label: 'Fade Out', value: clip.fadeOut, min: 0, max: 5.0, unit: 's',
-            onChanged: (v) { clip.fadeOut = v; controller.notifyUpdate(); }),
+        _buildParamSlider(
+          label: 'Volume', value: clip.volume * 100, min: 0, max: 200, unit: '%',
+          onChanged: (v) {
+            clip.volume = v / 100.0;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Fade In', value: clip.fadeIn, min: 0, max: 5.0, unit: 's',
+          onChanged: (v) {
+            clip.fadeIn = v;
+            controller.notifyUpdate();
+          },
+        ),
+        _buildParamSlider(
+          label: 'Fade Out', value: clip.fadeOut, min: 0, max: 5.0, unit: 's',
+          onChanged: (v) {
+            clip.fadeOut = v;
+            controller.notifyUpdate();
+          },
+        ),
         const Divider(height: 20),
-        Text(controller.isArabic ? 'معالجة الصوت AI' : 'AI Voice Cleanup',
+        Text(controller.isArabic ? 'معالجة صوت AI' : 'One-Switch AI Voice Cleanup',
             style: TextStyle(color: t.accent, fontSize: 11.5, fontWeight: FontWeight.bold)),
         SwitchListTile(
           dense: true, contentPadding: EdgeInsets.zero, activeColor: t.accent,
-          title: Text(controller.isArabic ? 'عزل الضوضاء' : 'AI Denoise',
-              style: TextStyle(color: t.fg, fontSize: 12)),
+          title: Text('AI Noise Reduction', style: TextStyle(color: t.fg, fontSize: 12)),
           value: clip.denoise,
-          onChanged: (v) { clip.denoise = v; controller.notifyUpdate(); },
+          onChanged: (v) {
+            clip.denoise = v;
+            controller.notifyUpdate();
+          },
         ),
         SwitchListTile(
           dense: true, contentPadding: EdgeInsets.zero, activeColor: t.accent,
-          title: Text(controller.isArabic ? 'تحسين الصوت' : 'Enhance Voice',
-              style: TextStyle(color: t.fg, fontSize: 12)),
+          title: Text('Enhance Broadcast Voice', style: TextStyle(color: t.fg, fontSize: 12)),
           value: clip.enhanceVoice,
-          onChanged: (v) { clip.enhanceVoice = v; controller.notifyUpdate(); },
+          onChanged: (v) {
+            clip.enhanceVoice = v;
+            controller.notifyUpdate();
+          },
         ),
         SwitchListTile(
           dense: true, contentPadding: EdgeInsets.zero, activeColor: t.accent,
-          title: Text(controller.isArabic ? 'توحيد الصوت' : 'Normalize Loudness',
-              style: TextStyle(color: t.fg, fontSize: 12)),
+          title: Text('Normalize Loudness (-14 LUFS)', style: TextStyle(color: t.fg, fontSize: 12)),
           value: clip.normalizeLoudness,
-          onChanged: (v) { clip.normalizeLoudness = v; controller.notifyUpdate(); },
+          onChanged: (v) {
+            clip.normalizeLoudness = v;
+            controller.notifyUpdate();
+          },
         ),
       ],
     );
@@ -3508,14 +3888,21 @@ class YossefInspectorPane extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildParamSlider(label: 'Speed', value: clip.speed, min: 0.1, max: 16.0, unit: 'x',
-            onChanged: (v) { clip.speed = v; controller.notifyUpdate(); }),
+        _buildParamSlider(
+          label: 'Playback Speed', value: clip.speed, min: 0.1, max: 16.0, unit: 'x',
+          onChanged: (v) {
+            clip.speed = v;
+            controller.notifyUpdate();
+          },
+        ),
         SwitchListTile(
           dense: true, contentPadding: EdgeInsets.zero, activeColor: t.accent,
-          title: Text(controller.isArabic ? 'الحفاظ على طبقة الصوت' : 'Keep Pitch',
-              style: TextStyle(color: t.fg, fontSize: 12)),
+          title: Text('Keep Audio Pitch', style: TextStyle(color: t.fg, fontSize: 12)),
           value: clip.keepPitch,
-          onChanged: (v) { clip.keepPitch = v; controller.notifyUpdate(); },
+          onChanged: (v) {
+            clip.keepPitch = v;
+            controller.notifyUpdate();
+          },
         ),
         const Divider(height: 18),
         Text(controller.isArabic ? 'قوالب منحنى السرعة' : 'Speed Ramp Presets',
@@ -3527,7 +3914,8 @@ class YossefInspectorPane extends StatelessWidget {
             final selected = clip.speedPreset == preset;
             return ChoiceChip(
               label: Text(preset, style: const TextStyle(fontSize: 11)),
-              selected: selected, selectedColor: t.accent,
+              selected: selected,
+              selectedColor: t.accent,
               onSelected: (_) {
                 clip.speedPreset = preset;
                 clip.speedCurved = preset != 'Constant';
@@ -3548,7 +3936,8 @@ class YossefInspectorPane extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: t.raised, borderRadius: BorderRadius.circular(8),
+            color: t.raised,
+            borderRadius: BorderRadius.circular(8),
             border: Border.all(color: clip.aiEnhanced ? t.accent : t.line),
           ),
           child: Column(
@@ -3564,18 +3953,15 @@ class YossefInspectorPane extends StatelessWidget {
                   ),
                   Switch(
                     value: clip.aiEnhanced, activeColor: t.accent,
-                    onChanged: (v) { clip.aiEnhanced = v; controller.notifyUpdate(); },
+                    onChanged: (v) {
+                      clip.aiEnhanced = v;
+                      controller.notifyUpdate();
+                    },
                   ),
                 ],
               ),
-              Text(controller.isArabic
-                      ? 'رفع دقة المقطع إلى 4K/8K بواسطة YOSSEF Real-ESRGAN'
-                      : 'Upscale and restore detail using YOSSEF Real-ESRGAN x4.',
+              Text(controller.isArabic ? 'ترميم ورفع الدقة عبر Real-ESRGAN' : 'Upscale via Real-ESRGAN',
                   style: TextStyle(color: t.fgDim, fontSize: 10.5)),
-              if (clip.aiEnhanced)
-                _buildParamSlider(label: 'Strength', value: clip.aiEnhanceStrength * 100,
-                    min: 0, max: 100, unit: '%',
-                    onChanged: (v) { clip.aiEnhanceStrength = v / 100.0; controller.notifyUpdate(); }),
             ],
           ),
         ),
@@ -3587,14 +3973,18 @@ class YossefInspectorPane extends StatelessWidget {
           spacing: 6,
           children: [
             (0, controller.isArabic ? 'إيقاف' : 'Off'),
-            (1, controller.isArabic ? 'AI تلقائي' : 'AI Cutout'),
+            (1, controller.isArabic ? 'AI تلقائي' : 'AI Auto'),
             (2, controller.isArabic ? 'فرشاة' : 'Brush'),
             (3, controller.isArabic ? 'كروما' : 'Chroma'),
           ].map((mode) {
             return ChoiceChip(
               label: Text(mode.$2, style: const TextStyle(fontSize: 11)),
-              selected: clip.cutoutMode == mode.$1, selectedColor: t.accent,
-              onSelected: (_) { clip.cutoutMode = mode.$1; controller.notifyUpdate(); },
+              selected: clip.cutoutMode == mode.$1,
+              selectedColor: t.accent,
+              onSelected: (_) {
+                clip.cutoutMode = mode.$1;
+                controller.notifyUpdate();
+              },
             );
           }).toList(),
         ),
@@ -3615,8 +4005,12 @@ class YossefInspectorPane extends StatelessWidget {
           ].map((m) {
             return ChoiceChip(
               label: Text(m.$2, style: const TextStyle(fontSize: 10.5)),
-              selected: clip.maskShape == m.$1, selectedColor: t.accent,
-              onSelected: (_) { clip.maskShape = m.$1; controller.notifyUpdate(); },
+              selected: clip.maskShape == m.$1,
+              selectedColor: t.accent,
+              onSelected: (_) {
+                clip.maskShape = m.$1;
+                controller.notifyUpdate();
+              },
             );
           }).toList(),
         ),
@@ -3643,7 +4037,10 @@ class YossefInspectorPane extends StatelessWidget {
                   style: TextStyle(color: t.fg, fontSize: 11, fontFamily: 'monospace')),
               if (onKeyframe != null) ...[
                 const SizedBox(width: 6),
-                InkWell(onTap: onKeyframe, child: Icon(Icons.diamond_outlined, size: 14, color: t.accent)),
+                InkWell(
+                  onTap: onKeyframe,
+                  child: Icon(Icons.diamond_outlined, size: 14, color: t.accent),
+                ),
               ],
             ],
           ),
@@ -3656,7 +4053,11 @@ class YossefInspectorPane extends StatelessWidget {
               inactiveTrackColor: t.fieldActive,
               thumbColor: t.fg,
             ),
-            child: Slider(value: value.clamp(min, max), min: min, max: max, onChanged: onChanged),
+            child: Slider(
+              value: value.clamp(min, max),
+              min: min, max: max,
+              onChanged: onChanged,
+            ),
           ),
         ],
       ),
@@ -3667,7 +4068,6 @@ class YossefInspectorPane extends StatelessWidget {
 // ============================================================================
 // 15. TIMELINE PANE
 // ============================================================================
-
 class YossefTimelinePane extends StatelessWidget {
   final YossefStudioController controller;
   final VoidCallback onOpenKeyframes;
@@ -3685,7 +4085,8 @@ class YossefTimelinePane extends StatelessWidget {
     final t = controller.theme;
     return Container(
       decoration: BoxDecoration(
-        color: t.panel, borderRadius: BorderRadius.circular(10),
+        color: t.panel,
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(color: t.line),
       ),
       child: Column(
@@ -3703,17 +4104,26 @@ class YossefTimelinePane extends StatelessWidget {
                 ...List.generate(controller.timelineTabs.length, (idx) {
                   final active = controller.currentTimelineTab == idx;
                   return InkWell(
-                    onTap: () { controller.currentTimelineTab = idx; controller.notifyUpdate(); },
+                    onTap: () {
+                      controller.currentTimelineTab = idx;
+                      controller.notifyUpdate();
+                    },
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                       decoration: BoxDecoration(
                         color: active ? t.panel : Colors.transparent,
-                        border: Border(top: BorderSide(color: active ? t.accent : Colors.transparent, width: 2)),
+                        border: Border(
+                          top: BorderSide(
+                            color: active ? t.accent : Colors.transparent, width: 2,
+                          ),
+                        ),
                       ),
-                      child: Text(controller.timelineTabs[idx], style: TextStyle(
-                        color: active ? t.fg : t.fgMuted, fontSize: 11,
-                        fontWeight: active ? FontWeight.bold : FontWeight.normal,
-                      )),
+                      child: Text(controller.timelineTabs[idx],
+                          style: TextStyle(
+                            color: active ? t.fg : t.fgMuted,
+                            fontSize: 11,
+                            fontWeight: active ? FontWeight.bold : FontWeight.normal,
+                          )),
                     ),
                   );
                 }),
@@ -3744,46 +4154,65 @@ class YossefTimelinePane extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                _trayButton(icon: Icons.undo_rounded, tooltip: 'Undo', enabled: controller.canUndo, onTap: controller.undo),
-                _trayButton(icon: Icons.redo_rounded, tooltip: 'Redo', enabled: controller.canRedo, onTap: controller.redo),
+                _trayButton(icon: Icons.undo_rounded, tooltip: 'Undo (Ctrl+Z)',
+                    enabled: controller.canUndo, onTap: controller.undo),
+                _trayButton(icon: Icons.redo_rounded, tooltip: 'Redo',
+                    enabled: controller.canRedo, onTap: controller.redo),
                 const VerticalDivider(width: 14),
-                _trayButton(
-                  icon: Icons.near_me_rounded, tooltip: 'Select',
-                  active: controller.activeTool == TimelineTool.select,
-                  onTap: () { controller.activeTool = TimelineTool.select; controller.notifyUpdate(); },
-                ),
-                _trayButton(icon: Icons.content_cut_rounded, tooltip: 'Split', onTap: controller.splitSelectedOrAtPlayhead),
-                _trayButton(icon: Icons.copy_rounded, tooltip: 'Duplicate', onTap: controller.duplicateSelectedClip),
-                _trayButton(icon: Icons.delete_outline_rounded, tooltip: 'Delete', onTap: controller.deleteSelectedClip),
+                _trayButton(icon: Icons.near_me_rounded, tooltip: 'Select (V)',
+                    active: controller.activeTool == TimelineTool.select,
+                    onTap: () {
+                      controller.activeTool = TimelineTool.select;
+                      controller.notifyUpdate();
+                    }),
+                _trayButton(icon: Icons.content_cut_rounded, tooltip: 'Split (S)',
+                    onTap: controller.splitSelectedOrAtPlayhead),
+                _trayButton(icon: Icons.copy_rounded, tooltip: 'Duplicate (Ctrl+D)',
+                    onTap: controller.duplicateSelectedClip),
+                _trayButton(icon: Icons.delete_outline_rounded, tooltip: 'Delete',
+                    onTap: controller.deleteSelectedClip),
                 const VerticalDivider(width: 14),
-                _trayButton(
-                  icon: Icons.attractions_rounded, tooltip: 'Magnetic',
-                  active: controller.magneticTimeline,
-                  onTap: () { controller.magneticTimeline = !controller.magneticTimeline; controller.notifyUpdate(); },
-                ),
-                _trayButton(
-                  icon: Icons.grid_goldenratio_rounded, tooltip: 'Snap',
-                  active: controller.snapToGrid,
-                  onTap: () { controller.snapToGrid = !controller.snapToGrid; controller.notifyUpdate(); },
-                ),
+                _trayButton(icon: Icons.attractions_rounded, tooltip: 'Magnetic',
+                    active: controller.magneticTimeline,
+                    onTap: () {
+                      controller.magneticTimeline = !controller.magneticTimeline;
+                      controller.notifyUpdate();
+                    }),
+                _trayButton(icon: Icons.grid_goldenratio_rounded, tooltip: 'Snap',
+                    active: controller.snapToGrid,
+                    onTap: () {
+                      controller.snapToGrid = !controller.snapToGrid;
+                      controller.notifyUpdate();
+                    }),
                 const VerticalDivider(width: 14),
-                _trayButton(icon: Icons.ac_unit_rounded, tooltip: 'Freeze', onTap: controller.freezeFrameSelectedClip),
-                _trayButton(icon: Icons.swap_horizontal_circle_outlined, tooltip: 'Reverse', onTap: controller.reverseSelectedClip),
-                _trayButton(icon: Icons.flip_rounded, tooltip: 'Mirror', onTap: controller.mirrorSelectedClip),
-                _trayButton(icon: Icons.rotate_90_degrees_cw_outlined, tooltip: 'Rotate', onTap: controller.rotateSelectedClip),
+                _trayButton(icon: Icons.ac_unit_rounded, tooltip: 'Freeze',
+                    onTap: controller.freezeFrameSelectedClip),
+                _trayButton(icon: Icons.swap_horizontal_circle_outlined, tooltip: 'Reverse',
+                    onTap: controller.reverseSelectedClip),
+                _trayButton(icon: Icons.flip_rounded, tooltip: 'Mirror',
+                    onTap: controller.mirrorSelectedClip),
+                _trayButton(icon: Icons.rotate_90_degrees_cw_outlined, tooltip: 'Rotate',
+                    onTap: controller.rotateSelectedClip),
                 const VerticalDivider(width: 14),
-                _trayButton(icon: Icons.closed_caption_outlined, tooltip: 'AI Captions', onTap: onOpenCaptions),
-                _trayButton(icon: Icons.record_voice_over_outlined, tooltip: 'TTS Speech', onTap: onOpenSpeech),
-                _trayButton(icon: Icons.mic_none_rounded, tooltip: 'Voiceover', onTap: onOpenVoiceover),
+                _trayButton(icon: Icons.closed_caption_outlined, tooltip: 'AI Captions',
+                    onTap: onOpenCaptions),
+                _trayButton(icon: Icons.record_voice_over_outlined, tooltip: 'AI Speech',
+                    onTap: onOpenSpeech),
+                _trayButton(icon: Icons.mic_none_rounded, tooltip: 'Voiceover',
+                    onTap: onOpenVoiceover),
                 const VerticalDivider(width: 14),
-                _trayButton(icon: Icons.zoom_out_rounded, tooltip: 'Zoom Out', onTap: () {
-                  controller.zoomPixelsPerSecond = (controller.zoomPixelsPerSecond / 1.25).clamp(20.0, 160.0);
-                  controller.notifyUpdate();
-                }),
-                _trayButton(icon: Icons.zoom_in_rounded, tooltip: 'Zoom In', onTap: () {
-                  controller.zoomPixelsPerSecond = (controller.zoomPixelsPerSecond * 1.25).clamp(20.0, 160.0);
-                  controller.notifyUpdate();
-                }),
+                _trayButton(icon: Icons.zoom_out_rounded, tooltip: 'Zoom Out',
+                    onTap: () {
+                      controller.zoomPixelsPerSecond =
+                          (controller.zoomPixelsPerSecond / 1.25).clamp(20.0, 200.0);
+                      controller.notifyUpdate();
+                    }),
+                _trayButton(icon: Icons.zoom_in_rounded, tooltip: 'Zoom In',
+                    onTap: () {
+                      controller.zoomPixelsPerSecond =
+                          (controller.zoomPixelsPerSecond * 1.25).clamp(20.0, 200.0);
+                      controller.notifyUpdate();
+                    }),
               ],
             ),
           ),
@@ -3793,7 +4222,8 @@ class YossefTimelinePane extends StatelessWidget {
                 Container(
                   width: 195,
                   decoration: BoxDecoration(
-                    color: t.panel, border: Border(right: BorderSide(color: t.line)),
+                    color: t.panel,
+                    border: Border(right: BorderSide(color: t.line)),
                   ),
                   child: Column(
                     children: [
@@ -3820,24 +4250,37 @@ class YossefTimelinePane extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Expanded(
-                                    child: Text(trk.name, style: TextStyle(
-                                      color: t.fg, fontSize: 10.5, fontWeight: FontWeight.w600,
-                                    ), maxLines: 1, overflow: TextOverflow.ellipsis),
+                                    child: Text(trk.name,
+                                        style: TextStyle(color: t.fg, fontSize: 10.5,
+                                            fontWeight: FontWeight.w600),
+                                        maxLines: 1, overflow: TextOverflow.ellipsis),
                                   ),
                                   InkWell(
-                                    onTap: () { trk.visible = !trk.visible; controller.notifyUpdate(); },
+                                    onTap: () {
+                                      trk.visible = !trk.visible;
+                                      controller.notifyUpdate();
+                                    },
                                     child: Padding(
                                       padding: const EdgeInsets.all(3.0),
-                                      child: Icon(trk.visible ? Icons.visibility : Icons.visibility_off,
-                                          size: 13, color: trk.visible ? t.fgMuted : t.danger),
+                                      child: Icon(
+                                        trk.visible ? Icons.visibility : Icons.visibility_off,
+                                        size: 13,
+                                        color: trk.visible ? t.fgMuted : t.danger,
+                                      ),
                                     ),
                                   ),
                                   InkWell(
-                                    onTap: () { trk.muted = !trk.muted; controller.notifyUpdate(); },
+                                    onTap: () {
+                                      trk.muted = !trk.muted;
+                                      controller.notifyUpdate();
+                                    },
                                     child: Padding(
                                       padding: const EdgeInsets.all(3.0),
-                                      child: Icon(trk.muted ? Icons.volume_off : Icons.volume_up,
-                                          size: 13, color: trk.muted ? t.danger : t.fgMuted),
+                                      child: Icon(
+                                        trk.muted ? Icons.volume_off : Icons.volume_up,
+                                        size: 13,
+                                        color: trk.muted ? t.danger : t.fgMuted,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -3868,17 +4311,21 @@ class YossefTimelinePane extends StatelessWidget {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: SizedBox(
-                            width: totalWidth, height: constraints.maxHeight,
+                            width: totalWidth,
+                            height: constraints.maxHeight,
                             child: Stack(
                               children: [
                                 Column(
                                   children: [
                                     Container(
-                                      height: 24, width: totalWidth, color: t.ruler,
+                                      height: 24,
+                                      width: totalWidth,
+                                      color: t.ruler,
                                       child: CustomPaint(
                                         painter: _TimelineRulerPainter(
                                           pixelsPerSecond: controller.zoomPixelsPerSecond,
-                                          textColor: t.fgDim, lineColor: t.lineStrong,
+                                          textColor: t.fgDim,
+                                          lineColor: t.lineStrong,
                                         ),
                                       ),
                                     ),
@@ -3889,9 +4336,11 @@ class YossefTimelinePane extends StatelessWidget {
                                         itemBuilder: (context, trkIdx) {
                                           final trk = controller.tracks[trkIdx];
                                           final trackClips = controller.clips
-                                              .where((c) => c.trackIndex == trk.index).toList();
+                                              .where((c) => c.trackIndex == trk.index)
+                                              .toList();
                                           return Container(
-                                            height: trk.height, width: totalWidth,
+                                            height: trk.height,
+                                            width: totalWidth,
                                             decoration: BoxDecoration(
                                               color: trkIdx.isEven ? t.lane : t.laneAlt,
                                               border: Border(bottom: BorderSide(color: t.line)),
@@ -3916,7 +4365,8 @@ class YossefTimelinePane extends StatelessWidget {
                                         Container(
                                           width: 11, height: 11,
                                           decoration: BoxDecoration(
-                                            color: t.playhead, borderRadius: BorderRadius.circular(2),
+                                            color: t.playhead,
+                                            borderRadius: BorderRadius.circular(2),
                                           ),
                                         ),
                                         Expanded(child: Container(width: 2, color: t.playhead)),
@@ -3937,7 +4387,8 @@ class YossefTimelinePane extends StatelessWidget {
                     width: 28,
                     padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
                     decoration: BoxDecoration(
-                      color: t.well, border: Border(left: BorderSide(color: t.line)),
+                      color: t.well,
+                      border: Border(left: BorderSide(color: t.line)),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -3961,10 +4412,12 @@ class YossefTimelinePane extends StatelessWidget {
   }) {
     final t = controller.theme;
     return IconButton(
-      tooltip: tooltip, onPressed: enabled ? onTap : null,
-      icon: Icon(icon, size: 16, color: !enabled
-          ? t.fgDim.withOpacity(0.4)
-          : active ? t.accent : t.fg),
+      tooltip: tooltip,
+      onPressed: enabled ? onTap : null,
+      icon: Icon(
+        icon, size: 16,
+        color: !enabled ? t.fgDim.withOpacity(0.4) : active ? t.accent : t.fg,
+      ),
     );
   }
 
@@ -3977,16 +4430,23 @@ class YossefTimelinePane extends StatelessWidget {
     Color headerColor;
     Color bodyColor;
     switch (clip.kind) {
-      case ClipKind.video: headerColor = t.kindVideo; bodyColor = t.kindVideoWell; break;
-      case ClipKind.audio: headerColor = t.kindAudio; bodyColor = t.kindAudioWell; break;
-      case ClipKind.image: headerColor = t.kindImage; bodyColor = t.kindImageWell; break;
-      case ClipKind.text: headerColor = t.kindText; bodyColor = t.kindTextWell; break;
-      case ClipKind.filter: headerColor = t.kindFilter; bodyColor = t.kindFilterWell; break;
-      case ClipKind.shape: headerColor = t.kindShape; bodyColor = t.kindShapeWell; break;
+      case ClipKind.video:
+        headerColor = t.kindVideo; bodyColor = t.kindVideoWell; break;
+      case ClipKind.audio:
+        headerColor = t.kindAudio; bodyColor = t.kindAudioWell; break;
+      case ClipKind.image:
+        headerColor = t.kindImage; bodyColor = t.kindImageWell; break;
+      case ClipKind.text:
+        headerColor = t.kindText; bodyColor = t.kindTextWell; break;
+      case ClipKind.filter:
+        headerColor = t.kindFilter; bodyColor = t.kindFilterWell; break;
+      case ClipKind.shape:
+        headerColor = t.kindShape; bodyColor = t.kindShapeWell; break;
     }
 
     return Positioned(
-      left: left, top: 3, height: trackHeight - 6, width: width,
+      left: left, top: 3,
+      height: trackHeight - 6, width: width,
       child: GestureDetector(
         onTap: () => controller.selectClip(clip.id),
         onHorizontalDragUpdate: (d) {
@@ -3997,7 +4457,8 @@ class YossefTimelinePane extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-            color: bodyColor, borderRadius: BorderRadius.circular(6),
+            color: bodyColor,
+            borderRadius: BorderRadius.circular(6),
             border: Border.all(
               color: isSelected ? t.accent : headerColor.withOpacity(0.7),
               width: isSelected ? 2.0 : 1.0,
@@ -4019,17 +4480,20 @@ class YossefTimelinePane extends StatelessWidget {
                         child: Icon(Icons.swap_horiz, size: 11, color: Colors.white),
                       ),
                     Expanded(
-                      child: Text(clip.name, style: const TextStyle(
-                        color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold,
-                      ), maxLines: 1, overflow: TextOverflow.ellipsis),
+                      child: Text(clip.name,
+                          style: const TextStyle(color: Colors.white, fontSize: 10,
+                              fontWeight: FontWeight.bold),
+                          maxLines: 1, overflow: TextOverflow.ellipsis),
                     ),
                     if (clip.visualChain.isNotEmpty || clip.aiEnhanced)
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 4),
-                        decoration: BoxDecoration(color: Colors.black38, borderRadius: BorderRadius.circular(3)),
-                        child: const Text('FX', style: TextStyle(
-                          color: Color(0xFFCBF53F), fontSize: 8.5, fontWeight: FontWeight.bold,
-                        )),
+                        decoration: BoxDecoration(
+                          color: Colors.black38, borderRadius: BorderRadius.circular(3),
+                        ),
+                        child: const Text('FX',
+                            style: TextStyle(color: Color(0xFFCBF53F), fontSize: 8.5,
+                                fontWeight: FontWeight.bold)),
                       ),
                   ],
                 ),
@@ -4047,10 +4511,13 @@ class YossefTimelinePane extends StatelessWidget {
                         )
                       else
                         Expanded(
-                          child: CustomPaint(painter: _WaveformStripPainter(
-                            color: clip.kind == ClipKind.audio
-                                ? const Color(0xFFA7F0C2) : const Color(0xFFA9C8F5),
-                          )),
+                          child: CustomPaint(
+                            painter: _WaveformStripPainter(
+                              color: clip.kind == ClipKind.audio
+                                  ? const Color(0xFFA7F0C2)
+                                  : const Color(0xFFA9C8F5),
+                            ),
+                          ),
                         ),
                       if (clip.keyframes.isNotEmpty)
                         Icon(Icons.diamond, size: 11, color: t.accent),
@@ -4068,7 +4535,10 @@ class YossefTimelinePane extends StatelessWidget {
   Widget _buildVuBar(double level) {
     return Container(
       width: 5,
-      decoration: BoxDecoration(color: Colors.black45, borderRadius: BorderRadius.circular(3)),
+      decoration: BoxDecoration(
+        color: Colors.black45,
+        borderRadius: BorderRadius.circular(3),
+      ),
       alignment: Alignment.bottomCenter,
       child: FractionallySizedBox(
         heightFactor: level.clamp(0.05, 1.0),
@@ -4090,11 +4560,16 @@ class _TimelineRulerPainter extends CustomPainter {
   final double pixelsPerSecond;
   final Color textColor;
   final Color lineColor;
-  _TimelineRulerPainter({required this.pixelsPerSecond, required this.textColor, required this.lineColor});
+
+  _TimelineRulerPainter({
+    required this.pixelsPerSecond, required this.textColor, required this.lineColor,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = lineColor..strokeWidth = 1;
+    final paint = Paint()
+      ..color = lineColor
+      ..strokeWidth = 1;
     final int totalSeconds = (size.width / pixelsPerSecond).ceil();
     for (int s = 0; s <= totalSeconds; s++) {
       final x = s * pixelsPerSecond;
@@ -4138,11 +4613,13 @@ class _WaveformStripPainter extends CustomPainter {
 // ============================================================================
 // 16. KEYFRAMES PANE
 // ============================================================================
-
 class YossefKeyframesPane extends StatelessWidget {
   final YossefStudioController controller;
   final VoidCallback onBackToTimeline;
-  const YossefKeyframesPane({super.key, required this.controller, required this.onBackToTimeline});
+
+  const YossefKeyframesPane({
+    super.key, required this.controller, required this.onBackToTimeline,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -4151,7 +4628,8 @@ class YossefKeyframesPane extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: t.panel, borderRadius: BorderRadius.circular(10),
+        color: t.panel,
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(color: t.line),
       ),
       padding: const EdgeInsets.all(12),
@@ -4188,24 +4666,34 @@ class YossefKeyframesPane extends StatelessWidget {
           const SizedBox(height: 10),
           Expanded(
             child: clip == null
-                ? Center(child: Text(controller.isArabic ? 'اختر مقطعاً' : 'Select a clip',
-                    style: TextStyle(color: t.fgMuted)))
+                ? Center(
+                    child: Text(
+                      controller.isArabic ? 'اختر مقطعاً لتحرير الإطارات' : 'Select a clip',
+                      style: TextStyle(color: t.fgMuted),
+                    ),
+                  )
                 : Row(
                     children: [
                       SizedBox(
-                        width: 220,
+                        width: 240,
                         child: ListView(
                           children: clip.keyframes.map((k) {
                             return ListTile(
                               dense: true,
                               leading: Icon(Icons.diamond, size: 14, color: t.accent),
-                              title: Text('${k.property.toUpperCase()} · ${(k.value * 100).toStringAsFixed(0)}%',
-                                  style: TextStyle(color: t.fg, fontSize: 11.5, fontWeight: FontWeight.bold)),
+                              title: Text(
+                                '${k.property.toUpperCase()} · ${(k.value * 100).toStringAsFixed(0)}%',
+                                style: TextStyle(color: t.fg, fontSize: 11.5,
+                                    fontWeight: FontWeight.bold),
+                              ),
                               subtitle: Text('@ ${k.timeOffset.toStringAsFixed(2)}s · ${k.easing}',
                                   style: TextStyle(color: t.fgDim, fontSize: 10)),
                               trailing: IconButton(
                                 icon: Icon(Icons.close, size: 14, color: t.danger),
-                                onPressed: () { clip.keyframes.remove(k); controller.notifyUpdate(); },
+                                onPressed: () {
+                                  clip.keyframes.remove(k);
+                                  controller.notifyUpdate();
+                                },
                               ),
                             );
                           }).toList(),
@@ -4214,14 +4702,16 @@ class YossefKeyframesPane extends StatelessWidget {
                       Expanded(
                         child: Container(
                           decoration: BoxDecoration(
-                            color: t.well, borderRadius: BorderRadius.circular(8),
+                            color: t.well,
+                            borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: t.line),
                           ),
                           child: CustomPaint(
                             painter: _BezierCurveEditorPainter(
-                              accent: t.accent, points: clip.keyframes, clipDuration: clip.duration,
+                              accent: t.accent, points: clip.keyframes,
+                              clipDuration: clip.duration,
                             ),
-                            child: const SizedBox.expand(),
+                            child: const Center(),
                           ),
                         ),
                       ),
@@ -4238,7 +4728,10 @@ class _BezierCurveEditorPainter extends CustomPainter {
   final Color accent;
   final List<KeyframePoint> points;
   final double clipDuration;
-  _BezierCurveEditorPainter({required this.accent, required this.points, required this.clipDuration});
+
+  _BezierCurveEditorPainter({
+    required this.accent, required this.points, required this.clipDuration,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -4246,17 +4739,13 @@ class _BezierCurveEditorPainter extends CustomPainter {
       ..color = accent
       ..strokeWidth = 2.5
       ..style = PaintingStyle.stroke;
-
     if (points.isEmpty) return;
     final path = Path();
     for (int i = 0; i < points.length; i++) {
       final px = (points[i].timeOffset / math.max(1.0, clipDuration)).clamp(0.0, 1.0) * size.width;
       final py = (1.0 - points[i].value.clamp(0.0, 1.0)) * (size.height - 24) + 12;
-      if (i == 0) {
-        path.moveTo(px, py);
-      } else {
-        path.lineTo(px, py);
-      }
+      if (i == 0) path.moveTo(px, py);
+      else path.lineTo(px, py);
       canvas.drawCircle(Offset(px, py), 5, Paint()..color = accent);
     }
     canvas.drawPath(path, paint);
@@ -4269,7 +4758,6 @@ class _BezierCurveEditorPainter extends CustomPainter {
 // ============================================================================
 // 17. PHONE EDITOR
 // ============================================================================
-
 class YossefPhoneEditor extends StatefulWidget {
   final YossefStudioController controller;
   final void Function({int initialTab}) onOpenSettings;
@@ -4279,9 +4767,9 @@ class YossefPhoneEditor extends StatefulWidget {
   final VoidCallback onOpenVoiceover;
 
   const YossefPhoneEditor({
-    super.key, required this.controller, required this.onOpenSettings,
-    required this.onOpenExport, required this.onOpenCaptions,
-    required this.onOpenSpeech, required this.onOpenVoiceover,
+    super.key, required this.controller,
+    required this.onOpenSettings, required this.onOpenExport,
+    required this.onOpenCaptions, required this.onOpenSpeech, required this.onOpenVoiceover,
   });
 
   @override
@@ -4308,8 +4796,10 @@ class _YossefPhoneEditorState extends State<YossefPhoneEditor> {
           flex: 42,
           child: bottomSheetTab == 0
               ? YossefLibraryPane(
-                  controller: c, onOpenCaptions: widget.onOpenCaptions,
-                  onOpenSpeech: widget.onOpenSpeech, onOpenVoiceover: widget.onOpenVoiceover,
+                  controller: c,
+                  onOpenCaptions: widget.onOpenCaptions,
+                  onOpenSpeech: widget.onOpenSpeech,
+                  onOpenVoiceover: widget.onOpenVoiceover,
                 )
               : bottomSheetTab == 1
                   ? YossefInspectorPane(controller: c, onOpenSettings: widget.onOpenSettings)
@@ -4324,28 +4814,51 @@ class _YossefPhoneEditorState extends State<YossefPhoneEditor> {
         Container(
           height: 66,
           decoration: BoxDecoration(
-            color: t.panel, border: Border(top: BorderSide(color: t.line)),
+            color: t.panel,
+            border: Border(top: BorderSide(color: t.line)),
           ),
           child: ListView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 8),
             children: [
-              _phoneToolItem(icon: Icons.view_timeline_rounded, label: c.tr('common.timeline'),
-                  active: bottomSheetTab == -1, onTap: () => setState(() => bottomSheetTab = -1)),
-              _phoneToolItem(icon: Icons.video_library_rounded, label: c.tr('common.library'),
-                  active: bottomSheetTab == 0,
-                  onTap: () => setState(() => bottomSheetTab = bottomSheetTab == 0 ? -1 : 0)),
-              _phoneToolItem(icon: Icons.tune_rounded, label: c.tr('common.inspector'),
-                  active: bottomSheetTab == 1,
-                  onTap: () => setState(() => bottomSheetTab = bottomSheetTab == 1 ? -1 : 1)),
-              _phoneToolItem(icon: Icons.content_cut_rounded, label: c.tr('common.split'),
-                  onTap: c.splitSelectedOrAtPlayhead),
-              _phoneToolItem(icon: Icons.closed_caption_rounded, label: c.tr('common.captions'),
-                  onTap: widget.onOpenCaptions),
-              _phoneToolItem(icon: Icons.record_voice_over_rounded, label: c.tr('common.speech'),
-                  onTap: widget.onOpenSpeech),
-              _phoneToolItem(icon: Icons.settings_suggest_rounded, label: c.tr('common.settings'),
-                  onTap: () => widget.onOpenSettings(initialTab: 7)),
+              _phoneToolItem(
+                icon: Icons.view_timeline_rounded,
+                label: c.tr('common.timeline'),
+                active: bottomSheetTab == -1,
+                onTap: () => setState(() => bottomSheetTab = -1),
+              ),
+              _phoneToolItem(
+                icon: Icons.video_library_rounded,
+                label: c.tr('common.library'),
+                active: bottomSheetTab == 0,
+                onTap: () => setState(() => bottomSheetTab = bottomSheetTab == 0 ? -1 : 0),
+              ),
+              _phoneToolItem(
+                icon: Icons.tune_rounded,
+                label: c.tr('common.inspector'),
+                active: bottomSheetTab == 1,
+                onTap: () => setState(() => bottomSheetTab = bottomSheetTab == 1 ? -1 : 1),
+              ),
+              _phoneToolItem(
+                icon: Icons.content_cut_rounded,
+                label: c.tr('common.split'),
+                onTap: c.splitSelectedOrAtPlayhead,
+              ),
+              _phoneToolItem(
+                icon: Icons.closed_caption_rounded,
+                label: c.tr('common.captions'),
+                onTap: widget.onOpenCaptions,
+              ),
+              _phoneToolItem(
+                icon: Icons.record_voice_over_rounded,
+                label: c.tr('common.speech'),
+                onTap: widget.onOpenSpeech,
+              ),
+              _phoneToolItem(
+                icon: Icons.settings_suggest_rounded,
+                label: c.tr('common.settings'),
+                onTap: () => widget.onOpenSettings(initialTab: 7),
+              ),
             ],
           ),
         ),
@@ -4360,16 +4873,20 @@ class _YossefPhoneEditorState extends State<YossefPhoneEditor> {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: 74, alignment: Alignment.center,
+        width: 74,
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon, size: 20, color: active ? t.accent : t.fg),
             const SizedBox(height: 4),
-            Text(label, style: TextStyle(
-              color: active ? t.accent : t.fgMuted, fontSize: 10,
-              fontWeight: active ? FontWeight.bold : FontWeight.normal,
-            ), maxLines: 1, overflow: TextOverflow.ellipsis),
+            Text(label,
+                style: TextStyle(
+                  color: active ? t.accent : t.fgMuted,
+                  fontSize: 10,
+                  fontWeight: active ? FontWeight.bold : FontWeight.normal,
+                ),
+                maxLines: 1, overflow: TextOverflow.ellipsis),
           ],
         ),
       ),
@@ -4378,13 +4895,15 @@ class _YossefPhoneEditorState extends State<YossefPhoneEditor> {
 }
 
 // ============================================================================
-// 18. SETTINGS DIALOG
+// 18. SETTINGS DIALOG (Fully functional)
 // ============================================================================
-
 class YossefSettingsDialog extends StatefulWidget {
   final YossefStudioController controller;
   final int initialTab;
-  const YossefSettingsDialog({super.key, required this.controller, this.initialTab = 0});
+
+  const YossefSettingsDialog({
+    super.key, required this.controller, this.initialTab = 0,
+  });
 
   @override
   State<YossefSettingsDialog> createState() => _YossefSettingsDialogState();
@@ -4392,6 +4911,7 @@ class YossefSettingsDialog extends StatefulWidget {
 
 class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
   late int currentTab;
+
   YossefStudioController get c => widget.controller;
   YossefThemeData get t => c.theme;
 
@@ -4421,7 +4941,7 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
         side: BorderSide(color: t.lineStrong),
       ),
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 780, maxHeight: 540),
+        constraints: const BoxConstraints(maxWidth: 780, maxHeight: 560),
         child: Column(
           children: [
             Container(
@@ -4448,7 +4968,13 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
                   Container(
                     width: 215,
                     padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(color: t.well),
+                    decoration: BoxDecoration(
+                      color: t.well,
+                      border: Border(
+                        right: c.isArabic ? BorderSide.none : BorderSide(color: t.line),
+                        left: c.isArabic ? BorderSide(color: t.line) : BorderSide.none,
+                      ),
+                    ),
                     child: ListView(
                       children: tabs.map((item) {
                         final selected = currentTab == item.$1;
@@ -4461,20 +4987,29 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
                             child: Container(
                               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
                               decoration: BoxDecoration(
-                                color: selected ? t.accent : isDevTab ? t.accentSoft : Colors.transparent,
+                                color: selected
+                                    ? t.accent
+                                    : isDevTab ? t.accentSoft : Colors.transparent,
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: Row(
                                 children: [
-                                  Icon(item.$2, size: 16, color: selected
-                                      ? t.onAccent : isDevTab ? t.accent : t.fgMuted),
+                                  Icon(item.$2, size: 16,
+                                      color: selected
+                                          ? t.onAccent
+                                          : isDevTab ? t.accent : t.fgMuted),
                                   const SizedBox(width: 8),
                                   Expanded(
-                                    child: Text(item.$3, style: TextStyle(
-                                      color: selected ? t.onAccent : isDevTab ? t.accent : t.fg,
-                                      fontSize: 12,
-                                      fontWeight: selected || isDevTab ? FontWeight.bold : FontWeight.normal,
-                                    )),
+                                    child: Text(item.$3,
+                                        style: TextStyle(
+                                          color: selected
+                                              ? t.onAccent
+                                              : isDevTab ? t.accent : t.fg,
+                                          fontSize: 12,
+                                          fontWeight: selected || isDevTab
+                                              ? FontWeight.bold
+                                              : FontWeight.normal,
+                                        )),
                                   ),
                                 ],
                               ),
@@ -4504,16 +5039,16 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
       case 0: return _buildGeneralPage();
       case 1: return _buildAppearancePage();
       case 2: return _buildModelsPage('whisper', 'Whisper AI Transcriber Models');
-      case 3: return _buildModelsPage('tts', 'Neural TTS Models');
-      case 4: return _buildModelsPage('vision', 'AI Vision Models');
+      case 3: return _buildModelsPage('tts', 'Neural TTS & Voice Cloning Models');
+      case 4: return _buildModelsPage('vision', 'AI Cutout & 8K Super-Resolution');
       case 5: return _buildAutomationPage();
       case 6: return _buildShortcutsPage();
       case 7:
-      default: return _buildDeveloperYossefPage(context);
+      default: return _buildDeveloperPage(context);
     }
   }
 
-  Widget _buildDeveloperYossefPage(BuildContext context) {
+  Widget _buildDeveloperPage(BuildContext context) {
     return ListView(
       children: [
         Container(
@@ -4542,11 +5077,14 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(c.tr('dev.title'),
-                            style: TextStyle(color: t.accent, fontSize: 13, fontWeight: FontWeight.bold)),
+                            style: TextStyle(color: t.accent, fontSize: 13,
+                                fontWeight: FontWeight.bold)),
                         const SizedBox(height: 4),
                         Text('المطور: يوسف حامد (YOSSEF HAMED)',
-                            style: TextStyle(color: t.fg, fontSize: 20, fontWeight: FontWeight.w900)),
-                        Text(YossefBrand.copyright, style: TextStyle(color: t.fgMuted, fontSize: 12)),
+                            style: TextStyle(color: t.fg, fontSize: 20,
+                                fontWeight: FontWeight.w900)),
+                        Text(YossefBrand.copyright,
+                            style: TextStyle(color: t.fgMuted, fontSize: 12)),
                       ],
                     ),
                   ),
@@ -4556,7 +5094,8 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
               Container(
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  color: t.well, borderRadius: BorderRadius.circular(10),
+                  color: t.well,
+                  borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: t.green.withOpacity(0.6)),
                 ),
                 child: Row(
@@ -4589,7 +5128,8 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
                           SnackBar(
                             backgroundColor: t.green,
                             content: Text(c.tr('dev.phoneCopied'),
-                                style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                                style: const TextStyle(color: Colors.black,
+                                    fontWeight: FontWeight.bold)),
                           ),
                         );
                       },
@@ -4606,7 +5146,7 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
         const SizedBox(height: 16),
         _buildInfoTile('اسم التطبيق', YossefBrand.appName),
         _buildInfoTile('المطور الرئيسي', 'يوسف حامد (Yossef Hamed)'),
-        _buildInfoTile('واتساب', '01029892573'),
+        _buildInfoTile('رقم واتساب', '01029892573 (${YossefBrand.whatsappUrl})'),
         _buildInfoTile('حقوق الملكية', 'جميع الحقوق محفوظة لـ YOSSEF © 2026'),
         _buildInfoTile('محرك المعالجة', YossefBrand.engineName),
       ],
@@ -4614,11 +5154,13 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
   }
 
   Widget _buildInfoTile(String label, String value) {
+    final t = controller.theme;
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
       decoration: BoxDecoration(
-        color: t.raised, borderRadius: BorderRadius.circular(8),
+        color: t.raised,
+        borderRadius: BorderRadius.circular(8),
         border: Border.all(color: t.line),
       ),
       child: Row(
@@ -4642,38 +5184,75 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
         const SizedBox(height: 12),
         SwitchListTile(
           activeColor: t.accent,
-          title: Text(c.isArabic ? 'اللغة العربية (RTL)' : 'Arabic Interface (RTL)',
+          title: Text(c.isArabic ? 'الواجهة العربية (RTL)' : 'Arabic Interface (RTL)',
               style: TextStyle(color: t.fg, fontSize: 13)),
           value: c.isArabic,
-          onChanged: (v) { setState(() => c.isArabic = v); c.notifyUpdate(); },
+          onChanged: (v) {
+            setState(() => c.isArabic = v);
+            c.notifyUpdate();
+          },
         ),
         SwitchListTile(
           activeColor: t.accent,
-          title: Text(c.isArabic ? 'التسريع العتادي GPU' : 'GPU Hardware Acceleration',
+          title: Text(c.isArabic ? 'التسريع العتادي للـ GPU' : 'GPU Hardware Acceleration',
               style: TextStyle(color: t.fg, fontSize: 13)),
+          subtitle: Text('Vulkan / Metal / Direct3D 12 · 10-bit HDR',
+              style: TextStyle(color: t.fgDim, fontSize: 11)),
           value: c.gpuHardwareAcceleration,
-          onChanged: (v) { setState(() => c.gpuHardwareAcceleration = v); c.notifyUpdate(); },
+          onChanged: (v) {
+            setState(() => c.gpuHardwareAcceleration = v);
+            c.notifyUpdate();
+          },
         ),
         SwitchListTile(
           activeColor: t.accent,
           title: Text(c.isArabic ? 'المخطط المغناطيسي' : 'Magnetic Timeline',
               style: TextStyle(color: t.fg, fontSize: 13)),
           value: c.magneticTimeline,
-          onChanged: (v) { setState(() => c.magneticTimeline = v); c.notifyUpdate(); },
+          onChanged: (v) {
+            setState(() => c.magneticTimeline = v);
+            c.notifyUpdate();
+          },
         ),
         SwitchListTile(
           activeColor: t.accent,
-          title: Text(c.isArabic ? 'ملفات Proxy ذكية' : 'Smart Proxies',
+          title: Text(c.isArabic ? 'ملفات Proxy ذكية' : 'Smart Background Proxies',
               style: TextStyle(color: t.fg, fontSize: 13)),
           value: c.smartProxies,
-          onChanged: (v) { setState(() => c.smartProxies = v); c.notifyUpdate(); },
+          onChanged: (v) {
+            setState(() => c.smartProxies = v);
+            c.notifyUpdate();
+          },
         ),
         SwitchListTile(
           activeColor: t.accent,
-          title: Text(c.isArabic ? '10-bit HDR Pipeline' : '10-bit HDR Pipeline',
+          title: Text(c.isArabic ? 'معالجة 10-bit HDR' : '10-bit HDR Pipeline',
               style: TextStyle(color: t.fg, fontSize: 13)),
           value: c.tenBitHdrPipeline,
-          onChanged: (v) { setState(() => c.tenBitHdrPipeline = v); c.notifyUpdate(); },
+          onChanged: (v) {
+            setState(() => c.tenBitHdrPipeline = v);
+            c.notifyUpdate();
+          },
+        ),
+        SwitchListTile(
+          activeColor: t.accent,
+          title: Text(c.isArabic ? 'إيقاف المؤشر في النهاية' : 'Stop Playhead at End',
+              style: TextStyle(color: t.fg, fontSize: 13)),
+          value: c.playheadStopsAtEnd,
+          onChanged: (v) {
+            setState(() => c.playheadStopsAtEnd = v);
+            c.notifyUpdate();
+          },
+        ),
+        SwitchListTile(
+          activeColor: t.accent,
+          title: Text(c.isArabic ? 'مقاييس VU' : 'VU Meters',
+              style: TextStyle(color: t.fg, fontSize: 13)),
+          value: c.vuMetersShown,
+          onChanged: (v) {
+            setState(() => c.vuMetersShown = v);
+            c.notifyUpdate();
+          },
         ),
       ],
     );
@@ -4690,10 +5269,13 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
           title: Text(c.isArabic ? 'الوضع الليلي' : 'Dark Theme',
               style: TextStyle(color: t.fg, fontSize: 13)),
           value: t.dark,
-          onChanged: (v) { setState(() => c.theme = t.copyWith(dark: v)); c.notifyUpdate(); },
+          onChanged: (v) {
+            setState(() => c.theme = t.copyWith(dark: v));
+            c.notifyUpdate();
+          },
         ),
         const SizedBox(height: 12),
-        Text(c.isArabic ? 'لون الواجهة (Accent)' : 'Accent Color',
+        Text(c.isArabic ? 'اللون المميز' : 'Accent Color',
             style: TextStyle(color: t.fgMuted, fontSize: 12, fontWeight: FontWeight.bold)),
         const SizedBox(height: 10),
         Wrap(
@@ -4702,13 +5284,20 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
             final acc = YossefThemeData.darkAccents[idx];
             final chosen = t.accentChoice == idx;
             return InkWell(
-              onTap: () { setState(() => c.theme = t.copyWith(accentChoice: idx)); c.notifyUpdate(); },
+              onTap: () {
+                setState(() => c.theme = t.copyWith(accentChoice: idx));
+                c.notifyUpdate();
+              },
               borderRadius: BorderRadius.circular(20),
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
-                  color: t.raised, borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: chosen ? acc.accent : t.line, width: chosen ? 2 : 1),
+                  color: t.raised,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: chosen ? acc.accent : t.line,
+                    width: chosen ? 2 : 1,
+                  ),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -4724,6 +5313,29 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
             );
           }),
         ),
+        const SizedBox(height: 20),
+        Text(c.isArabic ? 'حجم الواجهة' : 'Interface Scale',
+            style: TextStyle(color: t.fgMuted, fontSize: 12, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 8,
+          children: [
+            (0, 'System'),
+            (2, '110%'),
+            (3, '125%'),
+            (4, '140%'),
+          ].map((scale) {
+            return ChoiceChip(
+              label: Text(scale.$2),
+              selected: t.uiScaleIndex == scale.$1,
+              selectedColor: t.accent,
+              onSelected: (_) {
+                setState(() => c.theme = t.copyWith(uiScaleIndex: scale.$1));
+                c.notifyUpdate();
+              },
+            );
+          }).toList(),
+        ),
       ],
     );
   }
@@ -4735,8 +5347,8 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
         Text(heading, style: TextStyle(color: t.fg, fontSize: 15, fontWeight: FontWeight.bold)),
         const SizedBox(height: 6),
         Text(c.isArabic
-                ? 'تعمل جميع النماذج محلياً 100% على جهازك.'
-                : 'All AI models run 100% locally.',
+            ? 'جميع النماذج تعمل محلياً 100% على جهازك.'
+            : 'All AI models run 100% locally on your hardware.',
             style: TextStyle(color: t.fgMuted, fontSize: 12)),
         const SizedBox(height: 12),
         ...models.map((m) {
@@ -4769,18 +5381,25 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
                         foregroundColor: m.active ? t.onAccent : t.fg,
                       ),
                       onPressed: () {
-                        for (final other in models) { other.active = false; }
+                        for (final other in models) {
+                          other.active = false;
+                        }
                         setState(() => m.active = true);
                         c.notifyUpdate();
                       },
-                      child: Text(m.active
-                              ? (c.isArabic ? 'مُفعّل ✓' : 'Active ✓')
-                              : (c.isArabic ? 'تفعيل' : 'Activate'),
-                          style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
+                      child: Text(
+                        m.active
+                            ? (c.isArabic ? 'مُفعّل ✓' : 'Active ✓')
+                            : (c.isArabic ? 'تفعيل' : 'Activate'),
+                        style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
+                      ),
                     )
                   : OutlinedButton.icon(
                       onPressed: () {
-                        setState(() { m.installed = true; m.active = true; });
+                        setState(() {
+                          m.installed = true;
+                          m.active = true;
+                        });
                         c.notifyUpdate();
                       },
                       icon: const Icon(Icons.download_rounded, size: 15),
@@ -4802,12 +5421,15 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
         const SizedBox(height: 10),
         SwitchListTile(
           activeColor: t.accent,
-          title: Text(c.isArabic ? 'تفعيل خادم YOSSEF MCP API' : 'Enable YOSSEF MCP API',
+          title: Text(c.isArabic ? 'تفعيل خادم MCP & JSON-RPC' : 'Enable MCP & JSON-RPC Server',
               style: TextStyle(color: t.fg, fontSize: 13)),
-          subtitle: Text('${c.mcpServerHost}:${c.mcpServerPort}',
+          subtitle: Text('${c.mcpServerHost}:${c.mcpServerPort} · Token: ${c.mcpServerToken}',
               style: TextStyle(color: t.green, fontSize: 11.5)),
           value: c.mcpServerEnabled,
-          onChanged: (v) { setState(() => c.mcpServerEnabled = v); c.notifyUpdate(); },
+          onChanged: (v) {
+            setState(() => c.mcpServerEnabled = v);
+            c.notifyUpdate();
+          },
         ),
       ],
     );
@@ -4816,12 +5438,13 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
   Widget _buildShortcutsPage() {
     final shortcuts = [
       ('Play / Pause', 'Space'),
-      ('Split Clip', 'S'),
-      ('Delete Clip', 'Delete'),
+      ('Split at Playhead', 'S'),
+      ('Delete Selected', 'Delete'),
       ('Duplicate', 'Ctrl + D'),
       ('Undo', 'Ctrl + Z'),
       ('Redo', 'Ctrl + Shift + Z'),
       ('Step Frame', '← / →'),
+      ('Stop', 'K'),
     ];
     return ListView(
       children: [
@@ -4839,10 +5462,11 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
                 Text(s.$1, style: TextStyle(color: t.fg, fontSize: 12)),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                  decoration: BoxDecoration(color: t.fieldActive, borderRadius: BorderRadius.circular(4)),
-                  child: Text(s.$2, style: TextStyle(
-                    color: t.accent, fontSize: 11, fontFamily: 'monospace',
-                  )),
+                  decoration: BoxDecoration(
+                    color: t.fieldActive, borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(s.$2,
+                      style: TextStyle(color: t.accent, fontSize: 11, fontFamily: 'monospace')),
                 ),
               ],
             ),
@@ -4856,11 +5480,9 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
 // ============================================================================
 // 19. NEW PROJECT DIALOG
 // ============================================================================
-
 class YossefNewProjectDialog extends StatefulWidget {
   final YossefStudioController controller;
   const YossefNewProjectDialog({super.key, required this.controller});
-
   @override
   State<YossefNewProjectDialog> createState() => _YossefNewProjectDialogState();
 }
@@ -4870,6 +5492,7 @@ class _YossefNewProjectDialogState extends State<YossefNewProjectDialog> {
   int selectedAspect = 0;
   int selectedRes = 3;
   double selectedFps = 60.0;
+
   YossefStudioController get c => widget.controller;
   YossefThemeData get t => c.theme;
 
@@ -4887,8 +5510,8 @@ class _YossefNewProjectDialogState extends State<YossefNewProjectDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final aspects = ['16:9 (YouTube)', '9:16 (Reels)', '1:1 (Square)', '4:5 (Portrait)', '21:9 (Cinema)'];
-    final resolutions = ['720p HD', '1080p FHD', '4K UHD', '8K Ultra Master'];
+    final aspects = ['16:9', '9:16', '1:1', '4:5', '21:9'];
+    final resolutions = ['720p', '1080p', '4K UHD', '8K Master'];
     final rates = [24.0, 25.0, 30.0, 50.0, 60.0, 120.0, 240.0];
 
     return Dialog(
@@ -4899,7 +5522,7 @@ class _YossefNewProjectDialogState extends State<YossefNewProjectDialog> {
       ),
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 560),
-        child: SingleChildScrollView(
+        child: Padding(
           padding: const EdgeInsets.all(22.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -4924,14 +5547,16 @@ class _YossefNewProjectDialogState extends State<YossefNewProjectDialog> {
                 ),
               ),
               const SizedBox(height: 14),
-              Text(c.tr('common.shape'), style: TextStyle(color: t.fgMuted, fontSize: 12)),
+              Text(c.tr('common.shape'),
+                  style: TextStyle(color: t.fgMuted, fontSize: 12)),
               const SizedBox(height: 6),
               Wrap(
                 spacing: 8, runSpacing: 8,
                 children: List.generate(aspects.length, (i) {
                   return ChoiceChip(
                     label: Text(aspects[i], style: const TextStyle(fontSize: 11)),
-                    selected: selectedAspect == i, selectedColor: t.accent,
+                    selected: selectedAspect == i,
+                    selectedColor: t.accent,
                     onSelected: (_) => setState(() => selectedAspect = i),
                   );
                 }),
@@ -4944,20 +5569,23 @@ class _YossefNewProjectDialogState extends State<YossefNewProjectDialog> {
                 children: List.generate(resolutions.length, (i) {
                   return ChoiceChip(
                     label: Text(resolutions[i], style: const TextStyle(fontSize: 11)),
-                    selected: selectedRes == i, selectedColor: t.accent,
+                    selected: selectedRes == i,
+                    selectedColor: t.accent,
                     onSelected: (_) => setState(() => selectedRes = i),
                   );
                 }),
               ),
               const SizedBox(height: 14),
-              Text(c.tr('common.frameRate'), style: TextStyle(color: t.fgMuted, fontSize: 12)),
+              Text(c.tr('common.frameRate'),
+                  style: TextStyle(color: t.fgMuted, fontSize: 12)),
               const SizedBox(height: 6),
               Wrap(
                 spacing: 8,
                 children: rates.map((fps) {
                   return ChoiceChip(
                     label: Text('${fps.toInt()} FPS', style: const TextStyle(fontSize: 11)),
-                    selected: selectedFps == fps, selectedColor: t.accent,
+                    selected: selectedFps == fps,
+                    selectedColor: t.accent,
                     onSelected: (_) => setState(() => selectedFps = fps),
                   );
                 }).toList(),
@@ -4968,7 +5596,8 @@ class _YossefNewProjectDialogState extends State<YossefNewProjectDialog> {
                 children: [
                   TextButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: Text(c.tr('common.cancel'), style: TextStyle(color: t.fgMuted)),
+                    child: Text(c.tr('common.cancel'),
+                        style: TextStyle(color: t.fgMuted)),
                   ),
                   const SizedBox(width: 10),
                   ElevatedButton.icon(
@@ -4978,7 +5607,8 @@ class _YossefNewProjectDialogState extends State<YossefNewProjectDialog> {
                     ),
                     onPressed: () {
                       c.projectName = _nameCtrl.text.trim().isEmpty
-                          ? 'YOSSEF Ultra Project' : _nameCtrl.text.trim();
+                          ? 'YOSSEF Ultra Project'
+                          : _nameCtrl.text.trim();
                       c.frameRate = selectedFps;
                       if (selectedRes == 3) {
                         c.outputWidth = selectedAspect == 1 ? 4320 : 7680;
@@ -5011,11 +5641,9 @@ class _YossefNewProjectDialogState extends State<YossefNewProjectDialog> {
 // ============================================================================
 // 20. EXPORT DIALOG
 // ============================================================================
-
 class YossefExportDialog extends StatefulWidget {
   final YossefStudioController controller;
   const YossefExportDialog({super.key, required this.controller});
-
   @override
   State<YossefExportDialog> createState() => _YossefExportDialogState();
 }
@@ -5023,6 +5651,7 @@ class YossefExportDialog extends StatefulWidget {
 class _YossefExportDialogState extends State<YossefExportDialog> {
   Timer? _exportTimer;
   bool exportDone = false;
+
   YossefStudioController get c => widget.controller;
   YossefThemeData get t => c.theme;
 
@@ -5034,7 +5663,6 @@ class _YossefExportDialogState extends State<YossefExportDialog> {
     });
     _exportTimer?.cancel();
     _exportTimer = Timer.periodic(const Duration(milliseconds: 80), (timer) {
-      if (!mounted) return;
       setState(() {
         c.exportProgress += 0.05;
         if (c.exportProgress >= 1.0) {
@@ -5055,8 +5683,8 @@ class _YossefExportDialogState extends State<YossefExportDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final codecs = ['H.264', 'HEVC (H.265)', 'AV1 Ultra Master'];
-    final resolutions = ['720p HD', '1080p FHD', '4K UHD', '8K Ultra UHD'];
+    final codecs = ['H.264', 'HEVC / H.265', 'AV1 Ultra'];
+    final resolutions = ['720p', '1080p', '4K UHD', '8K Master'];
 
     return Dialog(
       backgroundColor: t.panel,
@@ -5066,7 +5694,7 @@ class _YossefExportDialogState extends State<YossefExportDialog> {
       ),
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 600),
-        child: SingleChildScrollView(
+        child: Padding(
           padding: const EdgeInsets.all(22.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -5094,7 +5722,8 @@ class _YossefExportDialogState extends State<YossefExportDialog> {
                 children: List.generate(resolutions.length, (i) {
                   return ChoiceChip(
                     label: Text(resolutions[i], style: const TextStyle(fontSize: 11)),
-                    selected: c.exportResolutionIndex == i, selectedColor: t.accent,
+                    selected: c.exportResolutionIndex == i,
+                    selectedColor: t.accent,
                     onSelected: (_) => setState(() => c.exportResolutionIndex = i),
                   );
                 }),
@@ -5108,7 +5737,8 @@ class _YossefExportDialogState extends State<YossefExportDialog> {
                 children: List.generate(codecs.length, (i) {
                   return ChoiceChip(
                     label: Text(codecs[i], style: const TextStyle(fontSize: 11)),
-                    selected: c.exportCodecIndex == i, selectedColor: t.accent,
+                    selected: c.exportCodecIndex == i,
+                    selectedColor: t.accent,
                     onSelected: (_) => setState(() => c.exportCodecIndex = i),
                   );
                 }),
@@ -5116,7 +5746,7 @@ class _YossefExportDialogState extends State<YossefExportDialog> {
               const SizedBox(height: 12),
               SwitchListTile(
                 dense: true, contentPadding: EdgeInsets.zero, activeColor: t.accent,
-                title: Text(c.isArabic ? '10-bit HDR' : '10-bit HDR',
+                title: Text(c.isArabic ? '10-bit HDR10' : '10-bit HDR',
                     style: TextStyle(color: t.fg, fontSize: 12.5)),
                 value: c.exportTenBit,
                 onChanged: (v) => setState(() => c.exportTenBit = v),
@@ -5137,11 +5767,11 @@ class _YossefExportDialogState extends State<YossefExportDialog> {
               if (c.isExporting) ...[
                 const SizedBox(height: 10),
                 LinearProgressIndicator(
-                  value: c.exportProgress, backgroundColor: t.field,
-                  color: t.accent, minHeight: 8,
+                  value: c.exportProgress,
+                  backgroundColor: t.field, color: t.accent, minHeight: 8,
                 ),
                 const SizedBox(height: 6),
-                Text('جارٍ التصدير... ${(c.exportProgress * 100).toInt()}%',
+                Text('${(c.exportProgress * 100).toInt()}% · YOSSEF GPU Export...',
                     style: TextStyle(color: t.accent, fontSize: 12, fontWeight: FontWeight.bold)),
               ],
               if (exportDone)
@@ -5158,10 +5788,13 @@ class _YossefExportDialogState extends State<YossefExportDialog> {
                       Icon(Icons.check_circle, color: t.green, size: 18),
                       const SizedBox(width: 8),
                       Expanded(
-                        child: Text(c.isArabic
-                                ? 'تم التصدير بنجاح (حقوق YOSSEF)!'
-                                : 'Export completed with zero watermark!',
-                            style: TextStyle(color: t.green, fontSize: 12, fontWeight: FontWeight.bold)),
+                        child: Text(
+                          c.isArabic
+                              ? 'تم التصدير بنجاح بدون علامة مائية!'
+                              : 'Export completed with zero watermark!',
+                          style: TextStyle(color: t.green, fontSize: 12,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   ),
@@ -5176,8 +5809,10 @@ class _YossefExportDialogState extends State<YossefExportDialog> {
                   ),
                   onPressed: c.isExporting ? null : _startSimulatedExport,
                   icon: const Icon(Icons.bolt_rounded),
-                  label: Text(c.isArabic ? 'بدء التصدير الفائق' : 'Start Ultra Export',
-                      style: const TextStyle(fontWeight: FontWeight.bold)),
+                  label: Text(
+                    c.isArabic ? 'بدء التصدير' : 'Start Ultra Export',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ],
@@ -5191,17 +5826,15 @@ class _YossefExportDialogState extends State<YossefExportDialog> {
 // ============================================================================
 // 21. AI DIALOGS
 // ============================================================================
-
 class YossefCaptionsDialog extends StatefulWidget {
   final YossefStudioController controller;
   const YossefCaptionsDialog({super.key, required this.controller});
-
   @override
   State<YossefCaptionsDialog> createState() => _YossefCaptionsDialogState();
 }
 
 class _YossefCaptionsDialogState extends State<YossefCaptionsDialog> {
-  final TextEditingController _scriptCtrl = TextEditingController(
+  final _scriptCtrl = TextEditingController(
     text: 'مرحباً بكم في استوديو YOSSEF الاحترافي\nالمطور يوسف حامد - واتساب 01029892573',
   );
 
@@ -5217,7 +5850,8 @@ class _YossefCaptionsDialogState extends State<YossefCaptionsDialog> {
     final t = c.theme;
     return AlertDialog(
       backgroundColor: t.panel,
-      title: Text(c.tr('common.captions'), style: TextStyle(color: t.fg, fontSize: 16)),
+      title: Text(c.tr('common.captions'),
+          style: TextStyle(color: t.fg, fontSize: 16)),
       content: SizedBox(
         width: 440,
         child: Column(
@@ -5225,8 +5859,8 @@ class _YossefCaptionsDialogState extends State<YossefCaptionsDialog> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(c.isArabic
-                    ? 'تفريغ صوت المقاطع تلقائياً عبر Whisper AI:'
-                    : 'Transcribe timeline audio with Whisper AI:',
+                ? 'توليد عناوين متزامنة مع الصوت:'
+                : 'Generate timed captions:',
                 style: TextStyle(color: t.fgMuted, fontSize: 12)),
             const SizedBox(height: 10),
             TextField(
@@ -5246,13 +5880,14 @@ class _YossefCaptionsDialogState extends State<YossefCaptionsDialog> {
           child: Text(c.tr('common.cancel'), style: TextStyle(color: t.fgMuted)),
         ),
         ElevatedButton.icon(
-          style: ElevatedButton.styleFrom(backgroundColor: t.accent, foregroundColor: t.onAccent),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: t.accent, foregroundColor: t.onAccent),
           onPressed: () {
             c.generateAutoCaptions(_scriptCtrl.text);
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.auto_awesome, size: 16),
-          label: Text(c.isArabic ? 'توليد الترجمة' : 'Generate Captions'),
+          label: Text(c.isArabic ? 'توليد' : 'Generate'),
         ),
       ],
     );
@@ -5262,14 +5897,13 @@ class _YossefCaptionsDialogState extends State<YossefCaptionsDialog> {
 class YossefSpeechDialog extends StatefulWidget {
   final YossefStudioController controller;
   const YossefSpeechDialog({super.key, required this.controller});
-
   @override
   State<YossefSpeechDialog> createState() => _YossefSpeechDialogState();
 }
 
 class _YossefSpeechDialogState extends State<YossefSpeechDialog> {
-  final TextEditingController _ttsCtrl = TextEditingController(
-    text: 'تم تطوير هذا التطبيق بحقوق YOSSEF بواسطة المطور يوسف حامد.',
+  final _ttsCtrl = TextEditingController(
+    text: 'تم تطوير هذا التطبيق بحقوق YOSSEF بواسطة يوسف حامد.',
   );
   String selectedVoice = 'YOSSEF Studio Arabic Pro';
 
@@ -5292,7 +5926,8 @@ class _YossefSpeechDialogState extends State<YossefSpeechDialog> {
 
     return AlertDialog(
       backgroundColor: t.panel,
-      title: Text(c.tr('common.speech'), style: TextStyle(color: t.fg, fontSize: 16)),
+      title: Text(c.tr('common.speech'),
+          style: TextStyle(color: t.fg, fontSize: 16)),
       content: SizedBox(
         width: 440,
         child: Column(
@@ -5325,13 +5960,14 @@ class _YossefSpeechDialogState extends State<YossefSpeechDialog> {
           child: Text(c.tr('common.cancel'), style: TextStyle(color: t.fgMuted)),
         ),
         ElevatedButton.icon(
-          style: ElevatedButton.styleFrom(backgroundColor: t.accent, foregroundColor: t.onAccent),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: t.accent, foregroundColor: t.onAccent),
           onPressed: () {
             c.generateSpeechClip(_ttsCtrl.text, selectedVoice);
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.graphic_eq_rounded, size: 16),
-          label: Text(c.isArabic ? 'توليد الصوت' : 'Synthesize Speech'),
+          label: Text(c.isArabic ? 'توليد الصوت' : 'Synthesize'),
         ),
       ],
     );
@@ -5347,7 +5983,8 @@ class YossefVoiceoverDialog extends StatelessWidget {
     final t = controller.theme;
     return AlertDialog(
       backgroundColor: t.panel,
-      title: Text(controller.tr('common.voiceover'), style: TextStyle(color: t.fg, fontSize: 16)),
+      title: Text(controller.tr('common.voiceover'),
+          style: TextStyle(color: t.fg, fontSize: 16)),
       content: SizedBox(
         width: 420,
         child: Column(
@@ -5355,18 +5992,22 @@ class YossefVoiceoverDialog extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(color: t.well, borderRadius: BorderRadius.circular(8)),
+              decoration: BoxDecoration(
+                color: t.well, borderRadius: BorderRadius.circular(8),
+              ),
               child: Text(controller.teleprompterText,
                   style: TextStyle(color: t.fg, fontSize: 13, height: 1.5)),
             ),
             const SizedBox(height: 14),
             Icon(Icons.mic_rounded, size: 42, color: t.danger),
             const SizedBox(height: 6),
-            Text(controller.isArabic
-                    ? 'جاهز للتسجيل بجودة استوديو 48kHz 24-bit'
-                    : 'Studio 48kHz 24-bit Voiceover Ready',
-                style: TextStyle(color: t.fgMuted, fontSize: 11.5),
-                textAlign: TextAlign.center),
+            Text(
+              controller.isArabic
+                  ? 'تسجيل تعليق صوتي بجودة استوديو 48kHz 24-bit'
+                  : 'Studio 48kHz 24-bit Voiceover Recorder',
+              style: TextStyle(color: t.fgMuted, fontSize: 11.5),
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
       ),
@@ -5376,13 +6017,14 @@ class YossefVoiceoverDialog extends StatelessWidget {
           child: Text(controller.tr('common.cancel'), style: TextStyle(color: t.fgMuted)),
         ),
         ElevatedButton.icon(
-          style: ElevatedButton.styleFrom(backgroundColor: t.danger, foregroundColor: Colors.white),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: t.danger, foregroundColor: Colors.white),
           onPressed: () {
             controller.generateSpeechClip(controller.teleprompterText, 'Studio Mic Take');
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.fiber_manual_record_rounded, size: 16),
-          label: Text(controller.isArabic ? 'بدء وحفظ التسجيل' : 'Record & Add Take'),
+          label: Text(controller.isArabic ? 'تسجيل' : 'Record'),
         ),
       ],
     );

@@ -3,7 +3,7 @@
 // Copyright (c) 2026 YOSSEF (يوسف حامد - Yossef Hamed). All Rights Reserved.
 // جميع الحقوق محفوظة لـ YOSSEF - المطور: يوسف حامد - واتساب: 01029892573
 // ============================================================================
-// YOSSEF STUDIO PRO v3.0 ULTRA — Complete Cross-Platform Flutter Video/Audio Editor
+// YOSSEF STUDIO PRO v3.0.1 ULTRA — Complete Cross-Platform Flutter Video/Audio Editor
 // Engine: YOSSEF Native GPU Compositor & Multi-Track Timeline Engine (v4.5)
 // Max Quality: 8K UHD @ 240 FPS · 10-bit HDR (HLG/PQ) · AV1/HEVC/H.264 HW Accel.
 // ============================================================================
@@ -24,7 +24,7 @@ void main() {
 class YossefBrand {
   static const String appName = 'YOSSEF Studio Pro';
   static const String shortName = 'YOSSEF';
-  static const String version = '3.0.0-ULTRA';
+  static const String version = '3.0.1-ULTRA';
   static const String copyright = '© 2026 YOSSEF. جميع الحقوق محفوظة لـ YOSSEF';
   static const String developerNameAr = 'يوسف حامد';
   static const String developerNameEn = 'Yossef Hamed';
@@ -1623,7 +1623,7 @@ class _YossefMainWindowState extends State<YossefMainWindow> {
 }
 
 // ============================================================================
-// 9. TITLE BAR (Fixed popup menu handling)
+// 9. TITLE BAR
 // ============================================================================
 class YossefTitleBar extends StatelessWidget {
   final YossefStudioController controller;
@@ -4895,7 +4895,7 @@ class _YossefPhoneEditorState extends State<YossefPhoneEditor> {
 }
 
 // ============================================================================
-// 18. SETTINGS DIALOG (Fully functional)
+// 18. SETTINGS DIALOG
 // ============================================================================
 class YossefSettingsDialog extends StatefulWidget {
   final YossefStudioController controller;
@@ -5154,7 +5154,7 @@ class _YossefSettingsDialogState extends State<YossefSettingsDialog> {
   }
 
   Widget _buildInfoTile(String label, String value) {
-    final t = controller.theme;
+    final t = c.theme; // تم إصلاح الخطأ هنا باستخدام c بدلاً من controller
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
